@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import { togglemode } from './states/slices/darkmodeSlice'
-
 import Header from './components/header.jsx';
+import './styles/app.css'
 
 
 function App() {
@@ -14,14 +14,80 @@ function App() {
   }
 
   return (
-    <>
+    <div className="app">
       <Header />
-      <div>
-        <img className="clickable" src={darkmode.imageSource} alt="Dark Mode" onClick={() => toggleDarkmode()} />
-      </div>
+
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
       <p>Dark Mode is <b>{darkmode.isDarkmode ? "Enabled" : "Disabled"}</b></p>
-      <button>This is a button :D</button>
-    </>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+      <p>---</p>
+    </div>
   )
 }
 
