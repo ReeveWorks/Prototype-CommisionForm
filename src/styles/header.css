@@ -10,6 +10,7 @@ header {
     position: sticky;
     align-items: center;
     justify-content: space-between;
+    transition: all 300ms;
 }
 
 .logo {
@@ -30,17 +31,35 @@ header nav ul{
     display: flex;
     list-style: none;
 
-    background-color: var(--text-main);
+    background-color: var(--background-secondary);
     gap: 1px;
-    padding: 0 1px;
+    padding-left: 1px;
 }
 
 header nav ul li{
     background-color: var(--background-main);
-    padding: 10px 5px;
+    transition: all 300ms;
+    padding: 10px 10px;
 }
 
 header nav ul li a{
     color: var(--text-main);
+    text-decoration: none;
+    transition: all 300ms;
+    font-size: 16px;
 }
+
+header nav ul li:hover{
+    background-color: var(--background-secondary);
+    transition: all 300ms;
+    padding: 10px 15px;
+}
+
+header nav ul li:hover a{
+    color: var(--text-secondary);
+    transition: all 300ms;
+
+    font-weight: bold;
+}
+
 
