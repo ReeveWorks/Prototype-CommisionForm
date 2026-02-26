@@ -4,6 +4,7 @@ import { togglemode } from './states/slices/darkmodeSlice'
 
 import Header from './components/header.jsx';
 import ArtistProducts from './components/artistProducts.jsx';
+import ProductData from './components/artistProducts.jsx';
 import './styles/app.css'
 
 
@@ -14,7 +15,7 @@ function App() {
     <div className="app">
       <Header />
 
-      <ArtistProducts />
+      <ProductData />
     </div>
   )
 }
