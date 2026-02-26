@@ -1,12 +1,18 @@
+/* Stylesheets */
 import '../styles/header.css'
-import { togglemode } from '../states/slices/darkmodeSlice'
+
+/* Functions/Hooks */
 import { useSelector, useDispatch } from 'react-redux'
+
+/* Redux Slice */
+import { togglemode } from '../states/slices/darkmodeSlice'
+
 
 function header() {
   const darkmode = useSelector((state) => state.darkmode.darkmode);
   const dispatch = useDispatch();
 
-   function toggleDarkmode() {
+  function toggleDarkmode() {
     dispatch(togglemode(!darkmode.isDarkmode));
   }
 

@@ -1,0 +1,22 @@
+.prod-textbox {
+  width: 300px;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+
+  color: var(--text-main);
+  background-color: var(--background-main);
+  border: 1px solid var(--background-secondary);
+  border-radius: 2.5px;
+}
+
+.prod-textbox:focus {
+  border: 2px solid var(--accent);
+  outline: none;
+  background-color: color-mix(in srgb, var(--background-secondary), transparent 90%);
+}
+
+.prod-textbox::placeholder {
+  color: var(--background-secondary);
+  opacity: 50%;
+}
