@@ -38,3 +38,7 @@ button {
 .clickable {
   cursor: pointer;
 }
+
+:placeholder-shown {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+}
