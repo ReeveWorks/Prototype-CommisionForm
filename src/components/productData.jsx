@@ -39,8 +39,11 @@ function productData() {
                 className="prod-textbox"
                 rows="3"
                 cols="40"
-                placeholder="Product Description"/>
-            
+                placeholder="Product Description" />
+            <br />
+            <button>
+                +
+            </button>
         </div>
     );
 }
