@@ -16,10 +16,16 @@ function productData() {
     /* System */
     const [prod, setprod] = useState({
         name: "Chibi",
+        description: "",
         details: {},
     });
-    function InputChange(event) {
-        setprod(event.target.value);
+    function InputNameChange(event) {
+        setprod({...prod, name: event.target.value});
+        console.log(prod);
+    }
+    function InputDescChange(event) {
+        setprod({...prod, description: event.target.value});
+        console.log(prod);
     }
 
 
@@ -32,13 +38,15 @@ function productData() {
                 className="prod-textbox"
                 type="text"
                 value={prod.name}
-                onChange={InputChange}
+                onChange={InputNameChange}
                 placeholder="Product Name" />
             <br />
             <textarea
                 className="prod-textbox"
                 rows="3"
                 cols="40"
+                value={prod.description}
+                onChange={InputDescChange}
                 placeholder="Product Description" />
             <br />
             <button>
