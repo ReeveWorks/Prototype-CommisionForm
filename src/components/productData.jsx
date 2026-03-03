@@ -17,14 +17,23 @@ function productData() {
     const [prod, setprod] = useState({
         name: "Chibi",
         description: "",
-        details: {},
+        module: [
+            {type: "price", currency:"PHP", price: 5},
+            {type: "category", category: "Sticker"},
+        ],
     });
     function InputNameChange(event) {
         setprod({...prod, name: event.target.value});
-        console.log(prod);
     }
     function InputDescChange(event) {
         setprod({...prod, description: event.target.value});
+    }
+
+    function addmodule() {
+        setprod({...prod, module: [
+            ...prod.module,
+            {type: "other", description: "test"},
+        ]});
         console.log(prod);
     }
 
@@ -49,8 +58,9 @@ function productData() {
                 onChange={InputDescChange}
                 placeholder="Product Description" />
             <br />
-            <button>
-                +
+            <button
+                onClick={() => addmodule()}>
+                Test
             </button>
         </div>
     );
