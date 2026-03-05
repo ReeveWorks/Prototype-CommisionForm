@@ -18,22 +18,24 @@ function productData() {
         name: "Chibi",
         description: "",
         module: [
-            {type: "price", currency:"PHP", price: 5},
-            {type: "category", category: "Sticker"},
+            { type: "price", currency: "PHP", price: 5 },
+            { type: "category", category: "Sticker" },
         ],
     });
     function InputNameChange(event) {
-        setprod({...prod, name: event.target.value});
+        setprod({ ...prod, name: event.target.value });
     }
     function InputDescChange(event) {
-        setprod({...prod, description: event.target.value});
+        setprod({ ...prod, description: event.target.value });
     }
 
     function addmodule() {
-        setprod({...prod, module: [
-            ...prod.module,
-            {type: "other", description: "test"},
-        ]});
+        setprod({
+            ...prod, module: [
+                ...prod.module,
+                { type: "other", description: "test" },
+            ]
+        });
         console.log(prod);
     }
 
@@ -57,6 +59,18 @@ function productData() {
                 value={prod.description}
                 onChange={InputDescChange}
                 placeholder="Product Description" />
+            <br />
+            <div className="module-container">
+                <input type='radio' id='rad1' name='quantity' />
+                <label for='rad1'> 1x | PHP 200 </label>
+                <br />
+                <input type='radio' id='rad2' name='quantity' />
+                <label for='rad2'> 5x | PHP 750 </label>
+                <br />
+                <input type='radio' id='rad3' name='quantity' />
+                <label for='rad3'> Other</label>
+                <input type='number'/>
+            </div>
             <br />
             <button
                 onClick={() => addmodule()}>
