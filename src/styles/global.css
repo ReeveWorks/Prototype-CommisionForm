@@ -34,11 +34,3 @@ button {
   cursor: pointer;
   transition: background-color 300ms;
 }
-
-.clickable {
-  cursor: pointer;
-}
-
-:placeholder-shown {
-  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
-}
