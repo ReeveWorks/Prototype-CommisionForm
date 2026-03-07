@@ -22,6 +22,7 @@ function productData() {
             {type: "category", category: "Sticker"},
         ],
     });
+
     function InputNameChange(event) {
         setprod({...prod, name: event.target.value});
     }
@@ -117,7 +118,9 @@ function productData() {
                 placeholder="Product Description" />
             <br />
             {/* modules list */}
+            
             {prod.module.map((m, idx) => renderModuleInput(m, idx))}
+            
             <button
                 onClick={() => addmodule()}>
                 Add module

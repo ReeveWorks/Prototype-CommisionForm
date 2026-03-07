@@ -41,7 +41,7 @@ function productData() {
 
 
     return (
-        <div>
+        <div className='comp-prod'>
             <br />
             <h1>Product Info</h1>
             <br />
@@ -55,22 +55,21 @@ function productData() {
             <textarea
                 className="prod-textbox"
                 rows="3"
-                cols="40"
                 value={prod.description}
                 onChange={InputDescChange}
                 placeholder="Product Description" />
             <br />
             <div className="module-container">
-                <input type='radio' id='rad1' name='quantity' />
-                <label for='rad1'> 1x | PHP 200 </label>
-                <br />
-                <input type='radio' id='rad2' name='quantity' />
-                <label for='rad2'> 5x | PHP 750 </label>
-                <br />
-                <input type='radio' id='rad3' name='quantity' />
-                <label for='rad3'> Other</label>
-                <input type='number'/>
+                <div className='radiobox' for="rad1">
+                    <input type='radio' id='rad1' name='quantity' className='prod-rad'/>
+                    <label for='rad1'> 1x | PHP 200 </label>
+                </div>
+                <div className='radiobox' for="rad2">
+                    <input type='radio' id='rad2' name='quantity' className='prod-rad'/>
+                    <label for='rad2'> 3x | PHP 500 </label>
+                </div>
             </div>
+
             <br />
             <button
                 onClick={() => addmodule()}>

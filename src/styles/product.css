@@ -1,7 +1,13 @@
+.comp-prod{
+  padding: 0 clamp(5%, 5vw, 20%);
+
+}
+
+
 .prod-textbox {
-  width: 300px;
+  width: 100%;
   padding: 10px;
-  margin: 10px 0;
+  margin: 5px 0px;
   box-sizing: border-box;
 
   color: var(--text-main);
@@ -19,4 +25,22 @@
 .prod-textbox::placeholder {
   color: var(--background-secondary);
   opacity: 50%;
+}
+
+input[type="radio"]{
+  accent-color: var(--accent);
+}
+
+.radiobox {
+  border: 1px solid var(--background-secondary);
+  padding: 5px;
+  margin: 5px 0;
+  text-align: left;
+}
+.radiobox:has(input:checked) {
+  border: 2.5px solid var(--accent);
+}
+
+.prod-rad{
+  display: none;
 }
