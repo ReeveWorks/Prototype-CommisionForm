@@ -36,7 +36,9 @@ input[type="radio"]{
   padding: 5px;
   margin: 5px 0;
   text-align: left;
+  cursor: pointer;
 }
+
 .radiobox:has(input:checked) {
   border: 2.5px solid var(--accent);
 }

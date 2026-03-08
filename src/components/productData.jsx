@@ -60,14 +60,26 @@ function productData() {
                 placeholder="Product Description" />
             <br />
             <div className="module-container">
-                <div className='radiobox' for="rad1">
-                    <input type='radio' id='rad1' name='quantity' className='prod-rad'/>
-                    <label for='rad1'> 1x | PHP 200 </label>
-                </div>
-                <div className='radiobox' for="rad2">
-                    <input type='radio' id='rad2' name='quantity' className='prod-rad'/>
-                    <label for='rad2'> 3x | PHP 500 </label>
-                </div>
+                <label for='rad1'>
+                    <div className='radiobox'>
+                        <input type='radio' id='rad1' name='quantity' className='prod-rad' />
+                        1x | PHP 200
+                    </div>
+                </label>
+
+                <label for='rad2'>
+                    <div className='radiobox' for="rad2">
+                        <input type='radio' id='rad2' name='quantity' className='prod-rad' />
+                        3x | PHP 500
+                    </div>
+                </label>
+                
+                <label for='rad3'>
+                    <div className='radiobox' for="rad3">
+                        <input type='radio' id='rad3' name='quantity' className='prod-rad' />
+                        5x | PHP 750
+                    </div>
+                </label>
             </div>
 
             <br />
