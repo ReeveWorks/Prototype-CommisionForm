@@ -36,3 +36,12 @@ input{
 textarea{
   font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
 }
+
+input[type="radio"]{
+  accent-color: var(--accent);
+}
+
+input{
+  width: 100%;
+  box-sizing:border-box
+} 

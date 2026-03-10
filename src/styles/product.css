@@ -1,29 +1,40 @@
-.comp-prod{
+.comp-prod {
   padding: 0 clamp(5%, 5vw, 20%);
 
 }
 
-.other-textbox {
+.input-textbox {
   box-sizing: border-box;
-
   color: var(--text-main);
   background-color: var(--background-main);
+
   border: 0 none;
-  border-radius: 2.5px;
+  border-radius: 0;
+  margin: 0 0 0 5px;
+  border-bottom: 1px solid var(--background-secondary);
 }
 
-.other-textbox:focus {
-  border: 1px solid var(--accent);
+input.input-textbox::-webkit-outer-spin-button,
+input.input-textbox::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-textbox:focus {
+  font-size: var(--text-base);
   outline: none;
   background-color: color-mix(in srgb, var(--background-secondary), transparent 90%);
+  border-bottom: 1.5px solid var(--accent);
 }
 
 .prod-textbox {
+  font-size: var(--text-base);
   width: 100%;
   padding: 10px;
   margin: 5px 0px;
   box-sizing: border-box;
 
+  display: flex;
   color: var(--text-main);
   background-color: var(--background-main);
   border: 1px solid var(--background-secondary);
@@ -41,14 +52,15 @@
   opacity: 50%;
 }
 
-input[type="radio"]{
-  accent-color: var(--accent);
-}
-
 .radiobox {
+  display: flex;
+  align-items: center;
+
+  font-size: var(--text-base);
   border: 1px solid var(--background-secondary);
   padding: 5px;
   margin: 5px 0;
+  
   text-align: left;
   cursor: pointer;
 }
@@ -57,6 +69,6 @@ input[type="radio"]{
   border: 2.5px solid var(--accent);
 }
 
-.prod-rad{
+.prod-rad {
   display: none;
 }

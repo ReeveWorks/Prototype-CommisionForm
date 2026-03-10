@@ -51,7 +51,6 @@ function productData() {
                 value={prod.name}
                 onChange={InputNameChange}
                 placeholder="Product Name" />
-            <br />
             <textarea
                 className="prod-textbox"
                 rows="3"
@@ -59,6 +58,7 @@ function productData() {
                 onChange={InputDescChange}
                 placeholder="Product Description" />
             <br />
+            Select Quantity
             <div className="module-container">
                 <label for='rad1'>
                     <div className='radiobox'>
@@ -77,7 +77,7 @@ function productData() {
                 <label for='rad3'>
                     <div className='radiobox' for="rad3">
                         <input type='radio' id='rad3' name='quantity' className='prod-rad' />
-                        Other | <input type='number' className='other-textbox' placeholder=' Quantity' />
+                        Other<input type='number' className='input-textbox' placeholder='type custom quantity here!'/>
                     </div>
                 </label>
             </div>
