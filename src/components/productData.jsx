@@ -73,13 +73,17 @@ function productData() {
                         5  x | PHP 600
                     </div>
                 </label>
-                
+
                 <label for='rad3'>
                     <div className='radiobox' for="rad3">
                         <input type='radio' id='rad3' name='quantity' className='prod-rad' />
-                        Other<input type='number' className='input-textbox' placeholder='type custom quantity here!'/>
+                        Other<input type='number' className='input-textbox' placeholder='type custom quantity here!' />
                     </div>
                 </label>
+
+                <div className='radiobox add-options'>
+                    +
+                </div>
             </div>
 
             <br />

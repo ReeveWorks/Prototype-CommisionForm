@@ -10,7 +10,7 @@
 
   border: 0 none;
   border-radius: 0;
-  margin: 0 0 0 5px;
+  margin: -4px 0 -4px 5px;
   border-bottom: 1px solid var(--background-secondary);
 }
 
@@ -24,7 +24,7 @@ input.input-textbox::-webkit-inner-spin-button {
   font-size: var(--text-base);
   outline: none;
   background-color: color-mix(in srgb, var(--background-secondary), transparent 90%);
-  border-bottom: 1.5px solid var(--accent);
+  border-bottom: 1.34px solid var(--accent);
 }
 
 .prod-textbox {
@@ -42,7 +42,7 @@ input.input-textbox::-webkit-inner-spin-button {
 }
 
 .prod-textbox:focus {
-  border: 2px solid var(--accent);
+  border: 1.7px solid var(--accent);
   outline: none;
   background-color: color-mix(in srgb, var(--background-secondary), transparent 90%);
 }
@@ -66,9 +66,15 @@ input.input-textbox::-webkit-inner-spin-button {
 }
 
 .radiobox:has(input:checked) {
-  border: 2.5px solid var(--accent);
+  border: 1.7px solid var(--accent);
 }
 
 .prod-rad {
   display: none;
+}
+
+.add-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
