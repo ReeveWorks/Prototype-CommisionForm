@@ -3,30 +3,6 @@
 
 }
 
-.input-textbox {
-  box-sizing: border-box;
-  color: var(--text-main);
-  background-color: var(--background-main);
-
-  border: 0 none;
-  border-radius: 0;
-  margin: -4px 0 -4px 5px;
-  border-bottom: 1px solid var(--background-secondary);
-}
-
-input.input-textbox::-webkit-outer-spin-button,
-input.input-textbox::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.input-textbox:focus {
-  font-size: var(--text-base);
-  outline: none;
-  background-color: color-mix(in srgb, var(--background-secondary), transparent 90%);
-  border-bottom: 1.34px solid var(--accent);
-}
-
 .prod-textbox {
   font-size: var(--text-base);
   width: 100%;
@@ -55,6 +31,7 @@ input.input-textbox::-webkit-inner-spin-button {
 .radiobox {
   display: flex;
   align-items: center;
+  white-space: nowrap;
 
   font-size: var(--text-base);
   border: 1px solid var(--background-secondary);
@@ -69,12 +46,42 @@ input.input-textbox::-webkit-inner-spin-button {
   border: 1.7px solid var(--accent);
 }
 
-.prod-rad {
+.prod-radio-buttons {
   display: none;
 }
 
-.add-options {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
+.radiobox-btn-addOptions {
+  background-color: var(--background-main);
+  color: var(--text-main);
+  border: 1px solid var(--background-secondary);
+  border-radius: 0;
+  
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.5px;
+}
+
+.input-textbox {
+  box-sizing: border-box;
+  color: var(--text-main);
+  background-color: var(--background-main);
+
+  border: 0 none;
+  border-radius: 0;
+  margin: -4px 0 -4px 5px;
+  border-bottom: 1px solid var(--background-secondary);
+  
+}
+
+input.input-textbox::-webkit-outer-spin-button,
+input.input-textbox::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-textbox:focus {
+  font-size: var(--text-base);
+  outline: none;
+  background-color: color-mix(in srgb, var(--background-secondary), transparent 90%);
+  border-bottom: 1.34px solid var(--accent);
 }
