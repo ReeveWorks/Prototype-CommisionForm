@@ -28,6 +28,19 @@
   opacity: 50%;
 }
 
+.btn-add-module {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--background-secondary);
+  border-radius: 0;
+  
+  width: 50%;
+  box-sizing: border-box;
+  padding: 1.5px;
+}
+
+
+/* Radio Box */
 .radiobox {
   display: flex;
   align-items: center;
@@ -51,7 +64,7 @@
 }
 
 .radiobox-btn-addOptions {
-  background-color: var(--background-main);
+  background-color: transparent;
   color: var(--text-main);
   border: 1px solid var(--background-secondary);
   border-radius: 0;
