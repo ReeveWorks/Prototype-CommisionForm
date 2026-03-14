@@ -3,6 +3,23 @@
 
 }
 
+.btn-add-module {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--background-secondary);
+  border-radius: 0;
+  
+  width: 50%;
+  box-sizing: border-box;
+  padding: 1.5px;
+}
+
+.prod-variable-name{
+  text-align: left;
+  font-size: var(--text-small);
+}
+
+/* Product Box Start */
 .prod-textbox {
   font-size: var(--text-base);
   width: 100%;
@@ -27,20 +44,10 @@
   color: var(--background-secondary);
   opacity: 50%;
 }
-
-.btn-add-module {
-  background-color: transparent;
-  color: var(--text-main);
-  border: 1px solid var(--background-secondary);
-  border-radius: 0;
-  
-  width: 50%;
-  box-sizing: border-box;
-  padding: 1.5px;
-}
+/* Product Box End */
 
 
-/* Radio Box */
+/* Radio Box Start*/
 .radiobox {
   display: flex;
   align-items: center;
@@ -98,3 +105,4 @@ input.input-textbox::-webkit-inner-spin-button {
   background-color: color-mix(in srgb, var(--background-secondary), transparent 90%);
   border-bottom: 1.34px solid var(--accent);
 }
+/* Radio Box End */

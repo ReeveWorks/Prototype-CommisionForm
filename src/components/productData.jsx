@@ -21,10 +21,15 @@ function productData() {
             <br />
             <h1>Product Info</h1>
             <br />
+
+            <p className='prod-variable-name'>Product name:</p>
             <input
                 className="prod-textbox"
                 type="text"
                 placeholder="Product Name" />
+            
+            <br />
+            <p className='prod-variable-name'>Product description:</p>
             <textarea
                 className="prod-textbox"
                 rows="3"
