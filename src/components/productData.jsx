@@ -27,7 +27,7 @@ function productData() {
                 className="prod-textbox"
                 type="text"
                 placeholder="Product Name" />
-            
+
             <br />
             <p className='prod-variable-name'>Product description:</p>
             <textarea
@@ -35,6 +35,18 @@ function productData() {
                 rows="3"
                 placeholder="Product Description" />
             <br />
+
+            <br />
+            <p className='prod-variable-name'>Module 1 [radio options]:</p>
+
+            <div className="module-container">
+                <input
+                    className="radiobox"
+                    type="text"
+                    placeholder="Product Name"/>
+
+                <button className='radiobox-btn-addOptions'>+</button>
+            </div>
 
             <br />
             <button className='btn-add-module'>
