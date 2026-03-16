@@ -36,14 +36,17 @@ function productData() {
                 placeholder="Product Description" />
             <br />
 
-            <br />
             <p className='prod-variable-name'>Module 1 [radio options]:</p>
 
             <div className="module-container">
-                <input
-                    className="radiobox"
-                    type="text"
-                    placeholder="Product Name"/>
+                <div className='radiobox-module-options'>
+                    <input type='text' className='input-textbox' placeholder='Option 1' />
+                    <button className='radiobox-btn-delOptions'>✕</button>
+                </div>
+                <div className='radiobox-module-options'>
+                    <input type='text' className='input-textbox' placeholder='Option 2' />
+                    <button className='radiobox-btn-delOptions'>✕</button>
+                </div>
 
                 <button className='radiobox-btn-addOptions'>+</button>
             </div>
