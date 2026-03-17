@@ -1,6 +1,8 @@
 .comp-prod {
-  padding: 0 clamp(5%, 5vw, 20%);
-
+  /* padding: 0 clamp(5%, auto, 30%); 300px - 750px*/
+  width: clamp(300px, 50vw, 750px);
+  align-content: center;
+  margin: 0 auto;
 }
 
 .btn-add-module {
