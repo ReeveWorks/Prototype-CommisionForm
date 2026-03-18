@@ -49,8 +49,8 @@
 /* Product Box End */
 
 
-/* Radio Box Start*/
-.radiobox-module-options {
+/* Module Box Start*/
+.module-options {
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -65,15 +65,11 @@
 }
 
 
-.radiobox-module-options:has(input:checked) {
+.module-options:has(input:checked) {
   border: 1.7px solid var(--accent);
 }
 
-.prod-radio-buttons {
-  display: none;
-}
-
-.radiobox-btn-addOptions {
+.module-btn-addOptions {
   background-color: transparent;
   color: var(--text-main);
   border: 1px solid var(--background-secondary);
@@ -84,7 +80,7 @@
   padding: 1.5px;
 }
 
-.radiobox-btn-delOptions{
+.module-btn-delOptions{
   background-color: transparent;
   color: var(--text-main);
   border: 1px solid transparent;
@@ -108,7 +104,7 @@
   border: 0 none;
   border-radius: 0;
   padding: 3px;
-  /* border-bottom: 1px solid var(--background-secondary); */
+  border-bottom: 1px solid var(--background-secondary);
 }
 .input-textbox::placeholder {
   color: var(--background-secondary);
@@ -127,5 +123,19 @@ input.input-textbox::-webkit-inner-spin-button {
   outline: none;
   background-color: color-mix(in srgb, var(--background-secondary), transparent 90%);
   border: 1.34px solid var(--accent);
+}
+
+.module-text{
+  font-size: var(--text-small);
+  color: var(--text-main);
+
+  margin: 0 5px;
+}
+/* Module Box End */
+
+
+/* Radio Box Start*/
+.prod-radio-buttons {
+  display: none;
 }
 /* Radio Box End */

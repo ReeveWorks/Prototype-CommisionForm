@@ -38,42 +38,95 @@ function productData() {
             
             {/*  */}
             <div className="module-container">
-            <p className='prod-variable-name'>Module 1 [radio options]:</p>
-                <div className='radiobox-module-options'>
-                    1:<input type='text' className='input-textbox' placeholder='Option 1' />
-                    <input type='number' className='input-textbox' placeholder='Price' />
-                    <button className='radiobox-btn-delOptions'>✕</button>
+            <p className='prod-variable-name'>Module 0 [header]:</p>
+                <div className='module-options'>
+                    <i className='module-text'>Title</i>
+                    <input type='text' className='input-textbox' placeholder='text here!' />
                 </div>
-                <div className='radiobox-module-options'>
-                    2:<input type='text' className='input-textbox' placeholder='Option 2' />
-                    <input type='number' className='input-textbox' placeholder='Price' />
-                    <button className='radiobox-btn-delOptions'>✕</button>
+            </div>
+            <br />
+
+            <div className="module-container">
+            <p className='prod-variable-name'>Module 1 [radio options]:</p>
+                <div className='module-options'>
+                    <i className='module-text'>1</i>
+                    <input type='text' className='input-textbox' placeholder='option 1' />
+                    &nbsp;
+                    <input type='number' className='input-textbox' placeholder='price' />
+                    <button className='module-btn-delOptions'>✕</button>
+                </div>
+                <div className='module-options'>
+                    <i className='module-text'>2</i>
+                    <input type='text' className='input-textbox' placeholder='option 2' />
+                    &nbsp;
+                    <input type='number' className='input-textbox' placeholder='price' />
+                    <button className='module-btn-delOptions'>✕</button>
                 </div>
 
-                <button className='radiobox-btn-addOptions'>+</button>
+                <button className='module-btn-addOptions'>+</button>
             </div>
             <br />
 
             <div className="module-container">
             <p className='prod-variable-name'>Module 2 [condition target]:</p>
-                <div className='radiobox-module-options'>
-                    <input type='text' className='input-textbox' placeholder='Module Target' />
-                    <input type='number' className='input-textbox' placeholder='Module Value' />
+                <div className='module-options'>
+                    <input type='text' className='input-textbox' placeholder='module target' />
+                    &nbsp;
+                    <input type='number' className='input-textbox' placeholder='module value' />
                 </div>
 
-                <button className='radiobox-btn-addOptions'>+</button>
+                <button className='module-btn-addOptions'>+</button>
             </div>
             <br />
 
             <div className="module-container">
             <p className='prod-variable-name'>Module 3 [condition effect]:</p>
-                <div className='radiobox-module-options'>
-                    <input type='text' className='input-textbox' placeholder='Condition Target' />
+                <div className='module-options'>
+                    <input type='text' className='input-textbox' placeholder='condition target' />
                 </div>
 
-                <button className='radiobox-btn-addOptions'>+</button>
+                <button className='module-btn-addOptions'>+</button>
             </div>
+            <br />
 
+            <div className="module-container">
+            <p className='prod-variable-name'>Module 4 [user input numbers]:</p>
+                <div className='module-options'>
+                    <i className='module-text'>Minimum</i>
+                    <input type='number' className='input-textbox' placeholder='number' />
+                    <i className='module-text'>Maximum</i>
+                    <input type='number' className='input-textbox' placeholder='number' />
+                </div>
+            </div>
+            <br />
+
+            <div className="module-container">
+            <p className='prod-variable-name'>Module 5 [user input text]:</p>
+                <div className='module-options'>
+                    <i className='module-text'>Minimum</i>
+                    <input type='number' className='input-textbox' placeholder='character' />
+                    <i className='module-text'>Maximum</i>
+                    <input type='number' className='input-textbox' placeholder='character' />
+                </div>
+                <div className='module-options'>
+                    <i className='module-text'>Row Number</i>
+                    <input type='number' className='input-textbox' placeholder='number of rows' />
+                </div>
+            </div>
+            <br />
+            
+            <div className="module-container">
+            <p className='prod-variable-name'>Module 6 [text]:</p>
+                <div className='module-options'>
+                    <i className='module-text'>Content</i>
+                    <input type='text' className='input-textbox' placeholder='text here!' />
+                </div>
+                <div className='module-options'>
+                    <i className='module-text'>Row Number</i>
+                    <input type='number' className='input-textbox' placeholder='number of rows' />
+                </div>
+            </div>
+            
             <br />
             <button className='btn-add-module'>
                 Test
