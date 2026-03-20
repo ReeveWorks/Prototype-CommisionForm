@@ -30,7 +30,6 @@ function productData() {
             <p className='prod-variable-name'>Product description:</p>
             <textarea
                 className="prod-textbox"
-                rows="3"
                 placeholder="Product Description" />
             <br />
             

@@ -43,6 +43,12 @@ input[type="radio"]{
 
 input{
   width: 100%;
-  box-sizing:border-box
+  box-sizing:border-box;
 } 
+
+textarea{
+  resize: vertical;
+  min-height: 65px;
+  max-height: 300px;
+}
 

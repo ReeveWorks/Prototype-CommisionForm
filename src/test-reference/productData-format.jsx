@@ -25,21 +25,18 @@ function testView() {
                 className="prod-textbox"
                 type="text"
                 placeholder="Product Name" />
-
-            <br />
             <p className='prod-variable-name'>Product description:</p>
             <textarea
                 className="prod-textbox"
-                rows="3"
                 placeholder="Product Description" />
             
             {/*  */}
             <h2>Product Module</h2>
             
-            {/* module type 0 | static type | id format: stm-<n> */}
+            {/* module type 0 | static type | Module Title | id format: stm-ttl<n> */}
             <div className="module-container">
                 <div className='module-tab'>
-                    <span>ID: stm-01</span>
+                    <span>ID: stm-ttl01</span>
                     <a>✓</a>
                     <a>↩</a>
                     <a>✕</a>
@@ -50,19 +47,21 @@ function testView() {
                 </div>
             </div>
 
-            {/* <div className="module-container">
-            <p className='prod-variable-name'>Module 1 [text]:</p>
-                <div className='module-options'>
-                    <i className='module-text'>Content</i>
-                    <input type='text' className='input-textbox' placeholder='text here!' />
+            {/* module type 1 | input type | text input |  id format: inm-txt<n> */}
+            <div className="module-container">
+                <div className='module-tab'>
+                    <span>ID: inm-txt02</span>
+                    <a>✓</a>
+                    <a>↩</a>
+                    <a>✕</a>
                 </div>
                 <div className='module-options'>
-                    <i className='module-text'>Row Number</i>
-                    <input type='number' className='input-textbox' placeholder='number of rows' />
+                    <i className='module-text'>Textbox Name</i>
+                    <input type='text' className='input-textbox' placeholder='text here!' />
                 </div>
             </div>
 
-            <div className="module-container">
+            {/* <div className="module-container">
             <p className='prod-variable-name'>Module 2 [user input text]:</p>
                 <div className='module-options'>
                     <i className='module-text'>Minimum</i>

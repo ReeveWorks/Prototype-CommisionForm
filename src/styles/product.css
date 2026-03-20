@@ -12,7 +12,7 @@
 
 .comp-prod h2 {
   font-size: var(--text-h2);
-  margin: 30px 0 0 0;
+  margin: 20px 0 -5px 0;
 }
 
 .btn-add-module {
@@ -47,9 +47,9 @@
 }
 
 .prod-textbox:focus {
-  border: 1.7px solid var(--accent);
+  border: 1px solid var(--accent);
   outline: none;
-  background-color: color-mix(in srgb, var(--background-secondary), transparent 90%);
+  background-color: color-mix(in srgb, var(--accent), transparent 90%);
 }
 
 .prod-textbox::placeholder {
@@ -62,7 +62,7 @@
 
 /* Module Box Start*/
 .module-container {
-  margin: 25px 0;
+  margin: 15px 0;
 }
 
 .module-tab {
@@ -160,8 +160,9 @@ input.input-textbox::-webkit-inner-spin-button {
 .input-textbox:focus {
   font-size: var(--text-base);
   outline: none;
-  background-color: color-mix(in srgb, var(--background-secondary), transparent 90%);
-  border: 1.34px solid var(--accent);
+  background-color: color-mix(in srgb, var(--accent), transparent 90%);
+  /* border: 1.34px solid var(--accent); */
+  border-bottom: 1px solid var(--accent);
 }
 
 .module-text {
