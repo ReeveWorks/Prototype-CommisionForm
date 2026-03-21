@@ -14,6 +14,14 @@ function productData() {
     const dispatch = useDispatch();
 
     /* System */
+    const [testProd, setprod] = useState({
+        name: "Chibi",
+        description: "A chibi reaction sticker to your liking!",
+        module: [
+            { id: "stm-ttl01", type: "title", content: "Time to fill in your commission details!", size: "h1" },
+            { id: "inm-txt01", type: "text-input", content: "Number of stickers" },
+        ],
+    });
 
 
     return (

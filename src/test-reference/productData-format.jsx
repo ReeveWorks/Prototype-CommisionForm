@@ -44,6 +44,12 @@ function testView() {
                 <div className='module-options'>
                     <i className='module-text'>Title</i>
                     <input type='text' className='input-textbox' placeholder='text here!' />
+                    <i className='module-text'>Size</i>
+                    <select className='input-textbox'>
+                        <option value="h1">H1</option>
+                        <option value="h2">H2</option>
+                        <option value="h3">H3</option>
+                    </select>
                 </div>
             </div>
 
