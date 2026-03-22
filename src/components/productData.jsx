@@ -16,7 +16,7 @@ function productData() {
     /* System */
     const [testProd, setprod] = useState({
         name: "Chibi",
-        description: "A chibi reaction sticker to your liking!",
+        description: "A chibi reaction stickers to your liking!",
         module: [
             { id: "stm-ttl01", type: "title", content: "Time to fill in your commission details!", size: "h1" },
             { id: "inm-txt01", type: "text-input", content: "Number of stickers" },
@@ -32,11 +32,13 @@ function productData() {
             <input
                 className="prod-textbox"
                 type="text"
+                value={testProd.name}
                 placeholder="Product Name" />
 
             <br />
             <p className='prod-variable-name'>Product description:</p>
             <textarea
+                value={testProd.description}
                 className="prod-textbox"
                 placeholder="Product Description" />
             <br />

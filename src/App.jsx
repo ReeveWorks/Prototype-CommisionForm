@@ -19,7 +19,7 @@ function App() {
     <div className="app">
       <Header />
 
-      <TestView />
+      <ProductData />
     </div>
   )
 }
