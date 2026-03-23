@@ -23,6 +23,10 @@ function productData() {
         ],
     });
 
+    function handleChange(event, key) {
+        setprod({ ...testProd, [key]: event.target.value });
+    }
+
 
     return (
         <div className='comp-prod'>
@@ -33,12 +37,14 @@ function productData() {
                 className="prod-textbox"
                 type="text"
                 value={testProd.name}
+                onChange={(event) => handleChange(event, "name")}
                 placeholder="Product Name" />
 
             <br />
             <p className='prod-variable-name'>Product description:</p>
             <textarea
                 value={testProd.description}
+                onChange={(event) => handleChange(event, "description")}
                 className="prod-textbox"
                 placeholder="Product Description" />
             <br />
