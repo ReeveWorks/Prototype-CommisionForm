@@ -7,27 +7,21 @@ const initialState = {
         email: "user1@example.com",
         products: [
             {
-                productID: "us89-1",
-                productName: "Artwork 1",
-                productDescription: "A beautiful piece of art.",
-                modifiers: [
-                    {
-                        modifierID: "us89-1-mod1",
-                        modifierName: "Size",
-                        modifierOptions: ["Small", "Medium", "Large"],
-                    }
+                id: "us89-1",
+                name: "Chibi",
+                description: "A chibi reaction stickers to your liking!",
+                module: [
+                    { id: "stm-ttl01", type: "title", content: "Fill in your commission details!", size: "h3" },
+                    { id: "inm-txt02", type: "text-input", content: "Any additional details?" },
                 ],
             },
             {
-                productID: "us89-2",
-                productName: "Artwork 2",
-                productDescription: "Another stunning artwork.",
-                modifiers: [
-                    {
-                        modifierID: "us89-2-mod1",
-                        modifierName: "Size",
-                        modifierOptions: ["Small", "Medium", "Large"],
-                    }
+                id: "us89-2",
+                name: "Portrait",
+                description: "A portrait of your favorite character!",
+                module: [
+                    { id: "stm-ttl01", type: "title", content: "Fill in your commission details!", size: "h3" },
+                    { id: "inm-txt02", type: "text-input", content: "Any additional details?" },
                 ],
             },
         ],
