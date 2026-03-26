@@ -11,6 +11,7 @@ import Header from './components/header.jsx';
 import ArtistProducts from './components/artistProducts.jsx';
 import ProductData from './components/productData.jsx';
 import TestView from './test-reference/productData-format.jsx';
+import TestView2 from './test-reference/productData-base.jsx';
 
 function App() {
   const darkmode = useSelector((state) => state.darkmode.darkmode);
@@ -19,7 +20,7 @@ function App() {
     <div className="app">
       <Header />
 
-      <ProductData />
+      <TestView2 />
     </div>
   )
 }

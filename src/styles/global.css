@@ -7,10 +7,11 @@ html.dark {
   --background-secondary: rgb(221, 214, 255);
 
   --accent: rgb(141, 92, 255);
+  --text-h1: 20px;
+  --text-h2: 17px;
+  --text-h3: 15px;
   --text-base: 13px;
   --text-small: 11px;
-  --text-h1: 18px;
-  --text-h2: 14px;
 }
 
 /* Light Mode */
