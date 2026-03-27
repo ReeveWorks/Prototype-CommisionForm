@@ -48,7 +48,7 @@ function testView() {
             {/* <h2>Product Module</h2> */}
 
             {/* module type 0 | static type | Module Title | id format: stm-ttl<n> */}
-            {/* <div className="module-container">
+            <div className="module-container">
                 <div className='module-tab'>
                     <span>ID: stm-ttl01</span>
                     <a>✓</a>
@@ -65,7 +65,7 @@ function testView() {
                         <option value="h3">H3</option>
                     </select>
                 </div>
-            </div> */}
+            </div>
 
             {/* module type 1 | input type | text input |  id format: inm-txt<n> */}
             {/* <div className="module-container">
