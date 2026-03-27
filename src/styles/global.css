@@ -1,3 +1,15 @@
+/* Text Styles */
+:root{
+  --accent: rgb(141, 92, 255);
+  --text-title: 35px;
+  --text-h1: 20px;
+  --text-h2: 17px;
+  --text-h3: 15px;
+  --text-base: 13px;
+  --text-small: 11px;
+}
+
+
 /* Dark Mode */
 :root,
 html.dark {
@@ -5,13 +17,7 @@ html.dark {
   --text-secondary: rgb(50, 37, 97);
   --background-main: rgb(32, 35, 49);
   --background-secondary: rgb(221, 214, 255);
-
   --accent: rgb(141, 92, 255);
-  --text-h1: 20px;
-  --text-h2: 17px;
-  --text-h3: 15px;
-  --text-base: 13px;
-  --text-small: 11px;
 }
 
 /* Light Mode */
@@ -20,10 +26,7 @@ html.light {
   --text-secondary: rgba(255, 239, 204);
   --background-main: rgb(255, 239, 204);
   --background-secondary: rgba(73, 34, 2, 0.87);
-
   --accent: rgb(255, 102, 0);
-  --text-base: 13px;
-  --text-small: 11px;
 }
 
 /* Global Styles */

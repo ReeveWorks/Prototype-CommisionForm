@@ -1,5 +1,5 @@
 /* Stylesheets */
-import '../styles/product.css'
+import '../styles/product-edit.css'
 
 /* Functions/Hooks */
 import { useSelector, useDispatch } from 'react-redux'
@@ -23,23 +23,30 @@ function testView() {
         ],
     });
 
+    function handleChange(event, key) {
+        setprod({ ...testProd, [key]: event.target.value });
+    }
+
 
     return (
         <div className='comp-prod'>
-            <br/>
-            <p className='prod-variable-name'>Product name:</p>
+            <br />
             <input
-                className="prod-textbox"
+                className="prod-text prod-title"
                 type="text"
+                value={testProd.name}
+                onChange={(event) => handleChange(event, "name")}
                 placeholder="Product Name" />
-            <p className='prod-variable-name'>Product description:</p>
+
             <textarea
-                className="prod-textbox"
+                className="prod-text"
+                value={testProd.description}
+                onChange={(event) => handleChange(event, "description")}
                 placeholder="Product Description" />
-            
+
             {/*  */}
             {/* <h2>Product Module</h2> */}
-            
+
             {/* module type 0 | static type | Module Title | id format: stm-ttl<n> */}
             {/* <div className="module-container">
                 <div className='module-tab'>
@@ -137,7 +144,7 @@ function testView() {
 
                 <button className='module-btn-addOptions'>+</button>
             </div> */}
-{/*             
+            {/*             
             <button className='btn-add-module'>
                 Test
             </button> */}

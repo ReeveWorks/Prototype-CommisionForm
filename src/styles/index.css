@@ -31,25 +31,20 @@
 
 input {
   font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
-}
-
-textarea {
-  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
-}
-
-input[type="radio"] {
-  accent-color: var(--accent);
-}
-
-input {
   width: 100%;
   box-sizing: border-box;
 }
 
 textarea {
-  resize: vertical;
-  min-height: 65px;
-  max-height: 300px;
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  resize: none;
+  field-sizing: content;
+  /* min-height: 65px;
+  max-height: 300px; */
+}
+
+input[type="radio"] {
+  accent-color: var(--accent);
 }
 
 h1 {

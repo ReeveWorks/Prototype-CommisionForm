@@ -1,0 +1,25 @@
+.prod-title{
+  font-size: var(--text-h1);
+  font-weight: bold;
+}
+
+.prod-text{
+  width: 100%;
+  padding: 3.5px;
+  margin: 2.55px 0px;
+  box-sizing: border-box;
+  text-align: justify;
+  text-align-last: center;
+
+  display: flex;
+  color: var(--text-main);
+  background-color: var(--background-main);
+  border: 1px solid transparent;
+  border-radius: 2.5px;
+}
+
+.prod-text:focus {
+  border: 1px solid var(--accent);
+  outline: none;
+  background-color: color-mix(in srgb, var(--accent), transparent 90%);
+}
