@@ -27,9 +27,9 @@ function productData() {
     }
 
     function handleModuleChange(index, key, value) {
-        const newModule = prod.module.map((thisModule, idx) => {
-            if (idx !== index) return thisModule;
-            return { ...thisModule, [key]: value };
+        const newModule = prod.module.map((m, idx) => {
+            if (idx !== index) return m;
+            return { ...m, [key]: value };
         });
         setprod({ ...prod, module: newModule });
     }

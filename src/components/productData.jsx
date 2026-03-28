@@ -63,6 +63,7 @@ function productData() {
                                 <option value="h1">H1</option>
                                 <option value="h2">H2</option>
                                 <option value="h3">H3</option>
+                                <option value="h3">Base</option>
                             </select>
                         </div>
                     </div>
