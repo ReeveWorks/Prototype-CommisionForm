@@ -24,7 +24,15 @@ function testView() {
     });
 
     function handleChange(event, key) {
-        setprod({ ...testProd, [key]: event.target.value });
+        setprod({ ...testProd, [key]: event.target.value })
+    }
+
+    function handleChangeModule(index, key, value) {
+        const newModule = testProd.module.map((thisModule, idx) => {
+            if (idx !== index) return thisModule;
+            return { ...thisModule, [key]: value };
+        });
+        setprod({ ...testProd, module: newModule });
     }
 
 
@@ -44,28 +52,18 @@ function testView() {
                 onChange={(event) => handleChange(event, "description")}
                 placeholder="Product Description" />
 
+            <br className='prod-divider' />
+
             {/*  */}
             {/* <h2>Product Module</h2> */}
 
-            {/* module type 0 | static type | Module Title | id format: stm-ttl<n> */}
-            <div className="module-container">
-                <div className='module-tab'>
-                    <span>ID: stm-ttl01</span>
-                    <a>✓</a>
-                    <a>↩</a>
-                    <a>✕</a>
-                </div>
-                <div className='module-options'>
-                    <i className='module-text'>Title</i>
-                    <input type='text' className='input-textbox' placeholder='text here!' />
-                    <i className='module-text'>Size</i>
-                    <select className='input-textbox'>
-                        <option value="h1">H1</option>
-                        <option value="h2">H2</option>
-                        <option value="h3">H3</option>
-                    </select>
-                </div>
-            </div>
+            {/* module type 0 | static type | Module Text | id format: stm-txt<n> */}
+            <input
+                className="prod-text"
+                type="text"
+                value={testProd.module[0].content}
+                onChange={(event) => handleChangeModule(0, "content", event.target.value)}
+                placeholder="Add text here!" />
 
             {/* module type 1 | input type | text input |  id format: inm-txt<n> */}
             {/* <div className="module-container">
