@@ -30,3 +30,15 @@
   background-color: var(--accent);
   margin: 10px 0px;
 }
+
+.prod-edit-tab {
+  display: flex;
+  align-items: center;
+}
+
+.prod-edit-tab span {
+  text-align: left;
+  flex: 1;
+  font-size: var(--text-small);
+  color: color-mix(in srgb, var(--text-main) 75%, transparent);
+}
