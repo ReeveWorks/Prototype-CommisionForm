@@ -34,6 +34,7 @@
 .prod-edit-tab {
   display: flex;
   align-items: center;
+  border-bottom: 1px solid var(--text-main);
 }
 
 .prod-edit-tab span {
@@ -41,4 +42,18 @@
   flex: 1;
   font-size: var(--text-small);
   color: color-mix(in srgb, var(--text-main) 75%, transparent);
+}
+
+.prod-edit-tab select {
+  padding: 3.5px;
+  margin: 2.55px 0px;
+  box-sizing: border-box;
+  text-align: justify;
+  text-align-last: center;
+
+  display: flex;
+  color: var(--text-main);
+  background-color: var(--background-main);
+  border: 1px solid transparent;
+  border-radius: 2.5px;
 }

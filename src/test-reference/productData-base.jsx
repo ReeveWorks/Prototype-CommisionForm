@@ -58,11 +58,17 @@ function testView() {
             {/* <h2>Product Module</h2> */}
             <div className='prod-edit-tab'>
                 <span>stm-txt01</span>
-                <select className='input-textbox'>
+                <select>
                     <option value="h1">H1</option>
                     <option value="h2">H2</option>
                     <option value="h3">H3</option>
                 </select>
+                <select>
+                    <option value="h1">3 px</option>
+                    <option value="h2">5 px</option>
+                    <option value="h3">7 px</option>
+                </select>
+
             </div>
 
             {/* module type 0 | static type | Module Text | id format: stm-txt<n> */}

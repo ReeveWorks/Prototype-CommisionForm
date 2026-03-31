@@ -67,7 +67,7 @@ function testView() {
                 </div>
             </div>
 
-            {/* <div className="module-container">
+            <div className="module-container">
             <p className='prod-variable-name'>Module 2 [user input text]:</p>
                 <div className='module-options'>
                     <i className='module-text'>Minimum</i>
@@ -89,7 +89,7 @@ function testView() {
                     <i className='module-text'>Maximum</i>
                     <input type='number' className='input-textbox' placeholder='number' />
                 </div>
-            </div> */}
+            </div>
 
             {/* <div className="module-container">
             <p className='prod-variable-name'>Module  [radio options]:</p>
