@@ -1,9 +1,9 @@
-.prod-title{
+.prod-title {
   font-size: var(--text-h1);
   font-weight: bold;
 }
 
-.prod-text{
+.prod-text {
   width: 100%;
   padding: 3.5px;
   margin: 2.55px 0px;
@@ -24,7 +24,7 @@
   background-color: color-mix(in srgb, var(--accent), transparent 90%);
 }
 
-.prod-divider{
+.prod-divider {
   width: 100%;
   height: 1px;
   background-color: var(--accent);
@@ -32,7 +32,9 @@
 }
 
 .prod-edit-tab {
+  gap: 5px;
   display: flex;
+  padding: 0px 5px;
   align-items: center;
   border-bottom: 1px solid var(--text-main);
 }
@@ -45,15 +47,40 @@
 }
 
 .prod-edit-tab select {
-  padding: 3.5px;
-  margin: 2.55px 0px;
+  padding: 3px 0px;
+  margin: 2.5px 0px;
   box-sizing: border-box;
   text-align: justify;
   text-align-last: center;
 
   display: flex;
+  font-size: var(--text-base);
   color: var(--text-main);
   background-color: var(--background-main);
   border: 1px solid transparent;
-  border-radius: 2.5px;
+}
+
+.prod-edit-tab select:focus {
+  outline: none;
+  background-color: color-mix(in srgb, var(--accent), transparent 90%);
+  border-bottom: 1px solid var(--accent);
+}
+
+.prod-edit-tab option {
+  background-color: var(--background-secondary);
+  color: var(--text-secondary);
+}
+
+.prod-edit-tab a {
+  font-size: var(--text-small);
+  color: var(--text-main);
+  border-radius: 10px;
+  padding: 5.5px;
+  cursor: pointer;
+}
+
+.prod-edit-tab a:hover {
+  color: var(--accent);
+  background-color: color-mix(in srgb, var(--accent), transparent 90%);
+  transition: all 300ms;
 }

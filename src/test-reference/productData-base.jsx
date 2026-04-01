@@ -68,6 +68,9 @@ function testView() {
                     <option value="h2">5 px</option>
                     <option value="h3">7 px</option>
                 </select>
+                <a>✓</a>
+                <a>↩</a>
+                <a>✕</a>
 
             </div>
 
