@@ -52,35 +52,15 @@ function testView() {
                 onChange={(event) => handleChange(event, "description")}
                 placeholder="Product Description" />
 
-            <br className='prod-divider' />
+            <br className='prod-divider'/>
 
             {/*  */}
             {/* <h2>Product Module</h2> */}
-            <div className='prod-edit-tab'>
-                <span>stm-txt01</span>
-                <select>
-                    <option value="h1">H1</option>
-                    <option value="h2">H2</option>
-                    <option value="h3">H3</option>
-                </select>
-                <select>
-                    <option value="h1">3 px</option>
-                    <option value="h2">5 px</option>
-                    <option value="h3">7 px</option>
-                </select>
-                <a>✓</a>
-                <a>↩</a>
-                <a>✕</a>
-
-            </div>
 
             {/* module type 0 | static type | Module Text | id format: stm-txt<n> */}
-            <input
-                className="prod-text"
-                type="text"
-                value={testProd.module[0].content}
-                onChange={(event) => handleChangeModule(0, "content", event.target.value)}
-                placeholder="Add text here!" />
+            <div className='prod-module'>
+                {testProd.module[0].content}
+            </div>
 
             {/* module type 1 | input type | text input |  id format: inm-txt<n> */}
             {/* <div className="module-container">

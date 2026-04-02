@@ -58,9 +58,6 @@ function productData() {
                 onChange={InputDescChange}
                 placeholder="Product Description" />
             <br />
-                    <a>✓</a>
-                    <a>↩</a>
-                    <a>✕</a>
 
             <br />
             <button onClick={() => addmodule()}>
