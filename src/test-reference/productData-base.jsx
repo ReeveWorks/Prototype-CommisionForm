@@ -52,7 +52,7 @@ function testView() {
                 onChange={(event) => handleChange(event, "description")}
                 placeholder="Product Description" />
 
-            <br className='prod-divider'/>
+            <p className='prod-divider' />
 
             {/*  */}
             {/* <h2>Product Module</h2> */}
@@ -62,6 +62,11 @@ function testView() {
                 {testProd.module[0].content}
             </div>
 
+            <br/>
+
+            <div>
+                <textarea placeholder="Enter module content..." />
+            </div>
             {/* module type 1 | input type | text input |  id format: inm-txt<n> */}
             {/* <div className="module-container">
                 <div className='module-tab'>
