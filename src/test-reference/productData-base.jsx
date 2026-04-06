@@ -46,45 +46,50 @@ function testView() {
         setprod({ ...testProd, [key]: event.target.value })
     }
 
-    function selectModule(index) {
+    function selectModule(index, e) {
         console.log(index);
+
+        // Remove selected-module from all elements
+        document.querySelectorAll('.selected-module').forEach(el => el.classList.remove('selected-module'));
+
+        // Add selected-module to the clicked element
+        e.target.classList.add("selected-module");
     }
 
     function renderModuleInput(moduleItem, index) {
         switch (moduleItem.type) {
             case 'title':
                 return (
-                    <div className='prod-module' 
-                    key={index}
-                    id={moduleItem.id}
-                    style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}em` }}
-                    onClick={() => selectModule(moduleItem.id)}>
+                    <div className='prod-module'
+                        key={index}
+                        id={moduleItem.id}
+                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}em` }}
+                        onClick={(e) => selectModule(index, e)}>
                         {moduleItem.content}
                     </div>
                 );
             case 'text-input':
                 return (
-                    <div className='prod-module' 
-                    key={index} 
-                    id={moduleItem.id}
-                    style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}em` }}
-                    onClick={() => selectModule(moduleItem.id)}>
+                    <div className='prod-module'
+                        key={index}
+                        id={moduleItem.id}
+                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}em` }}
+                        onClick={(e) => selectModule(index, e)}>
                         {moduleItem.content}
                     </div>
                 );
             case 'txtblock-input':
                 return (
-                    <div className='prod-module' 
-                    key={index} 
-                    id={moduleItem.id}
-                    style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}em` }}
-                    onClick={() => selectModule(moduleItem.id)}>
+                    <div className='prod-module'
+                        key={index}
+                        id={moduleItem.id}
+                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}em` }}
+                        onClick={(e) => selectModule(index, e)}>
                         {moduleItem.content}
                     </div>
                 );
         }
     }
-
 
     return (
         <div className='comp-prod'>

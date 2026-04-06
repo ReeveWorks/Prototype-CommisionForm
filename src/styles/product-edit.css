@@ -49,3 +49,8 @@
 .prod-module span {
   text-align: center;
 }
+
+.selected-module {
+  border: 1px solid var(--accent);
+  background-color: color-mix(in srgb, var(--accent), transparent 90%);
+}
