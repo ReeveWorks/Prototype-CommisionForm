@@ -46,14 +46,10 @@ function testView() {
         setprod({ ...testProd, [key]: event.target.value })
     }
 
-    function selectModule(index, e) {
-        console.log(index);
-
-        // Remove selected-module from all elements
+    function selectModule(moduleItem, e) {
         document.querySelectorAll('.selected-module').forEach(el => el.classList.remove('selected-module'));
-
-        // Add selected-module to the clicked element
         e.target.classList.add("selected-module");
+        console.log(moduleItem);
     }
 
     function renderModuleInput(moduleItem, index) {
@@ -64,7 +60,7 @@ function testView() {
                         key={index}
                         id={moduleItem.id}
                         style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}em` }}
-                        onClick={(e) => selectModule(index, e)}>
+                        onClick={(e) => selectModule(moduleItem, e)}>
                         {moduleItem.content}
                     </div>
                 );
@@ -74,7 +70,7 @@ function testView() {
                         key={index}
                         id={moduleItem.id}
                         style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}em` }}
-                        onClick={(e) => selectModule(index, e)}>
+                        onClick={(e) => selectModule(moduleItem, e)}>
                         {moduleItem.content}
                     </div>
                 );
@@ -84,7 +80,7 @@ function testView() {
                         key={index}
                         id={moduleItem.id}
                         style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}em` }}
-                        onClick={(e) => selectModule(index, e)}>
+                        onClick={(e) => selectModule(moduleItem, e)}>
                         {moduleItem.content}
                     </div>
                 );
