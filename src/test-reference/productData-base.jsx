@@ -22,21 +22,21 @@ function testView() {
                 id: "stm-ttl01",
                 type: "title",
                 size: "18",
-                spacing: "0.5",
+                spacing: "7",
                 content: "Fill in your commission details!",
             },
             {
                 id: "inm-txt02",
                 type: "text-input",
                 size: "13",
-                spacing: "0",
+                spacing: "5",
                 content: "Commission Title"
             },
             {
                 id: "inm-txt03",
                 type: "txtblock-input",
                 size: "13",
-                spacing: "0",
+                spacing: "5",
                 content: "Details"
             },
         ],
@@ -59,7 +59,7 @@ function testView() {
                     <div className='prod-module'
                         key={index}
                         id={moduleItem.id}
-                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}em` }}
+                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}
                         onClick={(e) => selectModule(moduleItem, e)}>
                         {moduleItem.content}
                     </div>
@@ -69,9 +69,10 @@ function testView() {
                     <div className='prod-module'
                         key={index}
                         id={moduleItem.id}
-                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}em` }}
+                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
                         onClick={(e) => selectModule(moduleItem, e)}>
                         {moduleItem.content}
+                        <p className='mock-textbox' style={{ height: '17px' }}/>
                     </div>
                 );
             case 'txtblock-input':
@@ -79,9 +80,10 @@ function testView() {
                     <div className='prod-module'
                         key={index}
                         id={moduleItem.id}
-                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}em` }}
+                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
                         onClick={(e) => selectModule(moduleItem, e)}>
                         {moduleItem.content}
+                        <p className='mock-textbox' style={{ height: '45px' }}/>
                     </div>
                 );
         }
