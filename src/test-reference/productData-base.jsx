@@ -52,7 +52,7 @@ function testView() {
         console.log(moduleItem);
     }
 
-    function renderModuleInput(moduleItem, index) {
+    function editModuleMode(moduleItem, index) {
         switch (moduleItem.type) {
             case 'title':
                 return (
@@ -72,7 +72,7 @@ function testView() {
                         style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
                         onClick={(e) => selectModule(moduleItem, e)}>
                         {moduleItem.content}
-                        <p className='mock-textbox' style={{ height: '17px' }}/>
+                        <p className='mock-textbox' style={{ height: '17px' }} />
                     </div>
                 );
             case 'txtblock-input':
@@ -83,7 +83,25 @@ function testView() {
                         style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
                         onClick={(e) => selectModule(moduleItem, e)}>
                         {moduleItem.content}
-                        <p className='mock-textbox' style={{ height: '45px' }}/>
+                        <p className='mock-textbox' style={{ height: '45px' }} />
+                    </div>
+                );
+        }
+    }
+
+    function renderModuleInput(moduleItem, index) {
+        switch (moduleItem.type) {
+            case 'title':
+                return (
+                    <div className='prod-module'
+                        key={index}
+                        id={moduleItem.id}
+                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}
+                        onClick={(e) => selectModule(moduleItem, e)}>
+                        <input className="prod-text prod-title"
+                            type="text"
+                            value={moduleItem.content}
+                            placeholder="Input text here*" />
                     </div>
                 );
         }
@@ -103,7 +121,7 @@ function testView() {
                 placeholder="Product Description*" />
             <p className='prod-divider' />
 
-            {/*  */}
+            {/* We will be makking this into an array that can be change in code */}
             {testProd.module.map((m, idx) => renderModuleInput(m, idx))}
             {/*  */}
 
