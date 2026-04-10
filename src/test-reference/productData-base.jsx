@@ -52,7 +52,7 @@ function testView() {
         console.log(moduleItem);
     }
 
-    function editModuleMode(moduleItem, index) {
+    function renderModuleInput(moduleItem, index) {
         switch (moduleItem.type) {
             case 'title':
                 return (
@@ -89,7 +89,7 @@ function testView() {
         }
     }
 
-    function renderModuleInput(moduleItem, index) {
+    function editModuleMode(moduleItem, index) {
         switch (moduleItem.type) {
             case 'title':
                 return (
@@ -107,6 +107,8 @@ function testView() {
         }
     }
 
+    const [ProdModule, setModule] = useState(testProd.module.map((m, idx) => renderModuleInput(m, idx)))
+
     return (
         <div className='comp-prod'>
             <br />
@@ -121,9 +123,8 @@ function testView() {
                 placeholder="Product Description*" />
             <p className='prod-divider' />
 
-            {/* We will be makking this into an array that can be change in code */}
-            {testProd.module.map((m, idx) => renderModuleInput(m, idx))}
-            {/*  */}
+            {/* {testProd.module.map((m, idx) => renderModuleInput(m, idx))} */}
+            {ProdModule}
 
         </div>
     );
