@@ -49,6 +49,19 @@
   background-color: color-mix(in srgb, var(--accent), transparent 90%);
 }
 
+.prod-module input{
+  font-size: 13px;
+  color: var(--text-main);
+  
+  background-color: transparent;
+  border: transparent;
+}
+
+.prod-module input:focus{
+  border: var(--accent);
+  outline: none;
+}
+
 .mock-textbox {
   background-color: var(--background-tertiary);
   width: 100%;
@@ -59,5 +72,32 @@
 
 .selected-module {
   border: 1px solid var(--accent);
+  background-color: color-mix(in srgb, var(--accent), transparent 95%);
   border-radius: 0%;
+}
+
+.selected-module:hover {
+  background-color: color-mix(in srgb, var(--accent), transparent 95%);
+}
+
+.prod-edit-tab {
+  gap: 5px;
+  display: flex;
+  padding: 0px 2px;
+  margin-bottom: 7px;
+  align-items: center;
+  border-bottom: 1px solid var(--text-main);
+}
+
+.prod-edit-tab span {
+  text-align: left;
+  flex: 1;
+  font-size: var(--text-small);
+  color: color-mix(in srgb, var(--text-main) 75%, transparent);
+}
+
+.prod-edit-tab a:hover, .prod-edit-tab span:hover {
+  color: var(--accent);
+  background-color: none;
+  transition: all 200ms;
 }

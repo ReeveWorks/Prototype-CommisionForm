@@ -45,69 +45,47 @@ function testView() {
     function handleChange(event, key) {
         setprod({ ...testProd, [key]: event.target.value })
     }
-
-    function selectModule(moduleItem, e) {
-        document.querySelectorAll('.selected-module').forEach(el => el.classList.remove('selected-module'));
-        e.target.classList.add("selected-module");
-        console.log(moduleItem);
+    function handleChangeModule(event, moduleId, key) {
+        setprod({ ...testProd, module: testProd.module.map(m => m.id === moduleId ? { ...m, [key]: event.target.value } : m) })
     }
 
-    function renderModuleInput(moduleItem, index) {
+    function renderModuleView(moduleItem, index) {
         switch (moduleItem.type) {
             case 'title':
                 return (
                     <div className='prod-module'
                         key={index}
                         id={moduleItem.id}
-                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}
-                        onClick={(e) => selectModule(moduleItem, e)}>
+                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}>
                         {moduleItem.content}
-                    </div>
-                );
-            case 'text-input':
-                return (
-                    <div className='prod-module'
-                        key={index}
-                        id={moduleItem.id}
-                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
-                        onClick={(e) => selectModule(moduleItem, e)}>
-                        {moduleItem.content}
-                        <p className='mock-textbox' style={{ height: '17px' }} />
-                    </div>
-                );
-            case 'txtblock-input':
-                return (
-                    <div className='prod-module'
-                        key={index}
-                        id={moduleItem.id}
-                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
-                        onClick={(e) => selectModule(moduleItem, e)}>
-                        {moduleItem.content}
-                        <p className='mock-textbox' style={{ height: '45px' }} />
                     </div>
                 );
         }
     }
 
-    function editModuleMode(moduleItem, index) {
+    function renderModuleEdit(moduleItem, index) {
         switch (moduleItem.type) {
             case 'title':
                 return (
-                    <div className='prod-module'
+                    <div className='prod-module selected-module'
                         key={index}
                         id={moduleItem.id}
                         style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}
                         onClick={(e) => selectModule(moduleItem, e)}>
-                        <input className="prod-text prod-title"
+                        <div className='prod-edit-tab'>
+                            <span>{moduleItem.id}</span>
+                            <a>✓</a>
+                            <a>↩</a>
+                        </div>
+                        <input
                             type="text"
                             value={moduleItem.content}
+                            onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
                             placeholder="Input text here*" />
                     </div>
                 );
         }
     }
-
-    const [ProdModule, setModule] = useState(testProd.module.map((m, idx) => renderModuleInput(m, idx)))
 
     return (
         <div className='comp-prod'>
@@ -123,8 +101,7 @@ function testView() {
                 placeholder="Product Description*" />
             <p className='prod-divider' />
 
-            {/* {testProd.module.map((m, idx) => renderModuleInput(m, idx))} */}
-            {ProdModule}
+            {testProd.module.map((m, idx) => renderModuleEdit(m, idx))}
 
         </div>
     );
