@@ -70,8 +70,7 @@ function testView() {
                     <div className='prod-module selected-module'
                         key={index}
                         id={moduleItem.id}
-                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}
-                        onClick={(e) => selectModule(moduleItem, e)}>
+                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}>
                         <div className='prod-edit-tab'>
                             <span>{moduleItem.id}</span>
                             <a>✓</a>

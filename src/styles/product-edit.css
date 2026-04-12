@@ -71,13 +71,14 @@
 }
 
 .selected-module {
-  border: 1px solid var(--accent);
+  border: 1px solid var(--text-main);
   background-color: color-mix(in srgb, var(--accent), transparent 95%);
   border-radius: 0%;
 }
-
+/* we're gonna make a hover class so that we dont need multiple classes to remove hover */
 .selected-module:hover {
   background-color: color-mix(in srgb, var(--accent), transparent 95%);
+  border: 1px solid var(--text-main);
 }
 
 .prod-edit-tab {
