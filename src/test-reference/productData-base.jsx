@@ -41,6 +41,7 @@ function testView() {
             },
         ],
     });
+    const [isEditing, setIsEditing] = useState(-1);
 
     function handleChange(event, key) {
         setprod({ ...testProd, [key]: event.target.value })
@@ -48,7 +49,6 @@ function testView() {
     function handleChangeModule(event, moduleId, key) {
         setprod({ ...testProd, module: testProd.module.map(m => m.id === moduleId ? { ...m, [key]: event.target.value } : m) })
     }
-
     function renderModuleView(moduleItem, index) {
         switch (moduleItem.type) {
             case 'title':
@@ -56,13 +56,35 @@ function testView() {
                     <div className='prod-module'
                         key={index}
                         id={moduleItem.id}
-                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}>
+                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}
+                        onClick={() => selectModule(index)}>
                         {moduleItem.content}
+                    </div>
+                );
+            case 'text-input':
+                return (
+                    <div className='prod-module'
+                        key={index}
+                        id={moduleItem.id}
+                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
+                        onClick={() => selectModule(index)}>
+                        {moduleItem.content}
+                        <p className='mock-textbox' style={{ height: '17px' }} />
+                    </div>
+                );
+            case 'txtblock-input':
+                return (
+                    <div className='prod-module'
+                        key={index}
+                        id={moduleItem.id}
+                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
+                        onClick={() => selectModule(index)}>
+                        {moduleItem.content}
+                        <p className='mock-textbox' style={{ height: '45px' }} />
                     </div>
                 );
         }
     }
-
     function renderModuleEdit(moduleItem, index) {
         switch (moduleItem.type) {
             case 'title':
@@ -70,11 +92,11 @@ function testView() {
                     <div className='prod-module selected-module'
                         key={index}
                         id={moduleItem.id}
-                        style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}>
+                        style={{ marginBottom: `${moduleItem.spacing}px`}}>
                         <div className='prod-edit-tab'>
                             <span>{moduleItem.id}</span>
                             <a>✓</a>
-                            <a>↩</a>
+                            <a onClick={() => selectModule(-1)}>↩</a>
                         </div>
                         <input
                             type="text"
@@ -83,7 +105,55 @@ function testView() {
                             placeholder="Input text here*" />
                     </div>
                 );
+            case 'text-input':
+                return (
+                    <div className='prod-module selected-module'
+                        key={index}
+                        id={moduleItem.id}
+                        style={{ marginBottom: `${moduleItem.spacing}px`}}>
+                        <div className='prod-edit-tab'>
+                            <span>{moduleItem.id}</span>
+                            <a>✓</a>
+                            <a onClick={() => selectModule(-1)}>↩</a>
+                        </div>
+                        <input
+                            type="text"
+                            value={moduleItem.content}
+                            onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
+                            placeholder="Input text here*" />
+                        <p className='mock-textbox' style={{ height: '17px' }} />
+                    </div>
+                );
+            case 'txtblock-input':
+                return (
+                    <div className='prod-module selected-module'
+                        key={index}
+                        id={moduleItem.id}
+                        style={{marginBottom: `${moduleItem.spacing}px`}}>
+                        <div className='prod-edit-tab'>
+                            <span>{moduleItem.id}</span>
+                            <a>✓</a>
+                            <a onClick={() => selectModule(-1)}>↩</a>
+                        </div>
+                        <input
+                            type="text"
+                            value={moduleItem.content}
+                            onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
+                            placeholder="Input text here*" />
+                        <p className='mock-textbox' style={{ height: '45px' }} />
+                    </div>
+                );
         }
+    }
+    function selectModule(index) {
+        setIsEditing(index);
+        console.log("Selected module index:", index);
+    }
+    function renderModule(moduleItem, index) {
+        if (isEditing === index) {
+            return renderModuleEdit(moduleItem, index);
+        }
+        return renderModuleView(moduleItem, index);
     }
 
     return (
@@ -100,7 +170,7 @@ function testView() {
                 placeholder="Product Description*" />
             <p className='prod-divider' />
 
-            {testProd.module.map((m, idx) => renderModuleEdit(m, idx))}
+            {testProd.module.map((m, idx) => renderModule(m, idx))}
 
         </div>
     );

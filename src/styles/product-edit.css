@@ -71,7 +71,7 @@
 }
 
 .selected-module {
-  border: 1px solid var(--text-main);
+  border: 1px solid var(--accent);
   background-color: color-mix(in srgb, var(--accent), transparent 95%);
   border-radius: 0%;
 }
