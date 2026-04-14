@@ -18,8 +18,7 @@
   border-radius: 2.5px;
 }
 
-.prod-text:focus,
-.prod-text:hover {
+.prod-text:focus {
   border: 1px solid var(--accent);
   outline: none;
   background-color: color-mix(in srgb, var(--accent), transparent 90%);
@@ -42,11 +41,6 @@
   border: 1px solid transparent;
   border-radius: 2px;
   cursor: pointer;
-}
-
-.prod-module:hover {
-  border: 1px solid var(--accent);
-  background-color: color-mix(in srgb, var(--accent), transparent 90%);
 }
 
 .prod-module input{
@@ -101,4 +95,10 @@
   color: var(--accent);
   background-color: none;
   transition: all 200ms;
+}
+
+.prod-hover:hover {
+  border: 1px solid var(--accent);
+  outline: none;
+  background-color: color-mix(in srgb, var(--accent), transparent 90%);
 }

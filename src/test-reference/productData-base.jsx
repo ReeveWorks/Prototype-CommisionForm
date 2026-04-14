@@ -53,7 +53,7 @@ function testView() {
         switch (moduleItem.type) {
             case 'title':
                 return (
-                    <div className='prod-module'
+                    <div className='prod-module prod-hover'
                         key={index}
                         id={moduleItem.id}
                         style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}
@@ -63,7 +63,7 @@ function testView() {
                 );
             case 'text-input':
                 return (
-                    <div className='prod-module'
+                    <div className='prod-module prod-hover'
                         key={index}
                         id={moduleItem.id}
                         style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
@@ -74,7 +74,7 @@ function testView() {
                 );
             case 'txtblock-input':
                 return (
-                    <div className='prod-module'
+                    <div className='prod-module prod-hover'
                         key={index}
                         id={moduleItem.id}
                         style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
@@ -89,7 +89,7 @@ function testView() {
         switch (moduleItem.type) {
             case 'title':
                 return (
-                    <div className='prod-module selected-module'
+                    <div className='prod-module selected-module prod-hover'
                         key={index}
                         id={moduleItem.id}
                         style={{ marginBottom: `${moduleItem.spacing}px`}}>
@@ -107,7 +107,7 @@ function testView() {
                 );
             case 'text-input':
                 return (
-                    <div className='prod-module selected-module'
+                    <div className='prod-module selected-module prod-hover'
                         key={index}
                         id={moduleItem.id}
                         style={{ marginBottom: `${moduleItem.spacing}px`}}>
@@ -126,7 +126,7 @@ function testView() {
                 );
             case 'txtblock-input':
                 return (
-                    <div className='prod-module selected-module'
+                    <div className='prod-module selected-module prod-hover'
                         key={index}
                         id={moduleItem.id}
                         style={{marginBottom: `${moduleItem.spacing}px`}}>
@@ -159,12 +159,12 @@ function testView() {
     return (
         <div className='comp-prod'>
             <br />
-            <input className="prod-text prod-title"
+            <input className="prod-text prod-title prod-hover" 
                 type="text"
                 value={testProd.name}
                 onChange={(event) => handleChange(event, "name")}
                 placeholder="Product Name*" />
-            <textarea className="prod-text"
+            <textarea className="prod-text prod-hover"
                 value={testProd.description}
                 onChange={(event) => handleChange(event, "description")}
                 placeholder="Product Description*" />
