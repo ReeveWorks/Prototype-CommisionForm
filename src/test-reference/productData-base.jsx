@@ -92,12 +92,8 @@ function testView() {
                     <div className='prod-module selected-module prod-hover'
                         key={index}
                         id={moduleItem.id}
-                        style={{ marginBottom: `${moduleItem.spacing}px`}}>
-                        <div className='prod-edit-tab'>
-                            <span>{moduleItem.id}</span>
-                            <a>✓</a>
-                            <a onClick={() => selectModule(-1)}>↩</a>
-                        </div>
+                        style={{ marginBottom: `${moduleItem.spacing}px` }}>
+                        {editTab(moduleItem, index)}
                         <input
                             type="text"
                             value={moduleItem.content}
@@ -110,12 +106,8 @@ function testView() {
                     <div className='prod-module selected-module prod-hover'
                         key={index}
                         id={moduleItem.id}
-                        style={{ marginBottom: `${moduleItem.spacing}px`}}>
-                        <div className='prod-edit-tab'>
-                            <span>{moduleItem.id}</span>
-                            <a>✓</a>
-                            <a onClick={() => selectModule(-1)}>↩</a>
-                        </div>
+                        style={{ marginBottom: `${moduleItem.spacing}px` }}>
+                        {editTab(moduleItem, index)}
                         <input
                             type="text"
                             value={moduleItem.content}
@@ -129,12 +121,8 @@ function testView() {
                     <div className='prod-module selected-module prod-hover'
                         key={index}
                         id={moduleItem.id}
-                        style={{marginBottom: `${moduleItem.spacing}px`}}>
-                        <div className='prod-edit-tab'>
-                            <span>{moduleItem.id}</span>
-                            <a>✓</a>
-                            <a onClick={() => selectModule(-1)}>↩</a>
-                        </div>
+                        style={{ marginBottom: `${moduleItem.spacing}px` }}>
+                        {editTab(moduleItem, index)}
                         <input
                             type="text"
                             value={moduleItem.content}
@@ -155,11 +143,21 @@ function testView() {
         }
         return renderModuleView(moduleItem, index);
     }
+    function editTab(moduleItem, index) {
+        return (
+            <div className='prod-edit-tab'>
+                <span>{moduleItem.id}</span>
+                <p>Tt</p> <input type='number' value={moduleItem.size} onChange={(event) => handleChangeModule(event, moduleItem.id, "size")}></input>
+                |
+                <a onClick={() => selectModule(-1)}>↩</a>
+            </div>
+        );
+    }
 
     return (
         <div className='comp-prod'>
             <br />
-            <input className="prod-text prod-title prod-hover" 
+            <input className="prod-text prod-title prod-hover"
                 type="text"
                 value={testProd.name}
                 onChange={(event) => handleChange(event, "name")}

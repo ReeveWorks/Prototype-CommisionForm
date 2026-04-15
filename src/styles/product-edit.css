@@ -78,10 +78,13 @@
 .prod-edit-tab {
   gap: 5px;
   display: flex;
-  padding: 0px 2px;
+  padding: 2.5px;
+  margin: -2.5px;
   margin-bottom: 7px;
   align-items: center;
-  border-bottom: 1px solid var(--text-main);
+  border: 1px solid var(--accent);
+  background-color: var(--accent);
+  cursor: context-menu;
 }
 
 .prod-edit-tab span {
@@ -92,13 +95,42 @@
 }
 
 .prod-edit-tab a:hover, .prod-edit-tab span:hover {
-  color: var(--accent);
+  color: var(--background-main);
   background-color: none;
   transition: all 200ms;
+}
+
+.prod-edit-tab input {
+  color: var(--text-main);
+  font-size: var(--text-small);
+  background-color: var(--background-tertiary);
+  border: 1.25px solid var(--background-secondary);
+  width: 20px;
+  text-align: center;
+}
+
+.prod-edit-tab input:focus {
+  border: 1.25px solid var(--background-secondary);
+}
+
+.prod-edit-tab p {
+  font-size: var(--text-small);
 }
 
 .prod-hover:hover {
   border: 1px solid var(--accent);
   outline: none;
   background-color: color-mix(in srgb, var(--accent), transparent 90%);
+}
+
+
+/* Remove arrows from number inputs */
+.prod-edit-tab input[type="number"]::-webkit-outer-spin-button,
+.prod-edit-tab input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* For Firefox */
+.prod-edit-tab input[type="number"] {
+  -moz-appearance: textfield;
 }
