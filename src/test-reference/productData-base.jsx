@@ -21,22 +21,22 @@ function testView() {
             {
                 id: "stm-ttl01",
                 type: "title",
-                size: "18",
-                spacing: "7",
+                size: 18,
+                spacing: 7,
                 content: "Fill in your commission details!",
             },
             {
                 id: "inm-txt02",
                 type: "text-input",
-                size: "13",
-                spacing: "5",
+                size: 13,
+                spacing: 5,
                 content: "Commission Title"
             },
             {
                 id: "inm-txt03",
                 type: "txtblock-input",
-                size: "13",
-                spacing: "5",
+                size: 13,
+                spacing: 5,
                 content: "Details"
             },
         ],
@@ -49,6 +49,23 @@ function testView() {
     function handleChangeModule(event, moduleId, key) {
         setprod({ ...testProd, module: testProd.module.map(m => m.id === moduleId ? { ...m, [key]: event.target.value } : m) })
     }
+    function handleNumberChange(event, moduleId, key, min, max) {
+        if (event.target.value < min) return;
+        if (event.target.value > max) return;
+        if (event.target.value.includes('.')) return;
+        handleChangeModule(event, moduleId, key);
+    }
+    function selectModule(index) {
+        setIsEditing(index);
+        console.log("Selected module index:", index);
+    }
+    function renderModule(moduleItem, index) {
+        if (isEditing === index) {
+            return renderModuleEdit(moduleItem, index);
+        }
+        return renderModuleView(moduleItem, index);
+    }
+
     function renderModuleView(moduleItem, index) {
         switch (moduleItem.type) {
             case 'title':
@@ -133,21 +150,13 @@ function testView() {
                 );
         }
     }
-    function selectModule(index) {
-        setIsEditing(index);
-        console.log("Selected module index:", index);
-    }
-    function renderModule(moduleItem, index) {
-        if (isEditing === index) {
-            return renderModuleEdit(moduleItem, index);
-        }
-        return renderModuleView(moduleItem, index);
-    }
     function editTab(moduleItem, index) {
         return (
             <div className='prod-edit-tab'>
                 <span>{moduleItem.id}</span>
-                <p>Tt</p> <input type='number' value={moduleItem.size} onChange={(event) => handleChangeModule(event, moduleItem.id, "size")}></input>
+                <p>Tt</p><input type='number' value={moduleItem.size} onChange={(event) => handleNumberChange(event, moduleItem.id, "size", 0, 25)} />
+                |
+                <p>↧↧</p><input type='number' value={moduleItem.spacing} onChange={(event) => handleNumberChange(event, moduleItem.id, "spacing", 0, 99)} />
                 |
                 <a onClick={() => selectModule(-1)}>↩</a>
             </div>
