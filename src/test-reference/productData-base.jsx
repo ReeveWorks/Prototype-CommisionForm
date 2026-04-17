@@ -114,6 +114,7 @@ function testView() {
                         <input
                             type="text"
                             value={moduleItem.content}
+                            style={{ fontSize: `${moduleItem.size}px`, textAlign: 'center' }}
                             onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
                             placeholder="Input text here*" />
                     </div>
@@ -128,6 +129,7 @@ function testView() {
                         <input
                             type="text"
                             value={moduleItem.content}
+                            style={{ fontSize: `${moduleItem.size}px` }}
                             onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
                             placeholder="Input text here*" />
                         <p className='mock-textbox' style={{ height: '17px' }} />
@@ -143,6 +145,7 @@ function testView() {
                         <input
                             type="text"
                             value={moduleItem.content}
+                            style={{ fontSize: `${moduleItem.size}px` }}
                             onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
                             placeholder="Input text here*" />
                         <p className='mock-textbox' style={{ height: '45px' }} />
@@ -154,9 +157,9 @@ function testView() {
         return (
             <div className='prod-edit-tab'>
                 <span>{moduleItem.id}</span>
-                <p>Tt</p><input type='number' value={moduleItem.size} onChange={(event) => handleNumberChange(event, moduleItem.id, "size", 0, 25)} />
+                <p>Tt</p><input type='number' value={moduleItem.size} onChange={(event) => handleNumberChange(event, moduleItem.id, "size", 0, 25)} maxlength="2" />
                 |
-                <p>↧↧</p><input type='number' value={moduleItem.spacing} onChange={(event) => handleNumberChange(event, moduleItem.id, "spacing", 0, 99)} />
+                <p>↧↧</p><input type='number' value={moduleItem.spacing} onChange={(event) => handleNumberChange(event, moduleItem.id, "spacing", 0, 99)} maxlength="2" />
                 |
                 <a onClick={() => selectModule(-1)}>↩</a>
             </div>
