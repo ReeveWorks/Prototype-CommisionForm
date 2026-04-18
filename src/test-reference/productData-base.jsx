@@ -30,6 +30,7 @@ function testView() {
                 type: "text-input",
                 size: 13,
                 spacing: 5,
+                isRequired: true,
                 content: "Commission Title"
             },
             {
@@ -37,6 +38,7 @@ function testView() {
                 type: "txtblock-input",
                 size: 13,
                 spacing: 5,
+                isRequired: false,
                 content: "Details"
             },
         ],
@@ -47,7 +49,20 @@ function testView() {
         setprod({ ...testProd, [key]: event.target.value })
     }
     function handleChangeModule(event, moduleId, key) {
-        setprod({ ...testProd, module: testProd.module.map(m => m.id === moduleId ? { ...m, [key]: event.target.value } : m) })
+        let nValue = event.target.value;
+        if( key === "size" || key === "spacing") {
+            nValue = Number(nValue);
+        }
+        else if (event.target.value === "true") {
+            nValue = true;
+        }
+        else if (event.target.value === "false") {
+            nValue = false;
+        }
+
+        setprod({ ...testProd, module: testProd.module.map(m => m.id === moduleId ? { ...m, [key]: nValue } : m) })
+        console.log(`Module: ${moduleId}\nTarget: ${key}\nNew Value: ${nValue}`);
+        console.log(testProd.module[1])
     }
     function handleNumberChange(event, moduleId, key, min, max) {
         if (event.target.value < min) return;
@@ -66,6 +81,24 @@ function testView() {
         return renderModuleView(moduleItem, index);
     }
 
+    function editTab(moduleItem, index) {
+        return (
+            <div className='prod-edit-tab'>
+                <span>{moduleItem.id}</span>
+                {moduleItem.type.includes("input") && 
+                    <select value={moduleItem.isRequired} onChange={(event) => handleChangeModule(event, moduleItem.id, "isRequired")}>
+                        <option value={true}>Yes</option>
+                        <option value={false}>No</option>
+                    </select>
+                }
+                <p>Tt</p><input type='number' value={moduleItem.size} onChange={(event) => handleNumberChange(event, moduleItem.id, "size", 0, 25)} maxLength="2" />
+                |
+                <p>↧↧</p><input type='number' value={moduleItem.spacing} onChange={(event) => handleNumberChange(event, moduleItem.id, "spacing", 0, 99)} maxLength="2" />
+                |
+                <a onClick={() => selectModule(-1)}>↩</a>
+            </div>
+        );
+    }
     function renderModuleView(moduleItem, index) {
         switch (moduleItem.type) {
             case 'title':
@@ -86,6 +119,7 @@ function testView() {
                         style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
                         onClick={() => selectModule(index)}>
                         {moduleItem.content}
+                        {moduleItem.isRequired && <i className='prod-required' style={{ fontSize: `${moduleItem.size}px` }}>*</i>}
                         <p className='mock-textbox' style={{ height: '17px' }} />
                     </div>
                 );
@@ -97,6 +131,7 @@ function testView() {
                         style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
                         onClick={() => selectModule(index)}>
                         {moduleItem.content}
+                        {moduleItem.isRequired && <i className='prod-required'>*</i>}
                         <p className='mock-textbox' style={{ height: '45px' }} />
                     </div>
                 );
@@ -132,7 +167,7 @@ function testView() {
                             style={{ fontSize: `${moduleItem.size}px` }}
                             onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
                             placeholder="Input text here*" />
-                        <p className='mock-textbox' style={{ height: '17px' }} />
+                        <p className='mock-textbox' style={{ height: '17px' }}/>
                     </div>
                 );
             case 'txtblock-input':
@@ -152,18 +187,6 @@ function testView() {
                     </div>
                 );
         }
-    }
-    function editTab(moduleItem, index) {
-        return (
-            <div className='prod-edit-tab'>
-                <span>{moduleItem.id}</span>
-                <p>Tt</p><input type='number' value={moduleItem.size} onChange={(event) => handleNumberChange(event, moduleItem.id, "size", 0, 25)} maxlength="2" />
-                |
-                <p>↧↧</p><input type='number' value={moduleItem.spacing} onChange={(event) => handleNumberChange(event, moduleItem.id, "spacing", 0, 99)} maxlength="2" />
-                |
-                <a onClick={() => selectModule(-1)}>↩</a>
-            </div>
-        );
     }
 
     return (
