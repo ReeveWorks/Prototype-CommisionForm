@@ -1,9 +1,9 @@
-.comp-prod {
   /* padding: 0 clamp(5%, auto, 30%); 300px - 750px*/
+/* .comp-prod {
   width: clamp(300px, 50vw, 750px);
   align-content: center;
   margin: 0 auto;
-}
+} */
 
 .comp-prod h1 {
   font-size: var(--text-h1);

@@ -1,3 +1,10 @@
+.comp-prod {
+  /* padding: 0 clamp(5%, auto, 30%); 300px - 750px*/
+  width: clamp(450px, 50vw, 1000px);
+  align-content: center;
+  margin: 0 auto;
+}
+
 .prod-title {
   font-size: var(--text-h1);
   font-weight: bold;
@@ -63,7 +70,8 @@
   border: 1px solid var(--text-main);
   pointer-events: none;
   font-size: var(--text-small);
-  padding: 1px;
+  padding: 5px;
+  line-height: 1.2;
 }
 .prod-required {
   color:var(--accent);
@@ -83,7 +91,7 @@
 .prod-edit-tab {
   gap: 5px;
   display: flex;
-  padding: 2.5px;
+  padding: 5px;
   margin: -2.5px;
   margin-bottom: 7px;
   align-items: center;
@@ -110,7 +118,7 @@
   font-size: var(--text-small);
   background-color: var(--background-tertiary);
   border: 1.25px solid var(--background-secondary);
-  width: 20px;
+  width: 35px;
   text-align: center;
 }
 

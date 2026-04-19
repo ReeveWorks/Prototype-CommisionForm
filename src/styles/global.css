@@ -2,11 +2,11 @@
 :root{
   --accent: rgb(141, 92, 255);
   --text-title: 35px;
-  --text-h1: 20px;
-  --text-h2: 17px;
-  --text-h3: 15px;
-  --text-base: 13px;
-  --text-small: 11px;
+  --text-h1: 35px; /*20*/
+  --text-h2: 25px; /*17*/
+  --text-h3: 20px; /*15*/
+  --text-base: 18px; /*14*/
+  --text-small: 15px; /*11*/
 }
 
 
@@ -45,4 +45,20 @@ button {
   color: var(--text-secondary);
   cursor: pointer;
   transition: background-color 300ms;
+}
+
+.txt-base{
+  font-size: var(--text-base);
+}
+.txt-small{
+  font-size: var(--text-small);
+}
+.txt-h1{
+  font-size: var(--text-h1);
+}
+.txt-h2{
+  font-size: var(--text-h2);
+}
+.txt-h3{
+  font-size: var(--text-h3);
 }
