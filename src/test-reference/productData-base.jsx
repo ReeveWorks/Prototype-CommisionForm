@@ -83,13 +83,17 @@ function testView() {
 
     function editTab(moduleItem, index) {
         return (
-            <div className='prod-edit-tab' style={{ fontSize: `${moduleItem.size}px`}}>
+            <div className='prod-edit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
                 <span className='txt-base'>{moduleItem.id}</span>
                 {moduleItem.type.includes("input") &&
-                    <select value={moduleItem.isRequired} onChange={(event) => handleChangeModule(event, moduleItem.id, "isRequired")}>
-                        <option value={true}>Yes</option>
-                        <option value={false}>No</option>
-                    </select>
+                    <>
+                        <p className='txt-base'>Required</p>
+                        <select value={moduleItem.isRequired} onChange={(event) => handleChangeModule(event, moduleItem.id, "isRequired")}>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
+                        </select>
+                        <p className='txt-base'>|</p>
+                    </>
                 }
                 <p className='txt-base'>Tt</p><input type='number' value={moduleItem.size} onChange={(event) => handleNumberChange(event, moduleItem.id, "size", 0, 50)} maxLength="2" />
                 <p className='txt-base'>|</p>
@@ -120,7 +124,7 @@ function testView() {
                         onClick={() => selectModule(index)}>
                         {moduleItem.content}
                         {moduleItem.isRequired && <i className='prod-required' style={{ fontSize: `${moduleItem.size}px` }}>*</i>}
-                        <p className='mock-textbox'><br/></p>
+                        <p className='mock-textbox' style={{ marginTop: `7px` }}><br /></p>
                     </div>
                 );
             case 'txtblock-input':
@@ -132,7 +136,7 @@ function testView() {
                         onClick={() => selectModule(index)}>
                         {moduleItem.content}
                         {moduleItem.isRequired && <i className='prod-required'>*</i>}
-                        <p className='mock-textbox'><br/><br/><br/></p>
+                        <p className='mock-textbox' style={{ marginTop: `7px` }}><br /><br /><br /></p>
                     </div>
                 );
         }
@@ -167,7 +171,7 @@ function testView() {
                             style={{ fontSize: `${moduleItem.size}px` }}
                             onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
                             placeholder="Input text here*" />
-                        <p className='mock-textbox' style={{ height: '17px' }} />
+                        <p className='mock-textbox'><br /></p>
                     </div>
                 );
             case 'txtblock-input':
@@ -183,7 +187,7 @@ function testView() {
                             style={{ fontSize: `${moduleItem.size}px` }}
                             onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
                             placeholder="Input text here*" />
-                        <p className='mock-textbox' style={{ height: '45px' }} />
+                        <p className='mock-textbox'><br /><br /><br /></p>
                     </div>
                 );
         }

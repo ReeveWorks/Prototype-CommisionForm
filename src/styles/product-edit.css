@@ -130,6 +130,17 @@
   font-size: var(--text-small);
 }
 
+.prod-edit-tab select {
+  color: var(--text-main);
+  font-size: var(--text-small);
+  background-color: var(--background-tertiary);
+  border: 1.25px solid var(--background-secondary);
+}
+.prod-edit-tab select:focus {
+  border: 1.25px solid var(--background-secondary);
+  outline: none;
+}
+
 .prod-hover:hover {
   border: 1px solid var(--accent);
   outline: none;
