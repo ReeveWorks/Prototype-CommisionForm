@@ -64,12 +64,17 @@ function testView() {
         console.log(`Module: ${moduleId}\nTarget: ${key}\nNew Value: ${nValue}`);
         console.log(testProd.module[1])
     }
+    
+    function handleDeleteModule(moduleId) {
+            setprod({ ...testProd, module: testProd.module.filter(m => m.id !== moduleId) })
+    }
     function handleNumberChange(event, moduleId, key, min, max) {
         if (event.target.value < min) return;
         if (event.target.value > max) return;
         if (event.target.value.includes('.')) return;
         handleChangeModule(event, moduleId, key);
     }
+
     function selectModule(index) {
         setIsEditing(index);
         console.log("Selected module index:", index);
@@ -99,6 +104,8 @@ function testView() {
                 <p className='txt-base'>|</p>
                 <p className='txt-base'>↧↧</p><input type='number' value={moduleItem.spacing} onChange={(event) => handleNumberChange(event, moduleItem.id, "spacing", 0, 250)} maxLength="2" />
                 <p className='txt-base'>|</p>
+
+                <a className='txt-base' onClick={() => handleDeleteModule(moduleItem.id)}>✕</a>
                 <a className='txt-base' onClick={() => selectModule(-1)}>↩</a>
             </div>
         );
