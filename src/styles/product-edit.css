@@ -105,6 +105,28 @@
   flex: 1;
   font-size: var(--text-small);
   color: color-mix(in srgb, var(--text-main) 75%, transparent);
+
+  /* highlight area covers, to be deleted */
+  background-color: red;
+}
+
+.prod-edit-tab-elements {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex: 2;
+  gap: 5px;
+  
+  /* highlight area covers, to be deleted */
+  background-color: blue;
+}
+
+.prod-edit-tab-buttons {
+  display: flex;
+  gap: 5px;
+  
+  /* highlight area covers, to be deleted */
+  background-color: greenyellow;
 }
 
 .prod-edit-tab a:hover, .prod-edit-tab span:hover {
@@ -121,13 +143,8 @@
   width: 35px;
   text-align: center;
 }
-
 .prod-edit-tab input:focus {
   border: 1.25px solid var(--background-secondary);
-}
-
-.prod-edit-tab p {
-  font-size: var(--text-small);
 }
 
 .prod-edit-tab select {

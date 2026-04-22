@@ -64,9 +64,9 @@ function testView() {
         console.log(`Module: ${moduleId}\nTarget: ${key}\nNew Value: ${nValue}`);
         console.log(testProd.module[1])
     }
-    
+
     function handleDeleteModule(moduleId) {
-            setprod({ ...testProd, module: testProd.module.filter(m => m.id !== moduleId) })
+        setprod({ ...testProd, module: testProd.module.filter(m => m.id !== moduleId) })
     }
     function handleNumberChange(event, moduleId, key, min, max) {
         if (event.target.value < min) return;
@@ -77,7 +77,7 @@ function testView() {
 
     function selectModule(index) {
         setIsEditing(index);
-        console.log("Selected module index:", index);
+        // console.log("Selected module index:", index);
     }
     function renderModule(moduleItem, index) {
         if (isEditing === index) {
@@ -90,23 +90,32 @@ function testView() {
         return (
             <div className='prod-edit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
                 <span className='txt-base'>{moduleItem.id}</span>
-                {moduleItem.type.includes("input") &&
-                    <>
-                        <p className='txt-base'>Required</p>
-                        <select value={moduleItem.isRequired} onChange={(event) => handleChangeModule(event, moduleItem.id, "isRequired")}>
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
-                        </select>
-                        <p className='txt-base'>|</p>
-                    </>
-                }
-                <p className='txt-base'>Tt</p><input type='number' value={moduleItem.size} onChange={(event) => handleNumberChange(event, moduleItem.id, "size", 0, 50)} maxLength="2" />
-                <p className='txt-base'>|</p>
-                <p className='txt-base'>↧↧</p><input type='number' value={moduleItem.spacing} onChange={(event) => handleNumberChange(event, moduleItem.id, "spacing", 0, 250)} maxLength="2" />
-                <p className='txt-base'>|</p>
 
-                <a className='txt-base' onClick={() => handleDeleteModule(moduleItem.id)}>✕</a>
-                <a className='txt-base' onClick={() => selectModule(-1)}>↩</a>
+                <div className='prod-edit-tab-elements'>
+                    {moduleItem.type.includes("input") &&
+                        <>
+                            <p className='txt-base'>Required</p>
+                            <select value={moduleItem.isRequired} onChange={(event) => handleChangeModule(event, moduleItem.id, "isRequired")}>
+                                <option value={true}>Yes</option>
+                                <option value={false}>No</option>
+                            </select>
+                        </>
+                    }
+                    <p className='txt-base'>Tt</p>
+                    <input type='number' maxLength="2"
+                        value={moduleItem.size}
+                        onChange={(event) => handleNumberChange(event, moduleItem.id, "size", 0, 50)} />
+
+                    <p className='txt-base'>↧↧</p>
+                    <input type='number' maxLength="2"
+                        value={moduleItem.spacing}
+                        onChange={(event) => handleNumberChange(event, moduleItem.id, "spacing", 0, 250)} />
+                </div>
+
+                <div className='prod-edit-tab-buttons'>
+                    <a className='txt-base' onClick={() => handleDeleteModule(moduleItem.id)}>✕</a>
+                    <a className='txt-base' onClick={() => selectModule(-1)}>↩</a>
+                </div>
             </div>
         );
     }
