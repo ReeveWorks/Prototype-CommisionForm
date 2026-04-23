@@ -94,10 +94,9 @@ function testView() {
                 <div className='prod-edit-tab-elements'>
                     {moduleItem.type.includes("input") &&
                         <>
-                            <p className='txt-base'>Required</p>
                             <select value={moduleItem.isRequired} onChange={(event) => handleChangeModule(event, moduleItem.id, "isRequired")}>
-                                <option value={true}>Yes</option>
-                                <option value={false}>No</option>
+                                <option value={true}>Required</option>
+                                <option value={false}>Not Required</option>
                             </select>
                         </>
                     }
@@ -113,8 +112,8 @@ function testView() {
                 </div>
 
                 <div className='prod-edit-tab-buttons'>
-                    <a className='txt-base' onClick={() => handleDeleteModule(moduleItem.id)}>✕</a>
-                    <a className='txt-base' onClick={() => selectModule(-1)}>↩</a>
+                    <button className='txt-base use-icon' onClick={() => handleDeleteModule(moduleItem.id)}>1</button>
+                    <button className='txt-base use-icon' onClick={() => selectModule(-1)}>0</button>
                 </div>
             </div>
         );

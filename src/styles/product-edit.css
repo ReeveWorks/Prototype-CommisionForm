@@ -107,7 +107,7 @@
   color: color-mix(in srgb, var(--text-main) 75%, transparent);
 
   /* highlight area covers, to be deleted */
-  background-color: red;
+  /* background-color: red; */
 }
 
 .prod-edit-tab-elements {
@@ -117,16 +117,26 @@
   flex: 2;
   gap: 5px;
   
-  /* highlight area covers, to be deleted */
-  background-color: blue;
 }
 
 .prod-edit-tab-buttons {
   display: flex;
-  gap: 5px;
-  
-  /* highlight area covers, to be deleted */
-  background-color: greenyellow;
+  gap: 0px;
+  padding: 0px;
+  margin: -8.5px -6.5px -6.5px 0px;
+}
+.prod-edit-tab-buttons button {
+  color: var(--text-main);
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+  padding: 7.5px;
+  width: 35px;
+}
+.prod-edit-tab-buttons button:hover {
+  color: var(--background-main);
+  background-color: var(--text-main);
 }
 
 .prod-edit-tab a:hover, .prod-edit-tab span:hover {

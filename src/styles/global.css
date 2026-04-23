@@ -31,6 +31,13 @@ html.light {
   --accent: rgb(255, 102, 0);
 }
 
+@font-face {
+  font-family: 'IconFont';
+  src: url('../assets/font_icon.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Global Styles */
 button {
   font-size: var(--text-base);
@@ -61,4 +68,8 @@ button {
 }
 .txt-h3{
   font-size: var(--text-h3);
+}
+
+.use-icon {
+  font-family: 'IconFont', sans-serif;
 }
