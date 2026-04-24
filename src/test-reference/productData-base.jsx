@@ -49,29 +49,34 @@ function testView() {
         setprod({ ...testProd, [key]: event.target.value })
     }
     function handleChangeModule(event, moduleId, key) {
-        let nValue = event.target.value;
+        console.log(event);
+        let nValue = event;
         if (key === "size" || key === "spacing") {
             nValue = Number(nValue);
         }
-        else if (event.target.value === "true") {
+        else if (event === "true") {
             nValue = true;
         }
-        else if (event.target.value === "false") {
+        else if (event === "false") {
+            nValue = false;
+        }
+        else if (event === "on") {
+            nValue = true;
+        }
+        else if (event === "off") {
             nValue = false;
         }
 
         setprod({ ...testProd, module: testProd.module.map(m => m.id === moduleId ? { ...m, [key]: nValue } : m) })
-        console.log(`Module: ${moduleId}\nTarget: ${key}\nNew Value: ${nValue}`);
-        console.log(testProd.module[1])
     }
 
     function handleDeleteModule(moduleId) {
         setprod({ ...testProd, module: testProd.module.filter(m => m.id !== moduleId) })
     }
     function handleNumberChange(event, moduleId, key, min, max) {
-        if (event.target.value < min) return;
-        if (event.target.value > max) return;
-        if (event.target.value.includes('.')) return;
+        if (event < min) return;
+        if (event > max) return;
+        if (event.includes('.')) return;
         handleChangeModule(event, moduleId, key);
     }
 
@@ -94,21 +99,19 @@ function testView() {
                 <div className='prod-edit-tab-elements'>
                     {moduleItem.type.includes("input") &&
                         <>
-                            <select value={moduleItem.isRequired} onChange={(event) => handleChangeModule(event, moduleItem.id, "isRequired")}>
-                                <option value={true}>Required</option>
-                                <option value={false}>Not Required</option>
-                            </select>
+                            <p className='txt-base'>Required</p>
+                            <input type="checkbox" className='prod-edit-tab-checkbox' checked={moduleItem.isRequired} onChange={() => handleChangeModule(!moduleItem.isRequired, moduleItem.id, "isRequired")} />
                         </>
                     }
                     <p className='txt-base'>Tt</p>
                     <input type='number' maxLength="2"
                         value={moduleItem.size}
-                        onChange={(event) => handleNumberChange(event, moduleItem.id, "size", 0, 50)} />
+                        onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "size", 0, 50)} />
 
                     <p className='txt-base'>↧↧</p>
                     <input type='number' maxLength="2"
                         value={moduleItem.spacing}
-                        onChange={(event) => handleNumberChange(event, moduleItem.id, "spacing", 0, 250)} />
+                        onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "spacing", 0, 250)} />
                 </div>
 
                 <div className='prod-edit-tab-buttons'>

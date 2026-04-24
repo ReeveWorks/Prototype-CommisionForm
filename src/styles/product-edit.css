@@ -118,7 +118,12 @@
   gap: 5px;
   
 }
-
+.prod-edit-tab-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+}
 .prod-edit-tab-buttons {
   display: flex;
   gap: 0px;
