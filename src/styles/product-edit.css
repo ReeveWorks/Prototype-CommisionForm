@@ -1,3 +1,13 @@
+/* ============================================
+   PRODUCT EDIT STYLES
+   ============================================ */
+
+
+
+
+/* ============================================
+   TOP LEVEL STYLES
+   ============================================ */
 .comp-prod {
   /* padding: 0 clamp(5%, auto, 30%); 300px - 750px*/
   width: clamp(450px, 50vw, 1000px);
@@ -36,7 +46,19 @@
   background-color: var(--accent);
   margin: 10px 0px;
 }
+/* ============================================
+   TOP LEVEL STYLES
+   ============================================ */
 
+
+
+
+
+
+
+/* ============================================
+   PRODUCT MODULE STYLES
+   ============================================ */
 .prod-module {
   width: 100%;
   padding: 2.5px;
@@ -73,10 +95,23 @@
   padding: 5px;
   line-height: 1.2;
 }
+
 .prod-required {
   color:var(--accent);
 }
+/* ============================================
+   PRODUCT MODULE STYLES
+   ============================================ */
 
+
+
+
+
+
+
+/* ============================================
+   PRODUCT MODULE EDIT MODE STYLES
+   ============================================ */
 .selected-module {
   border: 1px solid var(--accent);
   background-color: color-mix(in srgb, var(--accent), transparent 95%);
@@ -87,7 +122,10 @@
   background-color: color-mix(in srgb, var(--accent), transparent 95%);
   border: 1px solid var(--text-main);
 }
+/* ============================================ */
 
+
+/* ============================================ */
 .prod-edit-tab {
   gap: 5px;
   display: flex;
@@ -98,37 +136,71 @@
   border: 1px solid var(--accent);
   background-color: var(--accent);
   cursor: context-menu;
+  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.prod-edit-tab span {
-  text-align: left;
-  flex: 1;
+.prod-edit-tab label {
+  color: var(--text-main);
   font-size: var(--text-small);
-  color: color-mix(in srgb, var(--text-main) 75%, transparent);
+  background-color: var(--background-tertiary);
+  border: 1.25px solid var(--background-secondary);
+  text-align: center;
+  width: 100px;
+  padding: 3px 0;
 
   /* highlight area covers, to be deleted */
   /* background-color: red; */
 }
 
+.prod-edit-tab input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* .prod-edit-tab input:checked ~ label {
+  background-color: var(--accent);
+  color: var(--background-main);
+} */
+
+.prod-edit-tab label.prod-edit-tab-noborder {
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  color: color-mix(in srgb, var(--text-main) 65%, transparent);
+}
+
+.prod-edit-tab label:has(input:checked) {
+  color: var(--accent);
+  font-weight: bold;
+}
+/* ============================================ */
+
+
+/* ============================================ */
 .prod-edit-tab-elements {
   display: flex;
   text-align: center;
   align-items: center;
-  flex: 2;
+  flex: 1;
   gap: 5px;
   
 }
-.prod-edit-tab-checkbox {
-  display: flex;
-  align-items: center;
-  padding: 0px;
-  margin: 0px;
-}
+/* ============================================ */
+
+
+/* ============================================ */
 .prod-edit-tab-buttons {
   display: flex;
   gap: 0px;
   padding: 0px;
-  margin: -8.5px -6.5px -6.5px 0px;
+  margin: -7px -6.5px -6px 0px;
 }
 .prod-edit-tab-buttons button {
   color: var(--text-main);
@@ -144,12 +216,19 @@
   background-color: var(--text-main);
 }
 
-.prod-edit-tab a:hover, .prod-edit-tab span:hover {
-  color: var(--background-main);
-  background-color: none;
-  transition: all 200ms;
-}
+/* .prod-edit-tab-buttons input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+} */
 
+
+/* ============================================ */
+
+
+/* ============================================ */
 .prod-edit-tab input {
   color: var(--text-main);
   font-size: var(--text-small);
@@ -158,10 +237,14 @@
   width: 35px;
   text-align: center;
 }
-.prod-edit-tab input:focus {
-  border: 1.25px solid var(--background-secondary);
-}
 
+.prod-edit-tab input:focus {
+  border: 1.25px solid var(--accent);
+}
+/* ============================================ */
+
+
+/* ============================================ */
 .prod-edit-tab select {
   color: var(--text-main);
   font-size: var(--text-small);
@@ -179,7 +262,6 @@
   background-color: color-mix(in srgb, var(--accent), transparent 90%);
 }
 
-
 /* Remove arrows from number inputs */
 .prod-edit-tab input[type="number"]::-webkit-outer-spin-button,
 .prod-edit-tab input[type="number"]::-webkit-inner-spin-button {
@@ -190,3 +272,6 @@
 /* .prod-edit-tab input[type="number"] {
   -moz-appearance: textfield;
 } */
+/* ============================================
+   PRODUCT MODULE EDIT MODE STYLES
+   ============================================ */

@@ -94,15 +94,17 @@ function testView() {
     function editTab(moduleItem, index) {
         return (
             <div className='prod-edit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
-                <span className='txt-base'>{moduleItem.id}</span>
-
                 <div className='prod-edit-tab-elements'>
-                    {moduleItem.type.includes("input") &&
-                        <>
-                            <p className='txt-base'>Required</p>
-                            <input type="checkbox" className='prod-edit-tab-checkbox' checked={moduleItem.isRequired} onChange={() => handleChangeModule(!moduleItem.isRequired, moduleItem.id, "isRequired")} />
-                        </>
+                    {moduleItem.type.includes("input")
+                        ?
+                        <label className='clickable'>
+                            <input type="checkbox" className='prod-hover' checked={moduleItem.isRequired} onChange={() => handleChangeModule(!moduleItem.isRequired, moduleItem.id, "isRequired")} />
+                            {moduleItem.id}
+                        </label>
+                        :
+                        <label className='prod-edit-tab-noborder'>{moduleItem.id}</label>
                     }
+
                     <p className='txt-base'>Tt</p>
                     <input type='number' maxLength="2"
                         value={moduleItem.size}
