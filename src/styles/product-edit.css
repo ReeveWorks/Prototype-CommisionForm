@@ -178,6 +178,7 @@
 
 .prod-edit-tab label:has(input:checked) {
   color: var(--accent);
+  background-color: var(--text-main);
   font-weight: bold;
 }
 /* ============================================ */
