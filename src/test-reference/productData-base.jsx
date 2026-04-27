@@ -229,6 +229,10 @@ function testView() {
 
             {testProd.module.map((m, idx) => renderModule(m, idx))}
 
+            <button className='prod-btn-addModule'>
+                +
+            </button>
+
         </div>
     );
 }
