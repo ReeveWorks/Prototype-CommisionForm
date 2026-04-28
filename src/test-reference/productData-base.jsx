@@ -44,6 +44,7 @@ function testView() {
         ],
     });
     const [isEditing, setIsEditing] = useState(-1);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     function handleChange(event, key) {
         setprod({ ...testProd, [key]: event.target.value })
@@ -78,6 +79,9 @@ function testView() {
         if (event > max) return;
         if (event.includes('.')) return;
         handleChangeModule(event, moduleId, key);
+    }
+    function handleTogglePopup() {
+        setIsPopupOpen(!isPopupOpen);
     }
 
     function selectModule(index) {
@@ -214,26 +218,31 @@ function testView() {
     }
 
     return (
-        <div className='comp-prod'>
-            <br />
-            <input className="prod-text prod-title prod-hover"
-                type="text"
-                value={testProd.name}
-                onChange={(event) => handleChange(event, "name")}
-                placeholder="Product Name*" />
-            <textarea className="prod-text txt-h3 prod-hover"
-                value={testProd.description}
-                onChange={(event) => handleChange(event, "description")}
-                placeholder="Product Description*" />
-            <p className='prod-divider' />
+        <>
+            <div id='pop-up' className={`prod-popup txt-unselectable ${isPopupOpen ? 'prod-popup-close' : ''}`} onClick={handleTogglePopup}>
+                {/* <h2>Select what to Add!</h2> */}
+            </div>
 
-            {testProd.module.map((m, idx) => renderModule(m, idx))}
+            <div className='comp-prod'>
+                <br />
+                <input className="prod-text prod-title prod-hover"
+                    type="text"
+                    value={testProd.name}
+                    onChange={(event) => handleChange(event, "name")}
+                    placeholder="Product Name*" />
+                <textarea className="prod-text txt-h3 prod-hover"
+                    value={testProd.description}
+                    onChange={(event) => handleChange(event, "description")}
+                    placeholder="Product Description*" />
+                <p className='prod-divider' />
 
-            <button className='prod-btn-addModule'>
-                +
-            </button>
+                {testProd.module.map((m, idx) => renderModule(m, idx))}
 
-        </div>
+                <button className='prod-btn-addModule' onClick={handleTogglePopup}>
+                    +
+                </button>
+            </div>
+        </>
     );
 }
 

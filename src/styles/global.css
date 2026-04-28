@@ -51,7 +51,7 @@ button {
 
   color: var(--text-secondary);
   cursor: pointer;
-  transition: background-color 300ms;
+  /* transition: background-color 300ms; */
 }
 
 .txt-base{
@@ -72,4 +72,11 @@ button {
 
 .use-icon {
   font-family: 'IconFont', sans-serif;
+}
+
+.txt-unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

@@ -173,7 +173,9 @@
   border: none;
   background-color: transparent;
   font-weight: bold;
-  color: color-mix(in srgb, var(--text-main) 65%, transparent);
+  color: var(--text-main);
+  border: 1.25px solid var(--text-main);
+  opacity: 0.65;
 }
 
 .prod-edit-tab label:has(input:checked) {
@@ -275,4 +277,55 @@
 } */
 /* ============================================
    PRODUCT MODULE EDIT MODE STYLES
+   ============================================ */
+
+
+
+
+
+
+
+/* ============================================
+   ADD MODULE STYLES
+   ============================================ */
+.prod-btn-addModule {
+  padding: 5px;
+  width: 100%;
+  border-radius: 20px 0 20px 0;
+  margin-top: 20px;
+}
+   
+
+/* ============================================
+   ADD MODULE STYLES
+   ============================================ */
+
+
+
+
+
+
+
+/* ============================================
+   POP UP STYLES
+   ============================================ */
+   .prod-popup{
+      position: fixed;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      
+      background-color: color-mix(in srgb, black 75%, transparent);
+   }
+
+   .prod-popup-close{
+    visibility: hidden;
+   }
+/* ============================================
+   POP UP STYLES
    ============================================ */
