@@ -72,7 +72,11 @@ function testView() {
     }
 
     function handleDeleteModule(moduleId) {
+        handleTogglePopup();
+    }
+    function DeleteModule(moduleId) {
         setprod({ ...testProd, module: testProd.module.filter(m => m.id !== moduleId) })
+        handleTogglePopup();
     }
     function handleNumberChange(event, moduleId, key, min, max) {
         if (event < min) return;
