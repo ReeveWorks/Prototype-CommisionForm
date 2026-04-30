@@ -44,7 +44,7 @@ function testView() {
         ],
     });
     const [isEditing, setIsEditing] = useState(-1);
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(true);
 
     function handleChange(event, key) {
         setprod({ ...testProd, [key]: event.target.value })

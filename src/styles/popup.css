@@ -1,0 +1,5 @@
+.pop-up-display {
+  width: clamp(450px, 50vw, 1000px);
+  align-content: center;
+  margin: 0 auto;
+}
