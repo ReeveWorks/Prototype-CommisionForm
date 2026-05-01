@@ -1,5 +1,6 @@
 /* Stylesheets */
 import '../styles/product-edit.css'
+import '../styles/popup.css'
 
 /* Functions/Hooks */
 import { useSelector, useDispatch } from 'react-redux'
@@ -76,6 +77,7 @@ function testView() {
     }
     function DeleteModule(moduleId) {
         setprod({ ...testProd, module: testProd.module.filter(m => m.id !== moduleId) })
+        setIsEditing(-1);
         handleTogglePopup();
     }
     function handleNumberChange(event, moduleId, key, min, max) {
@@ -86,6 +88,19 @@ function testView() {
     }
     function handleTogglePopup() {
         setIsPopupOpen(!isPopupOpen);
+    }
+
+
+    function popupMessage(message) {
+        return (
+            <div className='pop-up-container'>
+                {message}
+                <div className='pop-up-buttons'>
+                    <button className='pop-up-buttons' onClick={() => DeleteModule(testProd.module[isEditing].id)}>Yes</button>
+                    <button className='pop-up-buttons' onClick={handleTogglePopup}>No</button>
+                </div>
+            </div>
+        );
     }
 
     function selectModule(index) {
@@ -224,7 +239,7 @@ function testView() {
     return (
         <>
             <div id='pop-up' className={`prod-popup txt-unselectable ${isPopupOpen ? 'prod-popup-close' : ''}`} onClick={handleTogglePopup}>
-                {/* <h2>Select what to Add!</h2> */}
+                {popupMessage("Are you sure you want to delete this module? This action cannot be undone.")}
             </div>
 
             <div className='comp-prod'>

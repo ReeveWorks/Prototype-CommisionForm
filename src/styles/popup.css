@@ -1,5 +1,23 @@
-.pop-up-display {
+.pop-up-container {
   width: clamp(450px, 50vw, 1000px);
   align-content: center;
   margin: 0 auto;
+  padding: 5px 10px;
+  border-radius: 20px 0 20px 0;
+
+  font-size: var(--text-base);
+  background-color: var(--background-tertiary);
+  border: 2px solid var(--background-secondary);
+}
+
+.pop-up-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 5px;
+  padding: 3px 10px;
+  width: 100%;
+  border-radius: 0;
+  
+  font-size: var(--text-base);
 }
