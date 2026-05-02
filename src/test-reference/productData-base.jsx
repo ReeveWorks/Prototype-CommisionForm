@@ -238,7 +238,8 @@ function testView() {
 
     return (
         <>
-            <div id='pop-up' className={`prod-popup txt-unselectable ${isPopupOpen ? 'prod-popup-close' : ''}`} onClick={handleTogglePopup}>
+            <div id='pop-up' className={`pop-up-backdrop txt-unselectable ${isPopupOpen ? 'prod-popup-close' : ''}`}>
+                <p className='pop-up-close' onClick={handleTogglePopup}/>
                 {popupMessage("Are you sure you want to delete this module? This action cannot be undone.")}
             </div>
 
@@ -257,7 +258,7 @@ function testView() {
 
                 {testProd.module.map((m, idx) => renderModule(m, idx))}
 
-                <button className='prod-btn-addModule' onClick={handleTogglePopup}>
+                <button className='prod-btn-addModule'>
                     +
                 </button>
             </div>

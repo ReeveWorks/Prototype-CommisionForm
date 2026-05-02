@@ -309,20 +309,6 @@
 /* ============================================
    POP UP STYLES
    ============================================ */
-   .prod-popup{
-      position: fixed;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      justify-content: center;
-
-      width: 100%;
-      height: 100%;
-      z-index: 1000;
-      
-      background-color: color-mix(in srgb, black 75%, transparent);
-   }
-
    .prod-popup-close{
     visibility: hidden;
    }
