@@ -14,33 +14,26 @@ const initialState = {
                     {
                         id: "stm-ttl01",
                         type: "title",
-                        size: "18",
-                        spacing: "0.5",
+                        size: 25,
+                        spacing: 20,
                         content: "Fill in your commission details!",
                     },
                     {
                         id: "inm-txt02",
                         type: "text-input",
-                        size: "13",
-                        spacing: "0",
+                        size: 20,
+                        spacing: 10,
+                        isRequired: true,
                         content: "Commission Title"
                     },
                     {
                         id: "inm-txt03",
                         type: "txtblock-input",
-                        size: "13",
-                        spacing: "0",
+                        size: 20,
+                        spacing: 10,
+                        isRequired: false,
                         content: "Details"
                     },
-                ],
-            },
-            {
-                id: "us89-2",
-                name: "Portrait",
-                description: "A portrait of your favorite character!",
-                module: [
-                    { id: "stm-ttl01", type: "title", content: "Fill in your commission details!", size: "h3" },
-                    { id: "inm-txt02", type: "text-input", content: "Any additional details?" },
                 ],
             },
         ],

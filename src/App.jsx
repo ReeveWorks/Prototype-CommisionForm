@@ -20,8 +20,8 @@ function App() {
     <div className="app">
       <Header />
 
-      {/* <ProductData /> */}
-      <TestView2 />
+      <ProductData />
+      {/* <TestView2 /> */}
       {/* <TestView /> */}
     </div>
   )
