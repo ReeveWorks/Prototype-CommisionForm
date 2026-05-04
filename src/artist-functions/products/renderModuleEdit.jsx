@@ -1,5 +1,5 @@
 /* Stylesheets */
-import '../styles/product-edit.css'
+import '../../styles/product-edit.css'
 
 /* Functions/Hooks */
 import { useSelector, useDispatch } from 'react-redux'
@@ -56,3 +56,5 @@ function renderModuleEdit(moduleItem, index) {
             );
     }
 }
+
+export default renderModuleEdit;
