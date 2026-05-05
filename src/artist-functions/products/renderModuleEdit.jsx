@@ -1,11 +1,7 @@
 /* Stylesheets */
 import '../../styles/product-edit.css'
 
-/* Functions/Hooks */
-import { useSelector, useDispatch } from 'react-redux'
-import { useState } from 'react';
-
-function renderModuleEdit(moduleItem, index) {
+function renderModuleEdit(moduleItem, index, setIsEditing) {
     switch (moduleItem.type) {
         case 'title':
             return (
@@ -13,12 +9,11 @@ function renderModuleEdit(moduleItem, index) {
                     key={index}
                     id={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
-                    {editTab(moduleItem, index)}
                     <input
                         type="text"
                         value={moduleItem.content}
                         style={{ fontSize: `${moduleItem.size}px`, textAlign: 'center' }}
-                        onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
+                        // onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
                         placeholder="Input text here*" />
                 </div>
             );
@@ -28,12 +23,12 @@ function renderModuleEdit(moduleItem, index) {
                     key={index}
                     id={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
-                    {editTab(moduleItem, index)}
+                    
                     <input
                         type="text"
                         value={moduleItem.content}
                         style={{ fontSize: `${moduleItem.size}px` }}
-                        onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
+                        // onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
                         placeholder="Input text here*" />
                     <p className='mock-textbox'><br /></p>
                 </div>
@@ -44,12 +39,12 @@ function renderModuleEdit(moduleItem, index) {
                     key={index}
                     id={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
-                    {editTab(moduleItem, index)}
+                    
                     <input
                         type="text"
                         value={moduleItem.content}
                         style={{ fontSize: `${moduleItem.size}px` }}
-                        onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
+                        // onChange={(event) => handleChangeModule(event, moduleItem.id, "content")}
                         placeholder="Input text here*" />
                     <p className='mock-textbox'><br /><br /><br /></p>
                 </div>

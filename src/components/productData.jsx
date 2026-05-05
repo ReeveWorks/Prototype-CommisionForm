@@ -8,8 +8,10 @@ import { useState } from 'react';
 /* Redux Slice */
 import { addProduct, updateProduct } from '../states/slices/artistDataSlice'
 
-/* Component */
+/* Render Modules */
 import renderModuleView from '../artist-functions/products/renderModuleView';
+import renderModuleEdit from '../artist-functions/products/renderModuleEdit';
+import renderEditTab from '../artist-functions/products/renderEditTab';
 
 function testView() {
     /* Redux */
@@ -18,16 +20,24 @@ function testView() {
 
     const [product, setProduct] = useState(useSelector((state) => state.artist.artist.products[0]));
 
+    /* System */
+    const [isEditing, setIsEditing] = useState(-1);
+
+    /* Functions */
+    function handleChange(event, key) {
+        setProduct({ ...product, [key]: event.target.value });
+    }
     function dataCheck() {
         console.log(product);
     }
 
 
     function renderModule(moduleItem, index) {
-        // if (isEditing === index) {
-        //     return renderModuleEdit(moduleItem, index);
-        // }
-        return renderModuleView(moduleItem, index);
+        if (isEditing === index) {
+            return (<> {renderEditTab(moduleItem, index, setIsEditing)} {renderModuleEdit(moduleItem, index, setIsEditing)} </>);
+        }
+
+        return renderModuleView(moduleItem, index, setIsEditing);
     }
 
     return (
