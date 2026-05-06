@@ -1,7 +1,7 @@
 /* Stylesheets */
 import '../../styles/product-edit.css'
 
-function renderEditTab(moduleItem, index, setIsEditing) {
+function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange) {
     return (
         <div className='prod-edit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
             <div className='prod-edit-tab-elements'>
