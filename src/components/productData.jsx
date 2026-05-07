@@ -1,5 +1,6 @@
 /* Stylesheets */
 import '../styles/product-edit.css'
+import '../styles/popup.css'
 
 /* Functions/Hooks */
 import { useSelector, useDispatch } from 'react-redux'
@@ -12,6 +13,9 @@ import { addProduct, updateProduct } from '../states/slices/artistDataSlice'
 import renderModuleView from '../artist-functions/products/renderModuleView';
 import renderModuleEdit from '../artist-functions/products/renderModuleEdit';
 import renderEditTab from '../artist-functions/products/renderEditTab';
+
+/* Render Pop-up */
+import RenderPopupMessage from '../artist-functions/others/renderPopup';
 
 function testView() {
     /* Redux */
@@ -54,11 +58,12 @@ function testView() {
         if (event.includes('.')) return;
         handleChangeModule(event, moduleId, key);
     }
+
     function dataCheck() {
         console.log(product);
     }
 
-
+    /* Render*/
     function renderModule(moduleItem, index) {
         if (isEditing === index) {
             return (<>
@@ -69,39 +74,49 @@ function testView() {
 
         return renderModuleView(moduleItem, index, setIsEditing);
     }
+    function renderPopup(text) {
+        return RenderPopupMessage(text);
+    }
 
     return (
-        <div className='comp-prod'>
-            <br />
-            <input className="prod-text prod-title prod-hover"
-                type="text"
-                value={product.name}
-                onChange={(event) => handleChange(event, "name")}
-                placeholder="Product Name*" />
-            <textarea className="prod-text txt-h3 prod-hover"
-                value={product.description}
-                onChange={(event) => handleChange(event, "description")}
-                placeholder="Product Description*" />
-            <p className='prod-divider' />
+        <>
+            <div className='pop-up-backdrop'>
+                
+            </div>
+
+            <div className='comp-prod'>
+                <br />
+                <input className="prod-text prod-title prod-hover"
+                    type="text"
+                    value={product.name}
+                    onChange={(event) => handleChange(event, "name")}
+                    placeholder="Product Name*" />
+                <textarea className="prod-text txt-h3 prod-hover"
+                    value={product.description}
+                    onChange={(event) => handleChange(event, "description")}
+                    placeholder="Product Description*" />
+                <p className='prod-divider' />
 
 
-            {/* Why this does not work? */}
-            {/* {product.module.map((m, idx) => 
-                renderModule(m, idx))
-            } */}
+                {/* Why this does not work? */}
+                {/* {product.module.map((m, idx) => renderModule(m, idx)) } */}
 
-            {/* Why this work? */}
-            {product.module.map((m, idx) => (
-                <Fragment key={m.id ?? idx}>
-                    {renderModule(m, idx)}
-                </Fragment>
-            ))}
+                {/* Why this work? */}
+                {product.module.map((m, idx) => (
+                    <Fragment key={m.id ?? idx}>
+                        {renderModule(m, idx)}
+                    </Fragment>
+                ))}
 
-            <button className='prod-btn-addModule' onClick={dataCheck}>
-                Data Check
-            </button>
+                <button className='prod-btn-addModule' onClick={dataCheck}>
+                    Data Check
+                </button>
 
-        </div>
+                <button className='prod-btn-addModule' onClick={() => renderPopup("Hello World")}>
+                    Pop-up
+                </button>
+            </div>
+        </>
     );
 }
 
