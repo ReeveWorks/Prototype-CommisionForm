@@ -15,7 +15,7 @@ import renderModuleEdit from '../artist-functions/products/renderModuleEdit';
 import renderEditTab from '../artist-functions/products/renderEditTab';
 
 /* Render Pop-up */
-import RenderPopupMessage from '../artist-functions/others/renderPopup';
+import PopupModel from '../artist-functions/others/renderPopup';
 
 function testView() {
     /* Redux */
@@ -24,8 +24,9 @@ function testView() {
 
     const [product, setProduct] = useState(useSelector((state) => state.artist.artist.products[0]));
 
-    /* System */
+    /* State */
     const [isEditing, setIsEditing] = useState(-1);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     /* Functions */
     function handleChange(event, key) {
@@ -63,7 +64,7 @@ function testView() {
         console.log(product);
     }
 
-    /* Render*/
+    /* Render */
     function renderModule(moduleItem, index) {
         if (isEditing === index) {
             return (<>
@@ -74,15 +75,10 @@ function testView() {
 
         return renderModuleView(moduleItem, index, setIsEditing);
     }
-    function renderPopup(text) {
-        return RenderPopupMessage(text);
-    }
 
     return (
         <>
-            <div className='pop-up-backdrop'>
-                
-            </div>
+            {isPopupOpen && <PopupModel message={"This is a pop-up message!"} closePopup={() => setIsPopupOpen(false)} />}
 
             <div className='comp-prod'>
                 <br />
@@ -112,7 +108,7 @@ function testView() {
                     Data Check
                 </button>
 
-                <button className='prod-btn-addModule' onClick={() => renderPopup("Hello World")}>
+                <button className='prod-btn-addModule' onClick={() => setIsPopupOpen(true)}>
                     Pop-up
                 </button>
             </div>

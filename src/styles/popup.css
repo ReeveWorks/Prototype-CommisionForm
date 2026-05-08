@@ -10,6 +10,7 @@
   z-index: 1000;
 
   background-color: color-mix(in srgb, black 75%, transparent);
+  backdrop-filter: blur(2px);
 }
 
 .pop-up-close {
