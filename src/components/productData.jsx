@@ -78,7 +78,7 @@ function testView() {
 
     return (
         <>
-            {isPopupOpen && <PopupModel message={"This is a pop-up message!"} closePopup={() => setIsPopupOpen(false)} />}
+            {isPopupOpen && <PopupModel type={"message"} message={"This is a pop-up message!"} closePopup={() => setIsPopupOpen(false)} />}
 
             <div className='comp-prod'>
                 <br />

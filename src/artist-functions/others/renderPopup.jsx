@@ -3,24 +3,64 @@ import '../../styles/product-edit.css'
 import '../../styles/popup.css'
 import { useRef } from 'react';
 
-function RenderPopupMessage({message, closePopup}) {
+function RenderPopupMessage({ type, title, message, contents, returnValue, closePopup }) {
     const popupRef = useRef();
 
+    /// type: message, bool, number, text
+    /// title: title of the pop-up
+    /// message: message to be displayed in the pop-up
+    /// contents
+    ///     for bool: [trueValue, falseValue]
+    ///     for number: {min, max, placeholder}
+    ///     for text: {placeholder, maxLength, minLength}
+    /// returnValue: for input type, the value to be returned when the user clicks the confirm button
+
     const handleClose = (event) => {
-        if (popupRef.current === event.target){
+        if (popupRef.current === event.target) {
             closePopup();
         }
     }
 
-    return (
-        <div ref={popupRef} onClick={handleClose} className='pop-up-backdrop'>
+    function renderPopup() {
+        switch (type) {
+            case 'message':
+                return messageOption();
+            case 'bool':
+                return boolOption('Yes', 'No');
+            default:
+                return null;
+        }
+    }
+
+    function messageOption() {
+        return (
             <div className='pop-up-container txt-unselectable'>
                 {message}
-                <div className='pop-up-buttons'>
-                    <button className='pop-up-buttons' onClick={closePopup}>Yes</button>
-                    <button className='pop-up-buttons' onClick={closePopup}>No</button>
+                <div className='pop-up-buttons-container'>
+                    <button className='pop-up-buttons' onClick={closePopup}>Close</button>
                 </div>
             </div>
+        );
+    }
+    function boolOption(trueValue, falseValue) {
+        function handleTrue() {
+            closePopup();
+        }
+
+        return (
+            <div className='pop-up-container txt-unselectable'>
+                {message}
+                <div className='pop-up-buttons-container'>
+                    <button className='pop-up-buttons' onClick={handleTrue}>{trueValue}</button>
+                    <button className='pop-up-buttons' onClick={closePopup}>{falseValue}</button>
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <div ref={popupRef} onClick={handleClose} className='pop-up-backdrop'>
+            {renderPopup()}
         </div>
     );
 }
@@ -28,9 +68,9 @@ function RenderPopupMessage({message, closePopup}) {
 export default RenderPopupMessage;
 
 
-        // <div className='pop-up-backdrop'>
-        //     {message}
-        // </div>
+// <div className='pop-up-backdrop'>
+//     {message}
+// </div>
 
 // function RenderPopupMessage(message) {
 //     return (
