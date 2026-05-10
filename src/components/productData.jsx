@@ -28,6 +28,11 @@ function testView() {
     const [isEditing, setIsEditing] = useState(-1);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+    /// Pop-up Props
+    const [popupProps, setPopupProps] = useState({});
+    const [popupReturnValue, setPopupReturnValue] = useState();
+
+
     /* Functions */
     function handleChange(event, key) {
         setProduct({ ...product, [key]: event.target.value });
@@ -75,10 +80,20 @@ function testView() {
 
         return renderModuleView(moduleItem, index, setIsEditing);
     }
+    function renderPopup(type, title, message, contents) {
+        setPopupProps({ type:type, title:title, message:message, contents:contents });
+        setIsPopupOpen(true);
+    }
 
     return (
         <>
-            {isPopupOpen && <PopupModel type={"message"} message={"This is a pop-up message!"} closePopup={() => setIsPopupOpen(false)} />}
+            {isPopupOpen && <PopupModel
+                type={popupProps.type}
+                title={popupProps.title}
+                message={popupProps.message}
+                contents={popupProps.contents}
+                returnValue={setPopupReturnValue}
+                closePopup={() => setIsPopupOpen(false)} />}
 
             <div className='comp-prod'>
                 <br />
@@ -108,9 +123,11 @@ function testView() {
                     Data Check
                 </button>
 
-                <button className='prod-btn-addModule' onClick={() => setIsPopupOpen(true)}>
+                <button className='prod-btn-addModule' onClick={() =>renderPopup("bool", "Pop-up Title", "Is this a Pop-up?", ["Yes", "Nah"])}>
                     Pop-up
                 </button>
+
+                {popupReturnValue ? <p>Your answer is correct!</p> : <p>Your answer is wrong!</p>}
             </div>
         </>
     );
