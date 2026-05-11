@@ -30,7 +30,6 @@ function testView() {
 
     /// Pop-up Props
     const [popupProps, setPopupProps] = useState({});
-    const [popupReturnValue, setPopupReturnValue] = useState();
 
 
     /* Functions */
@@ -68,6 +67,22 @@ function testView() {
     function dataCheck() {
         console.log(product);
     }
+    function popupCheck() {
+        openPopup("bool", "Pop-up Title", "Is this a Pop-up?", ["Yes", "Nah"], (item) => {
+            if (item === true) {
+                console.log("Pop-up returns a True value");
+            } else if (item === false) {
+                console.log("Pop-up returns a False value");
+            } else {
+                console.log("Pop-up returns nothing");
+            }
+        });
+    }
+
+    function openPopup(type, title, message, contents, onResult) {
+        setPopupProps({ type: type, title: title, message: message, contents: contents, returnValue: onResult });
+        setIsPopupOpen(true);
+    }
 
     /* Render */
     function renderModule(moduleItem, index) {
@@ -80,10 +95,6 @@ function testView() {
 
         return renderModuleView(moduleItem, index, setIsEditing);
     }
-    function renderPopup(type, title, message, contents) {
-        setPopupProps({ type:type, title:title, message:message, contents:contents });
-        setIsPopupOpen(true);
-    }
 
     return (
         <>
@@ -92,7 +103,7 @@ function testView() {
                 title={popupProps.title}
                 message={popupProps.message}
                 contents={popupProps.contents}
-                returnValue={setPopupReturnValue}
+                returnValue={popupProps.returnValue}
                 closePopup={() => setIsPopupOpen(false)} />}
 
             <div className='comp-prod'>
@@ -123,11 +134,9 @@ function testView() {
                     Data Check
                 </button>
 
-                <button className='prod-btn-addModule' onClick={() =>renderPopup("bool", "Pop-up Title", "Is this a Pop-up?", ["Yes", "Nah"])}>
+                <button className='prod-btn-addModule' onClick={() => popupCheck()}>
                     Pop-up
                 </button>
-
-                {popupReturnValue ? <p>Your answer is correct!</p> : <p>Your answer is wrong!</p>}
             </div>
         </>
     );
