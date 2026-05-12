@@ -23,6 +23,16 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
     }
 
     function renderPopup() {
+        return (
+            <div className='popup-container txt-unselectable'>
+                <h1>{title}</h1>
+                <p className='popup-diver' />
+                <span>{message}</span>
+                {renderSegment()}
+            </div>
+        );
+    }
+    function renderSegment() {
         switch (type) {
             case 'message':
                 return messageOption();
@@ -35,12 +45,8 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
 
     function messageOption() {
         return (
-            <div className='pop-up-container txt-unselectable'>
-                {title}
-                {message}
-                <div className='pop-up-buttons-container'>
-                    <button className='pop-up-buttons' onClick={closePopup}>{contents}</button>
-                </div>
+            <div className='pop-up-buttons-container'>
+                <button className='pop-up-buttons' onClick={closePopup}>{contents}</button>
             </div>
         );
     }
@@ -55,19 +61,15 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
         }
 
         return (
-            <div className='pop-up-container txt-unselectable'>
-                {title}
-                {message}
-                <div className='pop-up-buttons-container'>
-                    <button className='pop-up-buttons' onClick={handleTrue}>{trueValue}</button>
-                    <button className='pop-up-buttons' onClick={handleFalse}>{falseValue}</button>
-                </div>
+            <div className='popup-segment-container'>
+                <button className='popup-buttons' onClick={handleTrue}>{trueValue}</button>
+                <button className='popup-buttons' onClick={handleFalse}>{falseValue}</button>
             </div>
         );
     }
 
     return (
-        <div ref={popupRef} onClick={handleClose} className='pop-up-backdrop'>
+        <div ref={popupRef} onClick={handleClose} className='popup-backdrop'>
             {renderPopup()}
         </div>
     );
