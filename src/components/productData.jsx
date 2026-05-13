@@ -63,6 +63,19 @@ function testView() {
         if (event.includes('.')) return;
         handleChangeModule(event, moduleId, key);
     }
+    function DeleteModule(moduleId) {
+        openPopup("bool", "Delete Module", "Are you sure you want to delete this module?", ["Yes!", "Nope!"], (item) => {
+            if (item === true) {
+                setProduct({ ...product, module: product.module.filter(m => m.id !== moduleId) })
+                console.log("Pop-up returns a True value");
+            } else if (item === false) {
+                console.log("Pop-up returns a False value");
+            } else {
+                console.log("Pop-up returns nothing");
+            }
+            setIsPopupOpen(false);
+        });
+    }
 
     function dataCheck() {
         console.log(product);
@@ -88,7 +101,7 @@ function testView() {
     function renderModule(moduleItem, index) {
         if (isEditing === index) {
             return (<>
-                {renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange)}
+                {renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule)}
                 {renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange)}
             </>);
         }

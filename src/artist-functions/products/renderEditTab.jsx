@@ -1,7 +1,7 @@
 /* Stylesheets */
 import '../../styles/product-edit.css'
 
-function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange) {
+function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule) {
     return (
         <div className='prod-edit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
             <div className='prod-edit-tab-elements'>
@@ -27,7 +27,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
             </div>
 
             <div className='prod-edit-tab-buttons'>
-                <button className='txt-base use-icon' onClick={() => handleDeleteModule(moduleItem.id)}>1</button>
+                <button className='txt-base use-icon' onClick={() => DeleteModule(moduleItem.id)}>1</button>
                 <button className='txt-base use-icon' onClick={() => setIsEditing(-1)}>0</button>
             </div>
         </div>
