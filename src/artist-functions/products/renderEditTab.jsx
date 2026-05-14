@@ -27,7 +27,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
             </div>
 
             <div className='prod-edit-tab-buttons'>
-                <button className='txt-base use-icon' onClick={() => DeleteModule(moduleItem.id)}>1</button>
+                <button className='txt-base use-icon' onClick={() => DeleteModule(moduleItem.id, moduleItem.type)}>1</button>
                 <button className='txt-base use-icon' onClick={() => setIsEditing(-1)}>0</button>
             </div>
         </div>

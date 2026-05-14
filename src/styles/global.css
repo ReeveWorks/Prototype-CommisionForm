@@ -74,6 +74,10 @@ button {
   font-family: 'IconFont', sans-serif;
 }
 
+.txt-accent {
+  color: var(--accent);
+}
+
 .txt-unselectable {
   -webkit-user-select: none;
   -moz-user-select: none;

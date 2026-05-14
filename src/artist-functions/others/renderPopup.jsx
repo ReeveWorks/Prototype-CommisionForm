@@ -38,6 +38,8 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
                 return messageOption();
             case 'bool':
                 return boolOption(contents[0], contents[1]);
+            case 'number':
+                return numberOption();
             default:
                 return null;
         }
@@ -64,6 +66,13 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
             <div className='popup-segment-container'>
                 <button className='popup-buttons' onClick={handleTrue}>{trueValue}</button>
                 <button className='popup-buttons' onClick={handleFalse}>{falseValue}</button>
+            </div>
+        );
+    }
+    function numberOption() {
+        return (
+            <div className='popup-segment-container'>
+                <input type='number' placeholder={contents[0]} min={contents[1]} max={contents[2]} />
             </div>
         );
     }

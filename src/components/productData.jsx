@@ -37,7 +37,6 @@ function testView() {
         setProduct({ ...product, [key]: event.target.value });
     }
     function handleChangeModule(event, moduleId, key) {
-        console.log(event);
         let nValue = event;
         if (key === "size" || key === "spacing") {
             nValue = Number(nValue);
@@ -67,11 +66,6 @@ function testView() {
         openPopup("bool", "Delete Module", "Are you sure you want to delete this module?", ["Yes!", "Nope!"], (item) => {
             if (item === true) {
                 setProduct({ ...product, module: product.module.filter(m => m.id !== moduleId) })
-                console.log("Pop-up returns a True value");
-            } else if (item === false) {
-                console.log("Pop-up returns a False value");
-            } else {
-                console.log("Pop-up returns nothing");
             }
             setIsPopupOpen(false);
         });
