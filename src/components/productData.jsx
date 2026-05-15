@@ -17,7 +17,7 @@ import renderEditTab from '../artist-functions/products/renderEditTab';
 /* Render Pop-up */
 import PopupModel from '../artist-functions/others/renderPopup';
 
-function testView() {
+function productData() {
     /* Redux */
     const artistData = useSelector((state) => state.artist.artist);
     const dispatch = useDispatch();
@@ -63,7 +63,22 @@ function testView() {
         handleChangeModule(event, moduleId, key);
     }
     function DeleteModule(moduleId) {
-        openPopup("bool", "Delete Module", "Are you sure you want to delete this module?", ["Yes!", "Nope!"], (item) => {
+        function popupTitle() {
+            return (
+                <div style={{ fontWeight: 'normal' }} >
+                    Delete <span className='txt-accent font-bold'>{moduleId}</span>!
+                </div>
+            );
+        }
+        function popupMessage() {
+            return (
+                <div>
+                    Are you sure you want to delete <span className='txt-accent font-bold'>{moduleId}</span>?
+                </div>
+            );
+        }
+
+        openPopup("bool", popupTitle(), popupMessage(), ["Yes!", "Nope!"], (item) => {
             if (item === true) {
                 setProduct({ ...product, module: product.module.filter(m => m.id !== moduleId) })
             }
@@ -149,4 +164,4 @@ function testView() {
     );
 }
 
-export default testView;
+export default productData;

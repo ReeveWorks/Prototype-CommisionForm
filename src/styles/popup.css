@@ -54,6 +54,7 @@
 .popup-buttons {
   display: flex;
   justify-content: center;
+  letter-spacing: 1px;
   gap: 20px;
   margin-top: 5px;
   padding: 5px 10px;
@@ -68,4 +69,12 @@
   background-color: var(--background-secondary);
   margin: 5px -10px;
   margin-bottom: 20px;
+}
+
+.popup-leftcorner {
+ border-top-left-radius: 20px;
+}
+
+.popup-rightcorner {
+  border-bottom-right-radius: 20px;
 }

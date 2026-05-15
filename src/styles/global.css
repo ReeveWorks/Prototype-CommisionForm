@@ -70,12 +70,13 @@ button {
   font-size: var(--text-h3);
 }
 
-.use-icon {
-  font-family: 'IconFont', sans-serif;
-}
 
 .txt-accent {
   color: var(--accent);
+}
+
+.font-bold {
+  font-weight: bold;
 }
 
 .txt-unselectable {
@@ -83,4 +84,8 @@ button {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.use-icon {
+  font-family: 'IconFont', sans-serif;
 }

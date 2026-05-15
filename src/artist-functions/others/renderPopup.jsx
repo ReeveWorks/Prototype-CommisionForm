@@ -64,8 +64,8 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
 
         return (
             <div className='popup-segment-container'>
-                <button className='popup-buttons' onClick={handleTrue}>{trueValue}</button>
-                <button className='popup-buttons' onClick={handleFalse}>{falseValue}</button>
+                <button className='popup-buttons popup-leftcorner' onClick={handleTrue}>{trueValue}</button>
+                <button className='popup-buttons popup-rightcorner' onClick={handleFalse}>{falseValue}</button>
             </div>
         );
     }
