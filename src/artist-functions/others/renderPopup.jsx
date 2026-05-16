@@ -1,7 +1,7 @@
 /* Stylesheets */
 import '../../styles/product-edit.css'
 import '../../styles/popup.css'
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 function RenderPopupMessage({ type, title, message, contents, returnValue, closePopup }) {
     const popupRef = useRef();
@@ -12,8 +12,8 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
     /// contents
     ///     for message: [closeButtonText]
     ///     for bool: [trueValue-ButtonName, falseValue-ButtonName]
-    ///     for number: {min, max, placeholder}
-    ///     for text: {placeholder, maxLength, minLength}
+    ///     for number: {placeholder, min, max, buttonText}
+    ///     for text: {placeholder, minLength, maxLength, buttonText}
     /// returnValue: for input type, the value to be returned when the user clicks the confirm button
 
     const handleClose = (event) => {
@@ -37,9 +37,9 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
             case 'message':
                 return messageOption();
             case 'bool':
-                return boolOption(contents[0], contents[1]);
+                return boolOption(...contents);
             case 'number':
-                return numberOption();
+                return numberOption(...contents);
             default:
                 return null;
         }
@@ -69,10 +69,27 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
             </div>
         );
     }
-    function numberOption() {
+    function numberOption(placeholder, min, max, buttonText) {
+        const [inputValue, setInputValue] = useState('');
+
+        function handleChange(event) {
+            if (event < min) return;
+            if (event > max) return;
+            if (event.includes('.')) return;
+            setInputValue(event);
+        }
+
+        function handleSubmit() {
+            returnValue(inputValue);
+            closePopup();
+        }
+
         return (
             <div className='popup-segment-container'>
-                <input type='number' placeholder={contents[0]} min={contents[1]} max={contents[2]} />
+                <input type='number' placeholder={placeholder} min={min} max={max} value={inputValue} onChange={(e) => handleChange(e.target.value)} />
+                <button className='popup-buttons' onClick={handleSubmit}>
+                    {buttonText}
+                </button>
             </div>
         );
     }

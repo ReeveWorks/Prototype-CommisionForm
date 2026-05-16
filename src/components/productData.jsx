@@ -90,15 +90,18 @@ function productData() {
         console.log(product);
     }
     function popupCheck() {
-        openPopup("bool", "Pop-up Title", "Is this a Pop-up?", ["Yes", "Nah"], (item) => {
-            if (item === true) {
-                console.log("Pop-up returns a True value");
-            } else if (item === false) {
-                console.log("Pop-up returns a False value");
-            } else {
-                console.log("Pop-up returns nothing");
-            }
+        ///     for number: {placeholder, min, max, buttonText}
+        openPopup("number", "Pop-up Test", "Type a number to check if it's even or odd:", ["Type a number", 0, 10, "Submit"], (item) => {
+            console.log(item);
         });
+
+
+        // if (item % 2 === 0) {
+        //     openPopup("message", "Even!", "The number is even!", ["OK"], () => {});
+        // }
+        // else {
+        //     openPopup("message", "Odd!", "The number is odd!", ["OK"], () => {});   
+        //     }
     }
 
     function openPopup(type, title, message, contents, onResult) {
