@@ -40,6 +40,8 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
                 return boolOption(...contents);
             case 'number':
                 return numberOption(...contents);
+            case 'text':
+                return textOption(...contents);
             default:
                 return null;
         }
@@ -86,8 +88,32 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
 
         return (
             <div className='popup-segment-container'>
-                <input type='number' placeholder={placeholder} min={min} max={max} value={inputValue} onChange={(e) => handleChange(e.target.value)} />
-                <button className='popup-buttons' onClick={handleSubmit}>
+                <input type='number' className='popup-leftcorner' placeholder={placeholder} min={min} max={max} value={inputValue} onChange={(e) => handleChange(e.target.value)} />
+                <button className='popup-buttons popup-rightcorner' onClick={handleSubmit}>
+                    {buttonText}
+                </button>
+            </div>
+        );
+    }
+    function textOption(placeholder, minLength, maxLength, buttonText) {
+        const [inputValue, setInputValue] = useState('');
+
+        function handleSubmit() {
+            returnValue(inputValue);
+            closePopup();
+        }
+
+        return (
+            <div className='popup-segment-container'>
+                <input 
+                    type='text' 
+                    className='popup-leftcorner' 
+                    placeholder={placeholder} 
+                    minLength={minLength} 
+                    maxLength={maxLength} 
+                    value={inputValue} 
+                    onChange={(e) => setInputValue(e.target.value)} />
+                <button className='popup-buttons popup-rightcorner' onClick={handleSubmit}>
                     {buttonText}
                 </button>
             </div>

@@ -80,10 +80,10 @@
   border: transparent;
 }
 
-.prod-module input:focus{
+/* .prod-module input:focus{
   border: var(--accent);
   outline: none;
-}
+} */
 
 .mock-textbox {
   background-color: var(--background-tertiary);
@@ -281,7 +281,6 @@
 .prod-edit-tab input[type="number"]::-webkit-outer-spin-button,
 .prod-edit-tab input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0;
 }
 /* For Firefox */
 /* .prod-edit-tab input[type="number"] {

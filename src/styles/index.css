@@ -21,12 +21,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.clickable {
-  cursor: pointer;
-}
-
 :placeholder-shown {
   font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+}
+
+button {
+  font-size: var(--text-base);
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  padding: 0.5em 1em;
+
+  border: none;
+  border-radius: 0.25em;
+
+  background-color: var(--background-secondary);
+
+  color: var(--text-secondary);
+  cursor: pointer;
+  /* transition: background-color 300ms; */
 }
 
 input {
@@ -47,6 +58,14 @@ input[type="radio"] {
   accent-color: var(--accent);
 }
 
+/* Remove arrows from number inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 h1 {
   font-size: var(--text-h1);
 }
@@ -57,4 +76,9 @@ h2 {
 
 h3 {
   font-size: var(--text-h3);
+}
+
+input:focus {
+  border: 2px solid var(--accent);
+  outline: none;
 }

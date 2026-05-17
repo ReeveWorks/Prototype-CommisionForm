@@ -10,12 +10,12 @@ import { useState, Fragment } from 'react';
 import { addProduct, updateProduct } from '../states/slices/artistDataSlice'
 
 /* Render Modules */
-import renderModuleView from '../artist-functions/products/renderModuleView';
-import renderModuleEdit from '../artist-functions/products/renderModuleEdit';
-import renderEditTab from '../artist-functions/products/renderEditTab';
+import renderModuleView from '../module/products/renderModuleView';
+import renderModuleEdit from '../module/products/renderModuleEdit';
+import renderEditTab from '../module/products/renderEditTab';
 
 /* Render Pop-up */
-import PopupModel from '../artist-functions/others/renderPopup';
+import PopupModel from '../module/others/renderPopup';
 
 function productData() {
     /* Redux */
@@ -66,7 +66,7 @@ function productData() {
         function popupTitle() {
             return (
                 <div style={{ fontWeight: 'normal' }} >
-                    Delete <span className='txt-accent font-bold'>{moduleId}</span>!
+                    Delete <span className='txt-accent font-bold'>{moduleId}</span>
                 </div>
             );
         }
@@ -91,7 +91,7 @@ function productData() {
     }
     function popupCheck() {
         ///     for number: {placeholder, min, max, buttonText}
-        openPopup("number", "Pop-up Test", "Type a number to check if it's even or odd:", ["Type a number", 0, 10, "Submit"], (item) => {
+        openPopup("text", "Pop-up Test", "Type any text, and dent it to console:", ["Type something...", 10, 20, "Submit"], (item) => {
             console.log(item);
         });
 
@@ -155,11 +155,11 @@ function productData() {
                     </Fragment>
                 ))}
 
-                <button className='prod-btn-addModule' onClick={dataCheck}>
+                <button className='prod-btn-addModule txt-unselectable' onClick={dataCheck}>
                     Data Check
                 </button>
 
-                <button className='prod-btn-addModule' onClick={() => popupCheck()}>
+                <button className='prod-btn-addModule txt-unselectable' onClick={() => popupCheck()}>
                     Pop-up
                 </button>
             </div>

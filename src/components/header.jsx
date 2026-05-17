@@ -17,7 +17,7 @@ function header() {
   }
 
   return (
-    <header>
+    <header className='txt-unselectable'>
       <div className='logo'>
         <img className="clickable" src={darkmode.imageSource} alt="Dark Mode" onClick={() => toggleDarkmode()} />
         <h1>moeyoy</h1>
