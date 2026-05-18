@@ -89,24 +89,29 @@ function productData() {
     function dataCheck() {
         console.log(product);
     }
-    function popupCheck() {
-        ///     for number: {placeholder, min, max, buttonText}
-        openPopup("text", "Pop-up Test", "Type any text, and dent it to console:", ["Type something...", 10, 20, "Submit"], (item) => {
-            console.log(item);
-        });
+    async function popupCheck() {
 
-
-        // if (item % 2 === 0) {
-        //     openPopup("message", "Even!", "The number is even!", ["OK"], () => {});
-        // }
-        // else {
-        //     openPopup("message", "Odd!", "The number is odd!", ["OK"], () => {});   
-        //     }
+        await openPopup(
+            "alert",
+            "Pop-up 1",
+            "This is the first pop-up!",
+            "Onto to the next pop-up",
+            (item) => {
+            });
+        
+        await openPopup(
+            "alert",
+            "Pop-up 2",
+            "This is the second pop-up!",
+            "Close pop-up",
+            (item) => { });
     }
 
     function openPopup(type, title, message, contents, onResult) {
-        setPopupProps({ type: type, title: title, message: message, contents: contents, returnValue: onResult });
-        setIsPopupOpen(true);
+        return new Promise((resolve) => {
+            setPopupProps({ type: type, title: title, message: message, contents: contents, returnValue: (val) => { if (onResult) onResult(val); resolve(val); } });
+            setIsPopupOpen(true);
+        });
     }
 
     /* Render */

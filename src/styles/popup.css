@@ -61,7 +61,7 @@
   letter-spacing: 1px;
   gap: 20px;
   padding: 5px 10px;
-  width: 200px;
+  min-width: 200px;
   height: 100%;
   /* border-radius: 0; */
   
