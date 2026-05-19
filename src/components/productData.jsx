@@ -92,26 +92,30 @@ function productData() {
     async function popupCheck() {
 
         await openPopup(
-            "alert",
+            "text",
             "Pop-up 1",
             "This is the first pop-up!",
-            "Onto to the next pop-up",
+            ["Type something...", 3, 10, "Submit"],
             (item) => {
             });
-        
-        await openPopup(
-            "alert",
-            "Pop-up 2",
-            "This is the second pop-up!",
-            "Close pop-up",
-            (item) => { });
+        //  for text: {placeholder, minLength, maxLength, buttonText}
+
+        // await openPopup(
+        //     "alert",
+        //     "Pop-up 2",
+        //     "This is the second pop-up!",
+        //     "Close pop-up",
+        //     (item) => { });
     }
 
     function openPopup(type, title, message, contents, onResult) {
-        return new Promise((resolve) => {
-            setPopupProps({ type: type, title: title, message: message, contents: contents, returnValue: (val) => { if (onResult) onResult(val); resolve(val); } });
-            setIsPopupOpen(true);
-        });
+        setPopupProps({ type: type, title: title, message: message, contents: contents, returnValue: onResult });
+        setIsPopupOpen(true);
+
+        // return new Promise((resolve) => {
+        //     setPopupProps({ type: type, title: title, message: message, contents: contents, returnValue: (val) => { if (onResult) onResult(val); resolve(val); } });
+        //     setIsPopupOpen(true);
+        // });
     }
 
     /* Render */

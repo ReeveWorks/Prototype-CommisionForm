@@ -278,10 +278,10 @@
 }
 
 /* Remove arrows from number inputs */
-.prod-edit-tab input[type="number"]::-webkit-outer-spin-button,
+/* .prod-edit-tab input[type="number"]::-webkit-outer-spin-button,
 .prod-edit-tab input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
-}
+} */
 /* For Firefox */
 /* .prod-edit-tab input[type="number"] {
   -moz-appearance: textfield;

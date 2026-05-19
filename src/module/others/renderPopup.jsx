@@ -19,22 +19,21 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
 
     const handleClose = (event) => {
         if (popupRef.current === event.target) {
-            if (typeof returnValue === 'function') returnValue(null);
+            // if (typeof returnValue === 'function') returnValue(null);
             closePopup();
         }
     }
-
     function renderPopup() {
         return (
             <div className='popup-container txt-unselectable'>
                 <h1>{title}</h1>
                 <p className='popup-diver' />
                 <span>{message}</span>
-                {renderSegment(type, title, message, contents)}
+                {renderSegment(contents)}
             </div>
         );
     }
-    function renderSegment(type, title, message, popupContents) {
+    function renderSegment(popupContents) {
         switch (type) {
             case 'alert':
                 return alertOption();
@@ -44,8 +43,6 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
                 return numberOption(...popupContents);
             case 'text':
                 return textOption(...popupContents);
-            case 'alertplus':
-                return alertPlusOption(type, title, message, popupContents);
             default:
                 return null;
         }
@@ -54,7 +51,7 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
     /// Pop-up Segments
     function alertOption() {
         function handleConfirm() {
-            if (typeof returnValue === 'function') returnValue(null);
+            // if (typeof returnValue === 'function') returnValue(null);
             closePopup();
         }
 
@@ -125,29 +122,6 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
                     onChange={(e) => setInputValue(e.target.value)} />
                 <button className='popup-buttons popup-rightcorner' onClick={handleSubmit}>
                     {buttonText}
-                </button>
-            </div>
-        );
-    }
-
-    /// for plus options
-    function alertPlusOption(popupContents) {
-        function openNextPopup(type, title, message, contents) {
-            console.log(popupContents[0]);
-            return (
-                <div className='popup-container txt-unselectable'>
-                    <h1>{title}</h1>
-                    <p className='popup-diver' />
-                    <span>{message}</span>
-                    {renderSegment(popupContents[1])}
-                </div>
-            );
-        }
-
-        return (
-            <div className='popup-segment-container'>
-                <button className='popup-buttons popup-leftcorner popup-rightcorner' onClick={openNextPopup(popupContents[1][0], popupContents[1][1], popupContents[1][2], popupContents[1][3])}>
-                    {popupContents[0]}
                 </button>
             </div>
         );

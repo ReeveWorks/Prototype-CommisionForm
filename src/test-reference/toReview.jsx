@@ -1,12 +1,26 @@
 
 function toReview() {
     // renderPopup.jsx
-     const handleClose = (event) => {
-         if (popupRef.current === event.target) {
-             if (typeof returnValue === 'function') returnValue(null);
-             closePopup();
-         }
-     }
+    const handleClose = (event) => {
+        if (popupRef.current === event.target) {
+            if (typeof returnValue === 'function') returnValue(null);
+            closePopup();
+        }
+    }
+    function alertOption() {
+        function handleConfirm() {
+            if (typeof returnValue === 'function') returnValue(null);
+            closePopup();
+        }
+
+        return (
+            <div className='popup-segment-container'>
+                <button className='popup-buttons popup-leftcorner popup-rightcorner' onClick={handleConfirm}>{contents}</button>
+            </div>
+        );
+    }
+
+    /// -----
 
     // productData.jsx
     function openPopup(type, title, message, contents, onResult) {
