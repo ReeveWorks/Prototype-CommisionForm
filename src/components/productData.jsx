@@ -10,12 +10,12 @@ import { useState, Fragment } from 'react';
 import { addProduct, updateProduct } from '../states/slices/artistDataSlice'
 
 /* Render Modules */
-import renderModuleView from '../module/products/renderModuleView';
-import renderModuleEdit from '../module/products/renderModuleEdit';
-import renderEditTab from '../module/products/renderEditTab';
+import renderModuleView from '../modals/products/renderModuleView';
+import renderModuleEdit from '../modals/products/renderModuleEdit';
+import renderEditTab from '../modals/products/renderEditTab';
 
 /* Render Pop-up */
-import PopupModel from '../module/others/renderPopup';
+import PopupModel from '../modals/global/renderPopup';
 
 function productData() {
     /* Redux */
@@ -90,32 +90,50 @@ function productData() {
         console.log(product);
     }
     async function popupCheck() {
+        //let testvar = "Hello World!";
 
-        await openPopup(
+        function message() {
+            return (
+                <>You Typed: <span className='txt-accent font-bold'>{testvar}</span></>
+            );
+        }
+
+        let testvar = await openPopup(
             "text",
             "Pop-up 1",
             "This is the first pop-up!",
-            ["Type something...", 3, 10, "Submit"],
-            (item) => {
-            });
+            ["Type something...", 0, 25, "Submit"]);
+
+        await console.log(testvar);
         //  for text: {placeholder, minLength, maxLength, buttonText}
 
-        // await openPopup(
-        //     "alert",
-        //     "Pop-up 2",
-        //     "This is the second pop-up!",
-        //     "Close pop-up",
-        //     (item) => { });
+        await openPopup(
+            "alert",
+            "Pop-up 2",
+            message(),
+            "Close pop-up",
+            (item) => { testvar = item; });
+
+        await console.log(testvar);
     }
 
     function openPopup(type, title, message, contents, onResult) {
-        setPopupProps({ type: type, title: title, message: message, contents: contents, returnValue: onResult });
-        setIsPopupOpen(true);
+        // setPopupProps({ type: type, title: title, message: message, contents: contents, returnValue: onResult });
+        // setIsPopupOpen(true);
 
-        // return new Promise((resolve) => {
-        //     setPopupProps({ type: type, title: title, message: message, contents: contents, returnValue: (val) => { if (onResult) onResult(val); resolve(val); } });
-        //     setIsPopupOpen(true);
-        // });
+        return new Promise((resolve) => {
+            setPopupProps({
+                type: type,
+                title: title,
+                message: message,
+                contents: contents,
+                returnValue: (value) => {
+                    onResult?.(value);
+                    resolve(value);
+                }
+            });
+            setIsPopupOpen(true);
+        });
     }
 
     /* Render */

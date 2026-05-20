@@ -51,7 +51,7 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
     /// Pop-up Segments
     function alertOption() {
         function handleConfirm() {
-            // if (typeof returnValue === 'function') returnValue(null);
+            returnValue(null);
             closePopup();
         }
 
