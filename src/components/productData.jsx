@@ -94,7 +94,7 @@ function productData() {
 
         function message() {
             return (
-                <>You Typed: <span className='txt-accent font-bold'>{testvar}</span></>
+                <>You Typed:&nbsp;<span className='txt-accent font-bold'>{testvar}</span></>
             );
         }
 
@@ -111,7 +111,7 @@ function productData() {
             "alert",
             "Pop-up 2",
             message(),
-            "Close pop-up",
+            "close pop-up",
             (item) => { testvar = item; });
 
         await console.log(testvar);

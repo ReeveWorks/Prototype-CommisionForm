@@ -19,16 +19,18 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
 
     const handleClose = (event) => {
         if (popupRef.current === event.target) {
-            // if (typeof returnValue === 'function') returnValue(null);
             closePopup();
         }
     }
     function renderPopup() {
         return (
             <div className='popup-container txt-unselectable'>
-                <h1>{title}</h1>
-                <p className='popup-diver' />
-                <span>{message}</span>
+                <div className='popup-container-header'>
+                    {title}
+                </div>
+                <div className='popup-container-message'>
+                    {message}
+                </div>
                 {renderSegment(contents)}
             </div>
         );
@@ -57,7 +59,7 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
 
         return (
             <div className='popup-segment-container'>
-                <button className='popup-buttons popup-leftcorner popup-rightcorner' onClick={handleConfirm}>{contents}</button>
+                <button className='popup-buttons' onClick={handleConfirm}>{contents}</button>
             </div>
         );
     }
@@ -73,8 +75,8 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
 
         return (
             <div className='popup-segment-container'>
-                <button className='popup-buttons popup-leftcorner' onClick={handleTrue}>{trueValue}</button>
-                <button className='popup-buttons popup-rightcorner' onClick={handleFalse}>{falseValue}</button>
+                <button className='popup-buttons popup-bottomborder' onClick={handleTrue}>{trueValue}</button>
+                <button className='popup-buttons' onClick={handleFalse}>{falseValue}</button>
             </div>
         );
     }
@@ -95,8 +97,16 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
 
         return (
             <div className='popup-segment-container'>
-                <input type='number' className='popup-leftcorner' placeholder={placeholder} min={min} max={max} value={inputValue} onChange={(e) => handleChange(e.target.value)} />
-                <button className='popup-buttons popup-rightcorner' onClick={handleSubmit}>
+                <input 
+                    type='number' 
+                    placeholder={placeholder} 
+                    min={min} 
+                    max={max} 
+                    value={inputValue} 
+                    onChange={(e) => handleChange(e.target.value)} />
+                <button 
+                    className='popup-buttons' 
+                    onClick={handleSubmit}>
                     {buttonText}
                 </button>
             </div>
@@ -114,13 +124,14 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
             <div className='popup-segment-container'>
                 <input
                     type='text'
-                    className='popup-leftcorner'
                     placeholder={placeholder}
                     minLength={minLength}
                     maxLength={maxLength}
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)} />
-                <button className='popup-buttons popup-rightcorner' onClick={handleSubmit}>
+                <button 
+                    className='popup-buttons' 
+                    onClick={handleSubmit}>
                     {buttonText}
                 </button>
             </div>

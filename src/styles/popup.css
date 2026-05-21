@@ -13,32 +13,53 @@
   backdrop-filter: blur(2px);
 }
 
+
+
+
+/* ============================================
+   PRODUCT MESSAGE BOX STYLES
+   ============================================ */
 .popup-container {
   width: clamp(450px, 50vw, 600px);
   align-content: center;
-  margin: 0 auto;
-  padding: 18px 10px;
+  margin: 0;
+  padding: 0;
   border-radius: 20px 0 20px 0;
 
   font-size: var(--text-base);
   background-color: var(--background-main);
   border: 2px solid var(--background-secondary);
+  overflow: hidden; 
 }
 
-.popup-container h1 {
-  font-size: var(--text-h3);
+.popup-container-header {
+  font-size: var(--text-h2);
   letter-spacing: 0.5px;
-  margin: 0;
-  margin-top: -10px;
-  margin-bottom: 10px;
+  padding: 10px;
+  
+  border-bottom: 1.5px solid var(--background-secondary);
 }
 
-.popup-container span {
+.popup-container-message {
   font-size: var(--text-base);
+  display: flex;
   text-align: justify;
   text-align-last: center;
-  margin: 0;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 20px;
+  min-height: 75px;
+  
+  border-bottom: 1.5px solid var(--background-secondary);
 }
+/* ============================================
+   PRODUCT MESSAGE BOX STYLES
+   ============================================ */
+
+
+
+
 
 /* ============================================
    PRODUCT MODULE STYLES
@@ -46,11 +67,7 @@
 .popup-segment-container {
   display: flex;
   justify-content: center;
-
-  gap: 20px;
-  margin-top: 25px;
-  margin-bottom: -10px;
-  padding: 3px 0;
+  display: block;
 
   font-size: var(--text-base);
 }
@@ -61,25 +78,35 @@
   letter-spacing: 1px;
   gap: 20px;
   padding: 5px 10px;
-  min-width: 200px;
+  min-width: 100%;
   height: 100%;
-  /* border-radius: 0; */
   
+  border-radius: 0px;
   font-size: var(--text-base);
+  color: var(--text-main);
+  background-color: color-mix(in srgb, var(--background-tertiary), transparent 80%);;
+}
+.popup-buttons:hover {
+  outline: none;
+  background-color: color-mix(in srgb, var(--accent), transparent 80%);
 }
 
 .popup-segment-container input {
   width: 100%;
-  padding: 5px;
+  padding: 7px 5px;
   box-sizing: border-box;
   background-color: var(--background-tertiary);
-  border: 2px solid var(--text-main);
+  border:1.5px solid transparent;
+  border-bottom: 1.5px solid var(--text-main);
   color: var(--text-main);
-  border-radius: 5px;
-}
+  outline: none;
 
-.popup-segment-container input:focus, .popup-segment-container input:hover {
-  border: 2px solid var(--accent);
+  border-radius: 0px;
+}
+.popup-segment-container input:focus, 
+.popup-segment-container input:hover {
+  outline: none;
+  border: 1.5px solid var(--accent);
 }
 /* ============================================ */
 
@@ -98,6 +125,10 @@
 
 .popup-rightcorner {
   border-bottom-right-radius: 20px;
+}
+
+.popup-bottomborder {
+  border-bottom: 1.5px solid color-mix(in srgb, var(--background-secondary), transparent 80%);
 }
 /* ============================================
    PRODUCT MODULE STYLES
