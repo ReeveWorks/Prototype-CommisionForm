@@ -94,15 +94,15 @@ function productData() {
 
         function message() {
             return (
-                <>You Typed:&nbsp;<span className='txt-accent font-bold'>{testvar}</span></>
+                <>You selected:&nbsp;<span className='txt-accent font-bold'>{testvar}</span></>
             );
         }
 
         let testvar = await openPopup(
-            "text",
+            "options",
             "Pop-up 1",
-            "This is the first pop-up!",
-            ["Type something...", 0, 25, "Submit"]);
+            "select an option below:",
+            ["Hello World!", "Mic test, mic test.", "Goodday to you, sir!", "I am a pop-up!", "Click me!"]);
 
         await console.log(testvar);
         //  for text: {placeholder, minLength, maxLength, buttonText}
@@ -118,9 +118,6 @@ function productData() {
     }
 
     function openPopup(type, title, message, contents, onResult) {
-        // setPopupProps({ type: type, title: title, message: message, contents: contents, returnValue: onResult });
-        // setIsPopupOpen(true);
-
         return new Promise((resolve) => {
             setPopupProps({
                 type: type,

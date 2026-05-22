@@ -82,3 +82,8 @@ input:focus {
   border: 2px solid var(--accent);
   outline: none;
 }
+
+::placeholder {
+  color: var(--text-main);
+  opacity: 0.65; 
+}

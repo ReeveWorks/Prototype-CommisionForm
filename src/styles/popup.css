@@ -34,10 +34,10 @@
 
 .popup-container-header {
   font-size: var(--text-h2);
+  background-color: var(--background-secondary);
+  color: var(--text-secondary);
   letter-spacing: 0.5px;
   padding: 10px;
-  
-  border-bottom: 1.5px solid var(--background-secondary);
 }
 
 .popup-container-message {
@@ -62,7 +62,7 @@
 
 
 /* ============================================
-   PRODUCT MODULE STYLES
+   PRODUCT SEGMENT STYLES
    ============================================ */
 .popup-segment-container {
   display: flex;
@@ -131,5 +131,5 @@
   border-bottom: 1.5px solid color-mix(in srgb, var(--background-secondary), transparent 80%);
 }
 /* ============================================
-   PRODUCT MODULE STYLES
+   PRODUCT SEGMENT STYLES
    ============================================ */

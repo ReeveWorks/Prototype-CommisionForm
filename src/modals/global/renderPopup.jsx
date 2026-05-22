@@ -14,7 +14,7 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
     ///     for bool: [trueValue-ButtonName, falseValue-ButtonName]
     ///     for number: {placeholder, min, max, buttonText}
     ///     for text: {placeholder, minLength, maxLength, buttonText}
-    ///     for alertplus: [closeButtonText, additionalContent]
+    ///     for options: [option-1, option-2, ... option-n]
     /// returnValue: for input type, the value to be returned when the user clicks the confirm button
 
     const handleClose = (event) => {
@@ -45,6 +45,8 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
                 return numberOption(...popupContents);
             case 'text':
                 return textOption(...popupContents);
+            case 'options':
+                return optionsOption(popupContents);
             default:
                 return null;
         }
@@ -134,6 +136,22 @@ function RenderPopupMessage({ type, title, message, contents, returnValue, close
                     onClick={handleSubmit}>
                     {buttonText}
                 </button>
+            </div>
+        );
+    }
+    function optionsOption(options) {
+        function handleReturn(value) {
+            returnValue(value);
+            closePopup();
+        }
+
+        return (
+            <div className='popup-segment-container'>
+                {options.map((option, index) => (
+                    <button key={index} className='popup-buttons popup-bottomborder' onClick={() => handleReturn(option)}>
+                        {option}
+                    </button>
+                ))}
             </div>
         );
     }

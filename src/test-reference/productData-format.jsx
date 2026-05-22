@@ -1,5 +1,5 @@
 /* Stylesheets */
-import '../styles/product.css'
+import './product.css'
 
 /* Functions/Hooks */
 import { useSelector, useDispatch } from 'react-redux'
