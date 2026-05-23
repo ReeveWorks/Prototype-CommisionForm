@@ -78,7 +78,7 @@ function productData() {
             );
         }
 
-        openPopup("bool", popupTitle(), popupMessage(), ["Yes!", "Nope!"], (item) => {
+        renderPopup("bool", popupTitle(), popupMessage(), ["Yes!", "Nope!"], (item) => {
             if (item === true) {
                 setProduct({ ...product, module: product.module.filter(m => m.id !== moduleId) })
             }
@@ -86,38 +86,18 @@ function productData() {
         });
     }
 
-    function dataCheck() {
-        console.log(product);
-    }
-    async function popupCheck() {
-        //let testvar = "Hello World!";
-
-        function message() {
-            return (
-                <>You selected:&nbsp;<span className='txt-accent font-bold'>{testvar}</span></>
-            );
+    /* Render */
+    function renderModule(moduleItem, index) {
+        if (isEditing === index) {
+            return (<>
+                {renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule)}
+                {renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange)}
+            </>);
         }
 
-        let testvar = await openPopup(
-            "options",
-            "Pop-up 1",
-            "select an option below:",
-            ["Hello World!", "Mic test, mic test.", "Goodday to you, sir!", "I am a pop-up!", "Click me!"]);
-
-        await console.log(testvar);
-        //  for text: {placeholder, minLength, maxLength, buttonText}
-
-        await openPopup(
-            "alert",
-            "Pop-up 2",
-            message(),
-            "close pop-up",
-            (item) => { testvar = item; });
-
-        await console.log(testvar);
+        return renderModuleView(moduleItem, index, setIsEditing);
     }
-
-    function openPopup(type, title, message, contents, onResult) {
+    function renderPopup(type, title, message, contents, onResult) {
         return new Promise((resolve) => {
             setPopupProps({
                 type: type,
@@ -133,18 +113,38 @@ function productData() {
         });
     }
 
-    /* Render */
-    function renderModule(moduleItem, index) {
-        if (isEditing === index) {
-            return (<>
-                {renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule)}
-                {renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange)}
-            </>);
+    /* Test Purpose */    
+    async function popupCheck() {
+        function message(moduleid) {
+            let module = product.module.find(m => m.id === moduleid);
+
+            return (
+                <div>
+                    <p>ID: <span className='txt-accent font-bold'>{moduleid}</span></p>
+                    <p>Type: <span className='txt-accent font-bold'>{module?.type}</span></p>
+                    <p>Size: <span className='txt-accent font-bold'>{module?.size}</span></p>
+                    <p>Spacing: <span className='txt-accent font-bold'>{module?.spacing}</span></p>
+                    <p>Content: <span className='txt-accent font-bold'>{module?.content}</span></p>
+                </div>
+            );
         }
 
-        return renderModuleView(moduleItem, index, setIsEditing);
-    }
+        let selected = await renderPopup(
+            "options",
+            "Pop-up 1",
+            "select an option below:",
+            product.module.map(m => m.id));
 
+        await renderPopup(
+            "alert",
+            "Pop-up 2",
+            message(selected),
+            "close pop-up",
+            (item) => { selected = item; });
+
+        await console.log(product);
+    }
+    
     return (
         <>
             {isPopupOpen && <PopupModel
@@ -179,12 +179,8 @@ function productData() {
                     </Fragment>
                 ))}
 
-                <button className='prod-btn-addModule txt-unselectable' onClick={dataCheck}>
-                    Data Check
-                </button>
-
                 <button className='prod-btn-addModule txt-unselectable' onClick={() => popupCheck()}>
-                    Pop-up
+                    Data Check
                 </button>
             </div>
         </>

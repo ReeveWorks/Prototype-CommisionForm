@@ -97,7 +97,7 @@ function testView() {
 
             
 
-            {/* <div className="module-container">
+            <div className="module-container">
             <p className='prod-variable-name'>Module  [radio options]:</p>
                 <div className='module-options'>
                     <i className='module-text'>1</i>
@@ -135,7 +135,7 @@ function testView() {
                 </div>
 
                 <button className='module-btn-addOptions'>+</button>
-            </div> */}
+            </div>
             
             <button className='btn-add-module'>
                 Test

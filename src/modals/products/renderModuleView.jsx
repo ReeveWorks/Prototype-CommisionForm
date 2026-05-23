@@ -38,6 +38,16 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     <p className='mock-textbox' style={{ marginTop: `7px` }}><br /><br /><br /></p>
                 </div>
             );
+        case 'Static Text':
+            return (
+                <div className='prod-module prod-hover'
+                    key={index}
+                    id={moduleItem.id}
+                    style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}
+                    onClick={() => setIsEditing(index)}>
+                    {moduleItem.content}
+                </div>
+            );
     }
 }
 

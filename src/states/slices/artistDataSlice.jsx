@@ -34,6 +34,15 @@ const initialState = {
                         isRequired: false,
                         content: "Details"
                     },
+                    {
+                        id: "st-txt04",
+                        type: "Static Text",
+                        bold: false,
+                        size: 20,
+                        spacing: 20,
+                        content: "Thanks you for your commission!",
+
+                    }
                 ],
             },
         ],

@@ -5,7 +5,9 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
     return (
         <div className='prod-edit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
             <div className='prod-edit-tab-elements'>
-                {moduleItem.type.includes("input")
+                
+                {
+                    moduleItem.type.includes("input")
                     ?
                     <label className='clickable'>
                         <input type="checkbox" className='prod-hover' checked={moduleItem.isRequired} onChange={() => handleChangeModule(!moduleItem.isRequired, moduleItem.id, "isRequired")} />

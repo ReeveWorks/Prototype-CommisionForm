@@ -46,6 +46,19 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                     <p className='mock-textbox'><br /><br /><br /></p>
                 </div>
             );
+        case 'Static Text':
+            return (
+                <div className='prod-module selected-module prod-hover'
+                    key={moduleItem.id}
+                    style={{ marginBottom: `${moduleItem.spacing}px` }}>
+                    <input
+                        type="text"
+                        value={moduleItem.content}
+                        style={{ fontSize: `${moduleItem.size}px`, textAlign: 'center' }}
+                        onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "content")}
+                        placeholder="Input text here*" />
+                </div>
+            );
     }
 }
 
