@@ -12,8 +12,10 @@ const initialState = {
                 description: "A chibi reaction stickers to your liking!",
                 module: [
                     {
-                        id: "stm-ttl01",
-                        type: "title",
+                        id: "st-txt01",
+                        type: "Static Text",
+                        bold: false,
+                        textAlign: "center",
                         size: 25,
                         spacing: 20,
                         content: "Fill in your commission details!",
@@ -21,28 +23,21 @@ const initialState = {
                     {
                         id: "inm-txt02",
                         type: "text-input",
+                        isRequired: true,
+                        bold: false,
                         size: 20,
                         spacing: 10,
-                        isRequired: true,
                         content: "Commission Title"
                     },
                     {
                         id: "inm-txt03",
                         type: "txtblock-input",
+                        bold: false,
                         size: 20,
                         spacing: 10,
                         isRequired: false,
                         content: "Details"
                     },
-                    {
-                        id: "st-txt04",
-                        type: "Static Text",
-                        bold: false,
-                        size: 20,
-                        spacing: 20,
-                        content: "Thanks you for your commission!",
-
-                    }
                 ],
             },
         ],

@@ -9,12 +9,22 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                 {
                     moduleItem.type.includes("input")
                     ?
-                    <label className='clickable'>
+                    <label className='clickable prod-edit-tab-icon-id'>
                         <input type="checkbox" className='prod-hover' checked={moduleItem.isRequired} onChange={() => handleChangeModule(!moduleItem.isRequired, moduleItem.id, "isRequired")} />
                         {moduleItem.id}
                     </label>
                     :
-                    <label className='prod-edit-tab-noborder'>{moduleItem.id}</label>
+                    <label className='prod-edit-tab-noborder prod-edit-tab-icon-id'>{moduleItem.id}</label>
+                }
+                {
+                    moduleItem.id.includes("txt")
+                    ?
+                    <label className='clickable prod-edit-tab-icon-b'>
+                        <input type="checkbox" className='prod-hover' checked={moduleItem.bold} onChange={() => handleChangeModule(!moduleItem.bold, moduleItem.id, "bold")} />
+                        B
+                    </label>
+                    :
+                    null
                 }
 
                 <p className='txt-base'>Tt</p>

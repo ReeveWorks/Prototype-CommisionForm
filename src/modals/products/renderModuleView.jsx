@@ -3,22 +3,31 @@ import '../../styles/product-edit.css'
 
 function renderModuleView(moduleItem, index, setIsEditing) {
     switch (moduleItem.type) {
-        case 'title':
+        case 'Static Text':
             return (
-                <div className='prod-module prod-hover'
+                <div className='prod-module prod-hover line-justify'
                     key={index}
                     id={moduleItem.id}
-                    style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}
+                    style={{
+                        fontSize: `${moduleItem.size}px`,
+                        marginBottom: `${moduleItem.spacing}px`,
+                        textAlign: 'justify',
+                        textAlignLast: `${moduleItem.textAlign}`,
+                        fontWeight: moduleItem.bold ? 'bold' : 'normal'
+                    }}
                     onClick={() => setIsEditing(index)}>
                     {moduleItem.content}
                 </div>
             );
         case 'text-input':
             return (
-                <div className='prod-module prod-hover'
+                <div className='prod-module prod-hover line-justify'
                     key={index}
                     id={moduleItem.id}
-                    style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
+                    style={{ 
+                        fontSize: `${moduleItem.size}px`, 
+                        marginBottom: `${moduleItem.spacing}px` 
+                    }}
                     onClick={() => setIsEditing(index)}>
 
                     {moduleItem.content}
@@ -28,7 +37,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
             );
         case 'txtblock-input':
             return (
-                <div className='prod-module prod-hover'
+                <div className='prod-module prod-hover line-justify'
                     key={index}
                     id={moduleItem.id}
                     style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px` }}
@@ -38,16 +47,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     <p className='mock-textbox' style={{ marginTop: `7px` }}><br /><br /><br /></p>
                 </div>
             );
-        case 'Static Text':
-            return (
-                <div className='prod-module prod-hover'
-                    key={index}
-                    id={moduleItem.id}
-                    style={{ fontSize: `${moduleItem.size}px`, marginBottom: `${moduleItem.spacing}px`, textAlign: 'center' }}
-                    onClick={() => setIsEditing(index)}>
-                    {moduleItem.content}
-                </div>
-            );
+
     }
 }
 

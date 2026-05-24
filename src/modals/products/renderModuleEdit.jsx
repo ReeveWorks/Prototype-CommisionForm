@@ -3,7 +3,7 @@ import '../../styles/product-edit.css'
 
 function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange) {
     switch (moduleItem.type) {
-        case 'title':
+        case 'Static Text':
             return (
                 <div className='prod-module selected-module prod-hover'
                     key={moduleItem.id}
@@ -11,7 +11,12 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                     <input
                         type="text"
                         value={moduleItem.content}
-                        style={{ fontSize: `${moduleItem.size}px`, textAlign: 'center' }}
+                        style={{ 
+                            fontSize: `${moduleItem.size}px`, 
+                            fontWeight: moduleItem.bold ? 'bold' : 'normal',
+                            textAlign: 'justify',
+                            textAlignLast: 'center'
+                        }}
                         onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "content")}
                         placeholder="Input text here*" />
                 </div>
@@ -46,19 +51,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                     <p className='mock-textbox'><br /><br /><br /></p>
                 </div>
             );
-        case 'Static Text':
-            return (
-                <div className='prod-module selected-module prod-hover'
-                    key={moduleItem.id}
-                    style={{ marginBottom: `${moduleItem.spacing}px` }}>
-                    <input
-                        type="text"
-                        value={moduleItem.content}
-                        style={{ fontSize: `${moduleItem.size}px`, textAlign: 'center' }}
-                        onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "content")}
-                        placeholder="Input text here*" />
-                </div>
-            );
+        
     }
 }
 

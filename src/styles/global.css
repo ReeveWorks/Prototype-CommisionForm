@@ -54,12 +54,28 @@ html.light {
   font-size: var(--text-h3);
 }
 
-.clickable {
-  cursor: pointer;
+.line-center{
+  text-align: justify;
+  text-align-last: center;
+}
+.line-left{
+  text-align: justify;
+  text-align-last: left;
+}
+.line-right{
+  text-align: justify;
+  text-align-last: right;
+}
+.line-justify{
+  text-align: justify;
 }
 
 .txt-accent {
   color: var(--accent);
+}
+
+.clickable {
+  cursor: pointer;
 }
 
 .font-bold {

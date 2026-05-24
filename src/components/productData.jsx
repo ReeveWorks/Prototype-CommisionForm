@@ -123,6 +123,8 @@ function productData() {
                     <p>ID: <span className='txt-accent font-bold'>{moduleid}</span></p>
                     <p>Type: <span className='txt-accent font-bold'>{module?.type}</span></p>
                     <p>Size: <span className='txt-accent font-bold'>{module?.size}</span></p>
+                    <p>Bold: <span className='txt-accent font-bold'>{module?.bold ? "true" : "false"}</span></p>
+                    <p>Required: <span className='txt-accent font-bold'>{module?.isRequired ? "true" : "false"}</span></p>
                     <p>Spacing: <span className='txt-accent font-bold'>{module?.spacing}</span></p>
                     <p>Content: <span className='txt-accent font-bold'>{module?.content}</span></p>
                 </div>

@@ -64,7 +64,6 @@
   padding: 2.5px;
   margin-top: 1px;
   box-sizing: border-box;
-  text-align: justify;
 
   background-color: var(--background-main);
   border: 1px solid transparent;
@@ -161,11 +160,20 @@
   background-color: var(--background-tertiary);
   border: 1.25px solid var(--background-secondary);
   text-align: center;
-  width: 100px;
   padding: 3px 0;
 
   /* highlight area covers, to be deleted */
   /* background-color: red; */
+}
+
+.prod-edit-tab-icon-id {
+  font-weight: bold;
+  width: 100px;
+}
+
+.prod-edit-tab-icon-b {
+  font-weight: bold;
+  width: 25px;
 }
 
 .prod-edit-tab input[type="checkbox"] {
