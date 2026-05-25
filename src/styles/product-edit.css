@@ -46,6 +46,7 @@
   background-color: var(--accent);
   margin: 10px 0px;
 }
+
 /* ============================================
    TOP LEVEL STYLES
    ============================================ */
@@ -71,10 +72,10 @@
   cursor: pointer;
 }
 
-.prod-module input{
+.prod-module input {
   font-size: 13px;
   color: var(--text-main);
-  
+
   background-color: transparent;
   border: transparent;
 }
@@ -96,8 +97,9 @@
 }
 
 .prod-required {
-  color:var(--accent);
+  color: var(--accent);
 }
+
 /* ============================================
    PRODUCT MODULE STYLES
    ============================================ */
@@ -116,24 +118,26 @@
   background-color: color-mix(in srgb, var(--accent), transparent 95%);
   border-radius: 0%;
 }
+
 /* we're gonna make a hover class so that we dont need multiple classes to remove hover */
 .selected-module:hover {
   background-color: color-mix(in srgb, var(--accent), transparent 95%);
   border: 1px solid var(--text-main);
 }
 
-.prod-edit-tab input{
+.prod-edit-tab input {
   font-size: 13px;
   color: var(--text-main);
-  
+
   background-color: transparent;
   border: transparent;
 }
 
-.prod-edit-tab input:focus{
+.prod-edit-tab input:focus {
   border: var(--accent);
   outline: none;
 }
+
 /* ============================================ */
 
 
@@ -147,7 +151,7 @@
   border: 1px solid var(--accent);
   background-color: var(--accent);
   cursor: context-menu;
-  
+
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -173,7 +177,16 @@
 
 .prod-edit-tab-icon-b {
   font-weight: bold;
+  text-align: center;
   width: 25px;
+  height: 23px;
+  
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.custom-option:hover {
+  background-color: red;
 }
 
 .prod-edit-tab input[type="checkbox"] {
@@ -203,6 +216,7 @@
   background-color: var(--text-main);
   font-weight: bold;
 }
+
 /* ============================================ */
 
 
@@ -213,8 +227,9 @@
   align-items: center;
   flex: 1;
   gap: 5px;
-  
+
 }
+
 /* ============================================ */
 
 
@@ -225,6 +240,7 @@
   padding: 0px;
   margin: -7px -6.5px -6px 0px;
 }
+
 .prod-edit-tab-buttons button {
   color: var(--text-main);
   font-size: 20px;
@@ -234,6 +250,7 @@
   padding: 7.5px;
   width: 35px;
 }
+
 .prod-edit-tab-buttons button:hover {
   color: var(--background-main);
   background-color: var(--text-main);
@@ -264,6 +281,7 @@
 .prod-edit-tab input:focus {
   border: 1.25px solid var(--accent);
 }
+
 /* ============================================ */
 
 
@@ -274,6 +292,7 @@
   background-color: var(--background-tertiary);
   border: 1.25px solid var(--background-secondary);
 }
+
 .prod-edit-tab select:focus {
   border: 1.25px solid var(--background-secondary);
   outline: none;
@@ -313,7 +332,7 @@
   border-radius: 20px 0 20px 0;
   margin-top: 20px;
 }
-   
+
 
 /* ============================================
    ADD MODULE STYLES
@@ -328,9 +347,10 @@
 /* ============================================
    POP UP STYLES
    ============================================ */
-   .prod-popup-close{
-    visibility: hidden;
-   }
+.prod-popup-close {
+  visibility: hidden;
+}
+
 /* ============================================
    POP UP STYLES
    ============================================ */

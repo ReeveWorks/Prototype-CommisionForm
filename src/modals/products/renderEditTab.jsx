@@ -5,26 +5,41 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
     return (
         <div className='prod-edit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
             <div className='prod-edit-tab-elements'>
-                
+
                 {
                     moduleItem.type.includes("input")
-                    ?
-                    <label className='clickable prod-edit-tab-icon-id'>
-                        <input type="checkbox" className='prod-hover' checked={moduleItem.isRequired} onChange={() => handleChangeModule(!moduleItem.isRequired, moduleItem.id, "isRequired")} />
-                        {moduleItem.id}
-                    </label>
-                    :
-                    <label className='prod-edit-tab-noborder prod-edit-tab-icon-id'>{moduleItem.id}</label>
+                        ?
+                        <label className='clickable prod-edit-tab-icon-id'>
+                            <input type="checkbox" className='prod-hover' checked={moduleItem.isRequired} onChange={() => handleChangeModule(!moduleItem.isRequired, moduleItem.id, "isRequired")} />
+                            {moduleItem.id}
+                        </label>
+                        :
+                        <label className='prod-edit-tab-noborder prod-edit-tab-icon-id'>{moduleItem.id}</label>
                 }
                 {
                     moduleItem.id.includes("txt")
-                    ?
-                    <label className='clickable prod-edit-tab-icon-b'>
-                        <input type="checkbox" className='prod-hover' checked={moduleItem.bold} onChange={() => handleChangeModule(!moduleItem.bold, moduleItem.id, "bold")} />
-                        B
-                    </label>
-                    :
-                    null
+                        ?
+                        <label className='clickable prod-edit-tab-icon-b'>
+                            <input type="checkbox" className='prod-hover' checked={moduleItem.bold} onChange={() => handleChangeModule(!moduleItem.bold, moduleItem.id, "bold")} />
+                            B
+                        </label>
+                        :
+                        null
+                }
+                {
+                    moduleItem.id.includes("txt")
+                        ?
+                        <select
+                            className='prod-edit-tab-icon-b'
+                            value={moduleItem.textAlign}
+                            onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "textAlign")}>
+                            <option className='custom-option' value="left">L</option>
+                            <option value="center">C</option>
+                            <option value="right">R</option>
+                            <option value="justify">J</option>
+                        </select>
+                        :
+                        null
                 }
 
                 <p className='txt-base'>Tt</p>

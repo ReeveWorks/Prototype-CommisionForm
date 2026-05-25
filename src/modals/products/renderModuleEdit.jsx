@@ -11,11 +11,11 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                     <input
                         type="text"
                         value={moduleItem.content}
-                        style={{ 
-                            fontSize: `${moduleItem.size}px`, 
+                        style={{
+                            fontSize: `${moduleItem.size}px`,
                             fontWeight: moduleItem.bold ? 'bold' : 'normal',
                             textAlign: 'justify',
-                            textAlignLast: 'center'
+                            textAlignLast: `${moduleItem.textAlign}`,
                         }}
                         onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "content")}
                         placeholder="Input text here*" />
@@ -26,7 +26,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                 <div className='prod-module selected-module prod-hover'
                     key={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
-                    
+
                     <input
                         type="text"
                         value={moduleItem.content}
@@ -41,7 +41,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                 <div className='prod-module selected-module prod-hover'
                     key={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
-                    
+
                     <input
                         type="text"
                         value={moduleItem.content}
@@ -51,7 +51,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                     <p className='mock-textbox'><br /><br /><br /></p>
                 </div>
             );
-        
+
     }
 }
 
