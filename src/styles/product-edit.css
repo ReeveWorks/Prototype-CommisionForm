@@ -179,14 +179,17 @@
   font-weight: bold;
   text-align: center;
   width: 25px;
-  height: 23px;
+}
+
+.prod-edit-tab-icon-a {
+  font-weight: bold;
+  text-align: center;
+  width: 25px;
+  padding: 3px 0;
   
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
-.custom-option:hover {
-  background-color: red;
 }
 
 .prod-edit-tab input[type="checkbox"] {

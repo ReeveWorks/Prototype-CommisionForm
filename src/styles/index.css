@@ -82,6 +82,12 @@ option:checked {
   display: none;
 }
 
+select, option {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  line-height: 1;
+  font-weight: 400;
+}
+
 input:focus {
   border: 2px solid var(--accent);
   outline: none;

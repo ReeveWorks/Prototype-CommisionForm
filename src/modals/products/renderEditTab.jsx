@@ -1,6 +1,8 @@
 /* Stylesheets */
 import '../../styles/product-edit.css'
 
+import { TextAlignStart, TextAlignCenter, TextAlignEnd,TextAlignJustify} from 'lucide-react';
+
 function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule) {
     return (
         <div className='prod-edit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
@@ -30,18 +32,17 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                     moduleItem.id.includes("txt")
                         ?
                         <select
-                            className='prod-edit-tab-icon-b'
+                            className='prod-edit-tab-icon-a'
                             value={moduleItem.textAlign}
                             onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "textAlign")}>
-                            <option className='custom-option' value="left">L</option>
-                            <option value="center">C</option>
-                            <option value="right">R</option>
-                            <option value="justify">J</option>
+                            <option value="left"><TextAlignStart/></option>
+                            <option value="center"><TextAlignCenter/></option>
+                            <option value="right"><TextAlignEnd/></option>
+                            <option value="justify"><TextAlignJustify/></option>
                         </select>
                         :
                         null
                 }
-
                 <p className='txt-base'>Tt</p>
                 <input type='number' maxLength="2"
                     value={moduleItem.size}
@@ -54,7 +55,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
             </div>
 
             <div className='prod-edit-tab-buttons'>
-                <button className='txt-base use-icon' onClick={() => DeleteModule(moduleItem.id, moduleItem.type)}>1</button>
+                <button className='txt-base use-icon' onClick={() => DeleteModule(moduleItem.id, moduleItem.type)}>X</button>
                 <button className='txt-base use-icon' onClick={() => setIsEditing(-1)}>0</button>
             </div>
         </div>
