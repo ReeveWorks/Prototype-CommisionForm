@@ -1,7 +1,8 @@
 /* Stylesheets */
 import '../../styles/product-edit.css'
+import './renderEditTab.css'
 
-import { TextAlignStart, TextAlignCenter, TextAlignEnd,TextAlignJustify} from 'lucide-react';
+import { ALargeSmall } from 'lucide-react';
 
 function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule) {
     return (
@@ -32,18 +33,18 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                     moduleItem.id.includes("txt")
                         ?
                         <select
-                            className='prod-edit-tab-icon-a'
+                            className='prod-edit-tab-icon-a txt-base use-icon'
                             value={moduleItem.textAlign}
                             onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "textAlign")}>
-                            <option value="left"><TextAlignStart/></option>
-                            <option value="center"><TextAlignCenter/></option>
-                            <option value="right"><TextAlignEnd/></option>
-                            <option value="justify"><TextAlignJustify/></option>
+                            <option className='txt-base use-icon' value="left">L</option>
+                            <option className='txt-base use-icon' value="center">C</option>
+                            <option className='txt-base use-icon' value="right">R</option>
+                            <option className='txt-base use-icon' value="justify">J</option>
                         </select>
                         :
                         null
                 }
-                <p className='txt-base'>Tt</p>
+                <ALargeSmall />
                 <input type='number' maxLength="2"
                     value={moduleItem.size}
                     onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "size", 0, 50)} />

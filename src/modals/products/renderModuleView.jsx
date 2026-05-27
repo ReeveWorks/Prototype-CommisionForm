@@ -19,7 +19,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     {moduleItem.content}
                 </div>
             );
-        case 'text-input':
+        case 'Text Input':
             return (
                 <div className='prod-module prod-hover line-justify'
                     key={index}

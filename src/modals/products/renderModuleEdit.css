@@ -1,0 +1,25 @@
+.moduleEdit-container {
+  width: 100%;
+  padding: 0;
+  margin-top: 1px;
+  box-sizing: border-box;
+
+  border: 1px solid var(--accent);
+  background-color: color-mix(in srgb, var(--accent), transparent 95%);
+  border-radius: 0%;
+}
+
+.moduleEdit-container textarea {
+  color: var(--text-main);
+  width: 100%;
+  padding: 2.5px;
+  line-height: 1.2em;
+
+  background-color: transparent;
+  border: transparent;
+}
+
+.moduleEdit-container textarea:focus {
+  border: var(--accent);
+  outline: none;
+}

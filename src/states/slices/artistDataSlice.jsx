@@ -21,10 +21,11 @@ const initialState = {
                         content: "Fill in your commission details!",
                     },
                     {
-                        id: "inm-txt02",
-                        type: "text-input",
+                        id: "in-txt02",
+                        type: "Text Input",
                         isRequired: true,
                         bold: false,
+                        textAlign: "left",
                         size: 20,
                         spacing: 10,
                         content: "Commission Title"
