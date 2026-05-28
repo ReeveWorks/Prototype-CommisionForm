@@ -13,6 +13,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                         marginBottom: `${moduleItem.spacing}px`,
                         textAlign: 'justify',
                         textAlignLast: `${moduleItem.textAlign}`,
+                        whiteSpace: 'pre-wrap',
                         fontWeight: moduleItem.bold ? 'bold' : 'normal'
                     }}
                     onClick={() => setIsEditing(index)}>
@@ -26,7 +27,8 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     id={moduleItem.id}
                     style={{ 
                         fontSize: `${moduleItem.size}px`, 
-                        marginBottom: `${moduleItem.spacing}px` 
+                        marginBottom: `${moduleItem.spacing}px`,
+                        whiteSpace: 'pre-wrap'
                     }}
                     onClick={() => setIsEditing(index)}>
 
