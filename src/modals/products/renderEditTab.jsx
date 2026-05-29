@@ -1,16 +1,33 @@
 /* Stylesheets */
-import '../../styles/product-edit.css'
 import './renderEditTab.css'
 
 import { ALargeSmall } from 'lucide-react';
 
 function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule) {
+    function uniqueFunction(type) {
+        switch (type) {
+            case 'Text Input':
+                return inputText();
+            default:
+                return null;
+        }
+    }
+
+    function inputText() {
+        return (
+            <label className='clickable prod-edit-tab-icon-b'>
+                <input type="checkbox" className='prod-hover' checked={moduleItem.textbox} onChange={() => handleChangeModule(!moduleItem.textbox, moduleItem.id, "textbox")} />
+                ◻
+            </label>
+        )
+    }
+
     return (
         <div className='prod-edit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
             <div className='prod-edit-tab-elements'>
 
                 {
-                    moduleItem.type.includes("input")
+                    moduleItem.id.includes("in")
                         ?
                         <label className='clickable prod-edit-tab-icon-id'>
                             <input type="checkbox" className='prod-hover' checked={moduleItem.isRequired} onChange={() => handleChangeModule(!moduleItem.isRequired, moduleItem.id, "isRequired")} />
@@ -19,6 +36,9 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                         :
                         <label className='prod-edit-tab-noborder prod-edit-tab-icon-id'>{moduleItem.id}</label>
                 }
+
+                { uniqueFunction(moduleItem.type) }
+
                 {
                     moduleItem.id.includes("txt")
                         ?

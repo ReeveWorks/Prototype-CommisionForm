@@ -1,5 +1,4 @@
 /* Stylesheets */
-import '../../styles/product-edit.css'
 import '../../styles/popup.css'
 import { useRef, useState } from 'react';
 

@@ -1,5 +1,4 @@
 /* Stylesheets */
-import '../../styles/product-edit.css'
 import './renderModuleEdit.css'
 
 function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange) {
@@ -13,10 +12,9 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                         type="text"
                         value={moduleItem.content}
                         style={{
-                            fontSize: `${moduleItem.size}px`,
                             fontWeight: moduleItem.bold ? 'bold' : 'normal',
-                            textAlign: 'justify',
                             textAlignLast: `${moduleItem.textAlign}`,
+                            fontSize: `${moduleItem.size}px`,
                         }}
                         onChange={
                             (event) =>
@@ -34,35 +32,26 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                         type="text"
                         value={moduleItem.content}
                         style={{
-                            fontSize: `${moduleItem.size}px`,
                             fontWeight: moduleItem.bold ? 'bold' : 'normal',
-                            textAlign: 'justify',
                             textAlignLast: `${moduleItem.textAlign}`,
+                            fontSize: `${moduleItem.size}px`,
                         }}
                         onChange={
                             (event) =>
                                 handleChangeModule(event.target.value, moduleItem.id, "content")
                         }
                         placeholder="Input text here*" />
-                    <p className='mock-textbox'><br /></p>
+                    <p className='mock-textbox' style={{ marginTop: `7px` }}>
+                        {
+                            moduleItem.textbox == true
+                                ?
+                                <div><br /><br /><br /></div>
+                                :
+                                <br />
+                        }
+                    </p>
                 </div>
             );
-        case 'text-input':
-            return (
-                <div className='prod-module selected-module prod-hover'
-                    key={moduleItem.id}
-                    style={{ marginBottom: `${moduleItem.spacing}px` }}>
-
-                    <input
-                        type="text"
-                        value={moduleItem.content}
-                        style={{ fontSize: `${moduleItem.size}px` }}
-                        onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "content")}
-                        placeholder="Input text here*" />
-                    <p className='mock-textbox'><br /></p>
-                </div>
-            );
-        case 'txtblock-input':
             return (
                 <div className='prod-module selected-module prod-hover'
                     key={moduleItem.id}
