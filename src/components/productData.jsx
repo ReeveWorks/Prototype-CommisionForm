@@ -15,24 +15,24 @@ import renderModuleEdit from '../modals/products/renderModuleEdit';
 import renderEditTab from '../modals/products/renderEditTab';
 
 /* Render Pop-up */
-import PopupModel from '../modals/global/renderPopup';
+import PopupModal from '../modals/global/renderPopup';
 
 function productData() {
-    /* Redux */
+    // Redux 
     const artistData = useSelector((state) => state.artist.artist);
     const dispatch = useDispatch();
 
     const [product, setProduct] = useState(useSelector((state) => state.artist.artist.products[0]));
 
-    /* State */
+    // State
     const [isEditing, setIsEditing] = useState(-1);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-    /// Pop-up Props
+    // Pop-up Props
     const [popupProps, setPopupProps] = useState({});
 
 
-    /* Functions */
+    // Functions
     function handleChange(event, key) {
         setProduct({ ...product, [key]: event.target.value });
     }
@@ -86,7 +86,7 @@ function productData() {
         });
     }
 
-    /* Render */
+    // Render
     function renderModule(moduleItem, index) {
         if (isEditing === index) {
             return (<>
@@ -113,7 +113,7 @@ function productData() {
         });
     }
 
-    /* Test Purpose */    
+    // Test Purpose  
     async function popupCheck() {
         function message(moduleid) {
             let module = product.module.find(m => m.id === moduleid);
@@ -148,8 +148,8 @@ function productData() {
     }
     
     return (
-        <>
-            {isPopupOpen && <PopupModel
+        <div>
+            {isPopupOpen && <PopupModal
                 type={popupProps.type}
                 title={popupProps.title}
                 message={popupProps.message}
@@ -185,7 +185,7 @@ function productData() {
                     Data Check
                 </button>
             </div>
-        </>
+        </div>
     );
 }
 

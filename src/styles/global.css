@@ -31,8 +31,8 @@ html.light {
 }
 
 @font-face {
-  font-family: 'IconFont';
-  src: url('../assets/font_icon.otf') format('opentype');
+  font-family: 'IconAssets';
+  src: url('../assets/font_icons.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -90,5 +90,5 @@ html.light {
 }
 
 .use-icon {
-  font-family: 'IconFont', sans-serif;
+  font-family: 'IconAssets', sans-serif;
 }

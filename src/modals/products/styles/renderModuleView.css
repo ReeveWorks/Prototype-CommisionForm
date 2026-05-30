@@ -39,6 +39,3 @@
 
     pointer-events: none;
 }
-.prod-required {
-  color: var(--accent);
-}

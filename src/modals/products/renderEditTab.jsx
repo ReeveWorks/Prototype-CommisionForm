@@ -1,5 +1,5 @@
 /* Stylesheets */
-import './renderEditTab.css'
+import './styles/renderEditTab.css'
 
 import { ALargeSmall } from 'lucide-react';
 
@@ -77,7 +77,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
 
             <div className='prod-edit-tab-buttons'>
                 <button className='txt-base use-icon' onClick={() => DeleteModule(moduleItem.id, moduleItem.type)}>X</button>
-                <button className='txt-base use-icon' onClick={() => setIsEditing(-1)}>0</button>
+                <button className='txt-base use-icon' onClick={() => setIsEditing(-1)}>-</button>
             </div>
         </div>
     );

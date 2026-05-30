@@ -1,5 +1,5 @@
 /* Stylesheets */
-import './renderModuleEdit.css'
+import './styles/renderModuleEdit.css'
 
 function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange) {
     switch (moduleItem.type) {
@@ -28,6 +28,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                 <div className='moduleEdit-container prod-hover'
                     key={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
+                    
                     <textarea
                         type="text"
                         value={moduleItem.content}
@@ -41,6 +42,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                                 handleChangeModule(event.target.value, moduleItem.id, "content")
                         }
                         placeholder="Input text here*" />
+
                     <p className='mock-textbox' style={{ marginTop: `7px` }}>
                         {
                             moduleItem.textbox == true

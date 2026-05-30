@@ -1,5 +1,5 @@
 /* Stylesheets */
-import '../../styles/popup.css'
+import './styles/renderPopup.css'
 import { useRef, useState } from 'react';
 
 function RenderPopupMessage({ type, title, message, contents, returnValue, closePopup }) {

@@ -1,5 +1,5 @@
 /* Stylesheets */
-import './renderModuleView.css'
+import './styles/renderModuleView.css'
 
 function renderModuleView(moduleItem, index, setIsEditing) {
     switch (moduleItem.type) {

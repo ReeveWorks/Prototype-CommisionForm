@@ -1,0 +1,15 @@
+.prod-edit-tab {
+  gap: 5px;
+  display: flex;
+  padding: 5px;
+  margin-bottom: -2px;
+  align-items: center;
+  border: 1px solid var(--accent);
+  background-color: var(--accent);
+  cursor: context-menu;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
