@@ -8,8 +8,7 @@ import { togglemode } from './states/slices/darkmodeSlice'
 
 /* Pages */
 import Header from './components/header.jsx';
-import ArtistProducts from './components/artistProducts.jsx';
-import ProductData from './components/productData.jsx';
+import OwnerProduct from './components/owner/owner-product.jsx';
 import TestView from './test-reference/productData-format.jsx';
 
 function App() {
@@ -19,7 +18,7 @@ function App() {
     <div className="app">
       <Header />
 
-      <ProductData />
+      <OwnerProduct />
       {/* <TestView /> */}
     </div>
   )

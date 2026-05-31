@@ -5,7 +5,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
     switch (moduleItem.type) {
         case 'Static Text':
             return (
-                <div className='prod-module'
+                <div className='productView-container'
                     key={index}
                     id={moduleItem.id}
                     style={{
@@ -20,7 +20,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
             );
         case 'Text Input':
             return (
-                <div className='prod-module'
+                <div className='productView-container'
                     key={index}
                     id={moduleItem.id}
                     style={{

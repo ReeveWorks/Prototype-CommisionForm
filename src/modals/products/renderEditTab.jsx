@@ -6,6 +6,8 @@ import { ALargeSmall } from 'lucide-react';
 function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule) {
     function uniqueFunction(type) {
         switch (type) {
+            case 'Static Text':
+                return staticText();
             case 'Text Input':
                 return inputText();
             default:
@@ -13,71 +15,108 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
         }
     }
 
+    // type
+    function staticText() {
+        return (
+            <>
+                {staticID()}
+                {fontBoldBTN()}
+                {textAlignBTN()}
+                {textSizeBox()}
+                {marginBottomBox()}
+            </>
+        )
+    }
     function inputText() {
         return (
-            <label className='clickable prod-edit-tab-icon-b'>
-                <input type="checkbox" className='prod-hover' checked={moduleItem.textbox} onChange={() => handleChangeModule(!moduleItem.textbox, moduleItem.id, "textbox")} />
-                ◻
+            <>
+                {inputID()}
+                {mockbox()}
+                {fontBoldBTN()}
+                {textAlignBTN()}
+                {textSizeBox()}
+                {marginBottomBox()}
+            </>
+        )
+    }
+
+    // Base Functions
+    function inputID() {
+        return (
+            <label className='PET-checkbox PET-checkbox-id'>
+            <input type="checkbox" className='elem-hide' checked={moduleItem.isRequired} onChange={() => handleChangeModule(!moduleItem.isRequired, moduleItem.id, "isRequired")} />
+            <p>{moduleItem.id}</p>
+        </label>
+        );
+    }
+    function staticID() {
+        return(
+            <label className='PET-checkbox PET-checkbox-static'>
+                <p>{moduleItem.id}</p>
+            </label>
+        );
+    }
+    function fontBoldBTN() {
+        return (
+            <label className='PET-checkbox PET-checkbox-box'>
+                <input type="checkbox" className='elem-hide' checked={moduleItem.bold} onChange={() => handleChangeModule(!moduleItem.bold, moduleItem.id, "bold")} />
+                <p>B</p>
+            </label>
+        )
+    }
+    function textAlignBTN() {
+        return (
+            <select
+                className='PET-dropdown use-icon'
+                value={moduleItem.textAlign}
+                onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "textAlign")}>
+                <option className='use-icon' value="left">L</option>
+                <option className='use-icon' value="center">C</option>
+                <option className='use-icon' value="right">R</option>
+                <option className='use-icon' value="justify">J</option>
+            </select>
+        )
+    }
+    function textSizeBox() {
+        return (
+            <div className='PETF-textBox'>
+                <p>A</p>
+                <input type='number' maxLength="2"
+                    value={moduleItem.size}
+                    onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "size", 0, 50)} />
+            </div>
+        )
+    }
+    function marginBottomBox() {
+        return (
+            <div className='PETF-textBox'>
+                <p>S</p>
+                <input type='number' maxLength="2"
+                    value={moduleItem.spacing}
+                    onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "spacing", 0, 250)} />
+            </div>
+        )
+    }
+
+    //Unique Functions
+    function mockbox() {
+        return (
+            <label className='PET-checkbox PET-checkbox-box'>
+                <input type="checkbox" className='elem-hide' checked={moduleItem.textbox} onChange={() => handleChangeModule(!moduleItem.textbox, moduleItem.id, "textbox")} />
+                <p>◻</p>
             </label>
         )
     }
 
     return (
-        <div className='prod-edit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
-            <div className='prod-edit-tab-elements'>
-
-                {
-                    moduleItem.id.includes("in")
-                        ?
-                        <label className='clickable prod-edit-tab-icon-id'>
-                            <input type="checkbox" className='prod-hover' checked={moduleItem.isRequired} onChange={() => handleChangeModule(!moduleItem.isRequired, moduleItem.id, "isRequired")} />
-                            {moduleItem.id}
-                        </label>
-                        :
-                        <label className='prod-edit-tab-noborder prod-edit-tab-icon-id'>{moduleItem.id}</label>
-                }
-
-                { uniqueFunction(moduleItem.type) }
-
-                {
-                    moduleItem.id.includes("txt")
-                        ?
-                        <label className='clickable prod-edit-tab-icon-b'>
-                            <input type="checkbox" className='prod-hover' checked={moduleItem.bold} onChange={() => handleChangeModule(!moduleItem.bold, moduleItem.id, "bold")} />
-                            B
-                        </label>
-                        :
-                        null
-                }
-                {
-                    moduleItem.id.includes("txt")
-                        ?
-                        <select
-                            className='prod-edit-tab-icon-a txt-base use-icon'
-                            value={moduleItem.textAlign}
-                            onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "textAlign")}>
-                            <option className='txt-base use-icon' value="left">L</option>
-                            <option className='txt-base use-icon' value="center">C</option>
-                            <option className='txt-base use-icon' value="right">R</option>
-                            <option className='txt-base use-icon' value="justify">J</option>
-                        </select>
-                        :
-                        null
-                }
-                <ALargeSmall />
-                <input type='number' maxLength="2"
-                    value={moduleItem.size}
-                    onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "size", 0, 50)} />
-
-                <p className='txt-base'>↧↧</p>
-                <input type='number' maxLength="2"
-                    value={moduleItem.spacing}
-                    onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "spacing", 0, 250)} />
+        <div className='productEdit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
+            <div className='PET-functions'>
+                {uniqueFunction(moduleItem.type)}
             </div>
 
-            <div className='prod-edit-tab-buttons'>
-                <button className='txt-base use-icon' onClick={() => DeleteModule(moduleItem.id, moduleItem.type)}>X</button>
-                <button className='txt-base use-icon' onClick={() => setIsEditing(-1)}>-</button>
+            <div className='PET-buttons'>
+                <button onClick={() => DeleteModule(moduleItem.id, moduleItem.type)}>X</button>
+                <button onClick={() => setIsEditing(-1)}>-</button>
             </div>
         </div>
     );

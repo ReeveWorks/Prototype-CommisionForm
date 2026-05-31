@@ -78,9 +78,9 @@ h3 {
   font-size: var(--text-h3);
 }
 
-option:checked {
+/* option:checked {
   display: none;
-}
+} */
 
 select, option {
   font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;

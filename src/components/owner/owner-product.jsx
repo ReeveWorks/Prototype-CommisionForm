@@ -1,23 +1,22 @@
 /* Stylesheets */
-import '../styles/product-edit.css'
-import '../styles/popup.css'
+import './styles/product.css'
 
 /* Functions/Hooks */
 import { useSelector, useDispatch } from 'react-redux'
 import { useState, Fragment } from 'react';
 
 /* Redux Slice */
-import { addProduct, updateProduct } from '../states/slices/artistDataSlice'
+import { addProduct, updateProduct } from '../../states/slices/artistDataSlice'
 
 /* Render Modules */
-import renderModuleView from '../modals/products/renderModuleView';
-import renderModuleEdit from '../modals/products/renderModuleEdit';
-import renderEditTab from '../modals/products/renderEditTab';
+import renderModuleView from '../../modals/products/renderModuleView';
+import renderModuleEdit from '../../modals/products/renderModuleEdit';
+import renderEditTab from '../../modals/products/renderEditTab';
 
 /* Render Pop-up */
-import PopupModal from '../modals/global/renderPopup';
+import PopupModal from '../../modals/global/renderPopup';
 
-function productData() {
+function ownerProduct() {
     // Redux 
     const artistData = useSelector((state) => state.artist.artist);
     const dispatch = useDispatch();
@@ -189,4 +188,4 @@ function productData() {
     );
 }
 
-export default productData;
+export default ownerProduct;

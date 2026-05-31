@@ -1,4 +1,4 @@
-.prod-module {
+.productView-container {
     width: 100%;
     padding: 2.5px;
     margin-top: 1px;
@@ -13,7 +13,7 @@
     white-space: pre-wrap;
 }
 
-.prod-module input {
+.productView-container input {
     font-size: 13px;
     color: var(--text-main);
 
@@ -21,21 +21,8 @@
     border: transparent;
 }
 
-.prod-module:hover {
+.productView-container:hover {
     border: 1px solid var(--accent);
     outline: none;
     background-color: color-mix(in srgb, var(--accent), transparent 90%);
-}
-
-.mock-textbox {
-    background-color: var(--background-tertiary);
-    border: 1px solid var(--text-main);
-    font-size: var(--text-small);
-
-    width: 100%;
-    margin-top: 7px;
-    padding: 5px;
-    line-height: 1.2;
-
-    pointer-events: none;
 }

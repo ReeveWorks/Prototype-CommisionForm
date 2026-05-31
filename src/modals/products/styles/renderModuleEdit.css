@@ -1,6 +1,6 @@
-.moduleEdit-container {
+.productEdit-container {
   width: 100%;
-  padding: 0;
+    padding: 2.5px;
   margin-top: 1px;
   box-sizing: border-box;
 
@@ -11,17 +11,19 @@
   text-align: justify;
 }
 
-.moduleEdit-container textarea {
+.productEdit-container textarea {
   color: var(--text-main);
   width: 100%;
-  padding: 2.5px;
-  line-height: 1.2em;
+  padding: 0;
+  margin: 0;
+  margin-bottom: -5.5px;
+  line-height: 1.4em;
 
   background-color: transparent;
   border: transparent;
 }
 
-.moduleEdit-container textarea:focus {
+.productEdit-container textarea:focus {
   border: var(--accent);
   outline: none;
 }

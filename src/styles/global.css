@@ -12,8 +12,8 @@
 /* Dark Mode */
 :root,
 html.dark {
-  --text-main: rgba(255, 255, 255, 0.87);
-  --text-secondary: rgb(50, 37, 97);
+  --text-main: rgb(255, 255, 255);
+  --text-secondary: rgba(50, 37, 97, 0.87);
   --background-main: rgb(32, 35, 49);
   --background-secondary: rgb(221, 214, 255);
   --background-tertiary: rgb(72, 75, 87);
@@ -22,10 +22,10 @@ html.dark {
 
 /* Light Mode */
 html.light {
-  --text-main: rgba(56, 26, 1, 0.87);
-  --text-secondary: rgba(255, 239, 204);
+  --text-main: rgba(56, 26, 1);
+  --text-secondary: rgba(255, 239, 204, 0.87);
   --background-main: rgb(255, 239, 204);
-  --background-secondary: rgba(73, 34, 2, 0.87);
+  --background-secondary: rgb(73, 34, 2);
   --background-tertiary: rgb(247, 238, 220);
   --accent: rgb(255, 102, 0);
 }
@@ -89,6 +89,15 @@ html.light {
   user-select: none;
 }
 
+.elem-hide{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
 .use-icon {
   font-family: 'IconAssets', sans-serif;
 }
+

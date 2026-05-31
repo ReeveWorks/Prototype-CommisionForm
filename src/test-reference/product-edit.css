@@ -1,47 +1,4 @@
 /* ============================================
-   TOP LEVEL STYLES
-   ============================================ */
-.comp-prod {
-  /* padding: 0 clamp(5%, auto, 30%); 300px - 750px*/
-  width: clamp(450px, 50vw, 1000px);
-  align-content: center;
-  margin: 0 auto;
-}
-.prod-title {
-  font-size: var(--text-h1);
-  font-weight: bold;
-}
-.prod-text {
-  width: 100%;
-  padding: 3.5px;
-  margin: 2.55px 0px;
-  box-sizing: border-box;
-  text-align: justify;
-  text-align-last: center;
-
-  display: flex;
-  color: var(--text-main);
-  background-color: var(--background-main);
-  border: 1px solid transparent;
-  border-radius: 2.5px;
-}
-.prod-text:focus {
-  border: 1px solid var(--accent);
-  outline: none;
-  background-color: color-mix(in srgb, var(--accent), transparent 90%);
-}
-.prod-divider {
-  height: 1px;
-  background-color: var(--accent);
-  margin: 10px 0px;
-}
-/* ============================================
-   TOP LEVEL STYLES
-   ============================================ */
-
-
-
-/* ============================================
    PRODUCT MODULE EDIT MODE STYLES
    ============================================ */
 .prod-edit-tab input {

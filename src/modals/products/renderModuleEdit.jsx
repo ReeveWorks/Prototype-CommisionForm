@@ -5,7 +5,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
     switch (moduleItem.type) {
         case 'Static Text':
             return (
-                <div className='moduleEdit-container prod-hover'
+                <div className='productEdit-container prod-hover'
                     key={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
                     <textarea
@@ -25,10 +25,10 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
             );
         case 'Text Input':
             return (
-                <div className='moduleEdit-container prod-hover'
+                <div className='productEdit-container prod-hover'
                     key={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
-                    
+
                     <textarea
                         type="text"
                         value={moduleItem.content}
@@ -41,7 +41,8 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                             (event) =>
                                 handleChangeModule(event.target.value, moduleItem.id, "content")
                         }
-                        placeholder="Input text here*" />
+                        placeholder="Input text here*"
+                    />
 
                     <p className='mock-textbox' style={{ marginTop: `7px` }}>
                         {

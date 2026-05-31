@@ -4,7 +4,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 
 /* Redux Slice */
-import { addProduct, updateProduct } from '../states/slices/artistDataSlice'
+import { addProduct, updateProduct } from '../../states/slices/artistDataSlice'
 
 function artistProducts() {
     /* Redux */
