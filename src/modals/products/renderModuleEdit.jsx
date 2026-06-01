@@ -44,7 +44,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                         placeholder="Input text here*"
                     />
 
-                    <p className='mock-textbox' style={{ marginTop: `7px` }}>
+                    <p className='mock-textbox'>
                         {
                             moduleItem.textbox == true
                                 ?
@@ -55,18 +55,28 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                     </p>
                 </div>
             );
+            case 'Number Input':
             return (
-                <div className='prod-module selected-module prod-hover'
+                <div className='productEdit-container prod-hover'
                     key={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
 
-                    <input
+                    <textarea
                         type="text"
                         value={moduleItem.content}
-                        style={{ fontSize: `${moduleItem.size}px` }}
-                        onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "content")}
-                        placeholder="Input text here*" />
-                    <p className='mock-textbox'><br /><br /><br /></p>
+                        style={{
+                            fontWeight: moduleItem.bold ? 'bold' : 'normal',
+                            textAlignLast: `${moduleItem.textAlign}`,
+                            fontSize: `${moduleItem.size}px`,
+                        }}
+                        onChange={
+                            (event) =>
+                                handleChangeModule(event.target.value, moduleItem.id, "content")
+                        }
+                        placeholder="Input text here*"
+                    />
+
+                    <p className='mock-textbox'><br /></p>
                 </div>
             );
 

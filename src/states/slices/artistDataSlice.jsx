@@ -41,6 +41,15 @@ const initialState = {
                         isRequired: false,
                         content: "Details"
                     },
+                    {
+                        id: "in-num04",
+                        type: "Number Input",
+                        bold: false,
+                        size: 20,
+                        spacing: 10,
+                        isRequired: false,
+                        content: "Number of Chibi reaction"
+                    },
                 ],
             },
         ],

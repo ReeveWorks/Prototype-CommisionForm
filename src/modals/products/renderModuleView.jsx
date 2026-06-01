@@ -45,6 +45,25 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     </p>
                 </div>
             );
+        case 'Number Input':
+            return (
+                <div className='productView-container'
+                    key={index}
+                    id={moduleItem.id}
+                    style={{
+                        fontWeight: moduleItem.bold ? 'bold' : 'normal',
+                        textAlignLast: `${moduleItem.textAlign}`,
+                        marginBottom: `${moduleItem.spacing}px`,
+                        fontSize: `${moduleItem.size}px`
+                    }}
+                    onClick={() => setIsEditing(index)}>
+
+                    {moduleItem.content}
+                    {moduleItem.isRequired && <i className='txt-accent' style={{ fontSize: `${moduleItem.size}px` }}>*</i>}
+                    
+                    <p className='mock-textbox'><br /></p>
+                </div>
+            );
 
     }
 }

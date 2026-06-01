@@ -10,6 +10,8 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                 return staticText();
             case 'Text Input':
                 return inputText();
+            case 'Number Input':
+                return inputNumber();
             default:
                 return null;
         }
@@ -22,8 +24,6 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                 {staticID()}
                 {fontBoldBTN()}
                 {textAlignBTN()}
-                {textSizeBox()}
-                {marginBottomBox()}
             </>
         )
     }
@@ -34,8 +34,15 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                 {mockbox()}
                 {fontBoldBTN()}
                 {textAlignBTN()}
-                {textSizeBox()}
-                {marginBottomBox()}
+            </>
+        )
+    }
+    function inputNumber() {
+        return (
+            <>
+                {inputID()}
+                {fontBoldBTN()}
+                {textAlignBTN()}
             </>
         )
     }
@@ -112,6 +119,8 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
         <div className='productEdit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
             <div className='PET-functions'>
                 {uniqueFunction(moduleItem.type)}
+                {textSizeBox()}
+                {marginBottomBox()}
             </div>
 
             <div className='PET-buttons'>
