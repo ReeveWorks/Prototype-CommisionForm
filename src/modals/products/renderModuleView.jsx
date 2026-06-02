@@ -2,6 +2,25 @@
 import './styles/renderModuleView.css'
 
 function renderModuleView(moduleItem, index, setIsEditing) {
+    function handleEmptyContent() {
+        if (moduleItem.content.trim() === '') {
+            return (
+                <div>
+                    <p className='empty-text'>Input text here<span className='txt-accent'>*</span></p>
+                    {moduleItem.isRequired && <i className='txt-accent' style={{ fontSize: `${moduleItem.size}px` }}>*</i>}
+                </div>
+            );
+        }
+        else {
+            return (
+            <div>
+                {moduleItem.content}
+                {moduleItem.isRequired && <i className='txt-accent' style={{ fontSize: `${moduleItem.size}px` }}>*</i>}
+            </div>
+            );
+        }
+    }
+
     switch (moduleItem.type) {
         case 'Static Text':
             return (
@@ -15,7 +34,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                         fontSize: `${moduleItem.size}px`
                     }}
                     onClick={() => setIsEditing(index)}>
-                    {moduleItem.content}
+                    {handleEmptyContent()}
                 </div>
             );
         case 'Text Input':
@@ -31,14 +50,13 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     }}
                     onClick={() => setIsEditing(index)}>
 
-                    {moduleItem.content}
-                    {moduleItem.isRequired && <i className='txt-accent' style={{ fontSize: `${moduleItem.size}px` }}>*</i>}
-                    
+                    {handleEmptyContent()}
+
                     <p className='mock-textbox'>
                         {
                             moduleItem.textbox == true
                                 ?
-                                <div><br /><br /><br /></div>
+                                <><br /><br /><br /></>
                                 :
                                 <br />
                         }
@@ -58,9 +76,8 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     }}
                     onClick={() => setIsEditing(index)}>
 
-                    {moduleItem.content}
-                    {moduleItem.isRequired && <i className='txt-accent' style={{ fontSize: `${moduleItem.size}px` }}>*</i>}
-                    
+                    {handleEmptyContent()}
+
                     <p className='mock-textbox'><br /></p>
                 </div>
             );

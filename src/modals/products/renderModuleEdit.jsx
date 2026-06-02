@@ -48,7 +48,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                         {
                             moduleItem.textbox == true
                                 ?
-                                <div><br /><br /><br /></div>
+                                <><br /><br /><br /></>
                                 :
                                 <br />
                         }

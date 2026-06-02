@@ -49,3 +49,10 @@
 
   pointer-events: none;
 }
+
+.empty-text {
+  padding: 1.5px;
+  color: var(--text-main);
+  opacity: 0.5;
+  display: inline-block;
+}

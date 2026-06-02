@@ -84,6 +84,31 @@ function ownerProduct() {
             setIsPopupOpen(false);
         });
     }
+    async function popupAddModule() {
+
+        let selected = await renderPopup(
+            "options",
+            "Add Module",
+            "select what type of module you want to add:",
+            ["Static Text", "Text Input", "Number Input"]
+        );
+
+        if (selected === "Static Text") 
+        {
+            let newModule =
+            {
+                id: `st-txt-${String(product.module.length + 1).padStart(2, '0')}`,
+                type: "Static Text",
+                bold: false,
+                textAlign: "left",
+                size: 20,
+                spacing: 20,
+                content: "",
+            };
+            setProduct({ ...product, module: [...product.module, newModule] });
+        }
+
+    }
 
     // Render
     function renderModule(moduleItem, index) {
@@ -145,7 +170,7 @@ function ownerProduct() {
 
         await console.log(product);
     }
-    
+
     return (
         <div>
             {isPopupOpen && <PopupModal
@@ -180,7 +205,11 @@ function ownerProduct() {
                     </Fragment>
                 ))}
 
-                <button className='prod-btn-addModule txt-unselectable' onClick={() => popupCheck()}>
+                <button className='txt-unselectable' onClick={() => popupAddModule()}>
+                    Add Module
+                </button>
+                <br /><br />
+                <button className='txt-unselectable' onClick={() => popupCheck()}>
                     Data Check
                 </button>
             </div>
