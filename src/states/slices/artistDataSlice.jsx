@@ -48,7 +48,9 @@ const initialState = {
                         size: 20,
                         spacing: 10,
                         isRequired: false,
-                        content: "Number of Chibi reaction"
+                        content: "Number of Chibi reaction",
+                        min: 1,
+                        max: 10,
                     },
                 ],
             },

@@ -93,16 +93,30 @@ function ownerProduct() {
             ["Static Text", "Text Input", "Number Input"]
         );
 
-        if (selected === "Static Text") 
-        {
+        if (selected === "Static Text") {
             let newModule =
             {
-                id: `st-txt-${String(product.module.length + 1).padStart(2, '0')}`,
+                id: `st-txt${String(product.module.length + 1).padStart(2, '0')}`,
                 type: "Static Text",
                 bold: false,
                 textAlign: "left",
                 size: 20,
-                spacing: 20,
+                spacing: 10,
+                content: "",
+            };
+            setProduct({ ...product, module: [...product.module, newModule] });
+        }
+        else if (selected === "Text Input") {
+            let newModule =
+            {
+                id: `in-txt${String(product.module.length + 1).padStart(2, '0')}`,
+                type: "Text Input",
+                isRequired: false,
+                bold: false,
+                textbox: false,
+                textAlign: "left",
+                size: 20,
+                spacing: 10,
                 content: "",
             };
             setProduct({ ...product, module: [...product.module, newModule] });
