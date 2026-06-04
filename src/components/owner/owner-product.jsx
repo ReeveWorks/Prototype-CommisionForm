@@ -121,6 +121,21 @@ function ownerProduct() {
             };
             setProduct({ ...product, module: [...product.module, newModule] });
         }
+        else if (selected === "Number Input") {
+            let newModule =
+            {
+                id: `in-num${String(product.module.length + 1).padStart(2, '0')}`,
+                type: "Number Input",
+                bold: false,
+                size: 20,
+                spacing: 10,
+                isRequired: false,
+                content: "",
+                min: 1,
+                max: 10,
+            };
+            setProduct({ ...product, module: [...product.module, newModule] });
+        }
 
     }
 
