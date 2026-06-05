@@ -1,16 +1,10 @@
-.comp-prod {
+.owner-product {
   /* padding: 0 clamp(5%, auto, 30%); 300px - 750px*/
   width: clamp(450px, 50vw, 1000px);
   align-content: center;
   margin: 0 auto;
 }
-
-.prod-title {
-  font-size: var(--text-h1);
-  font-weight: bold;
-}
-
-.prod-text {
+.owner-product-items {
   width: 100%;
   padding: 3.5px;
   margin: 2.55px 0px;
@@ -24,8 +18,8 @@
   border: 1px solid transparent;
   border-radius: 2.5px;
 }
-
-.prod-text:focus {
+.owner-product-items:focus, 
+.owner-product-items:hover { 
   border: 1px solid var(--accent);
   outline: none;
   background-color: color-mix(in srgb, var(--accent), transparent 90%);

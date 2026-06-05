@@ -210,14 +210,14 @@ function ownerProduct() {
                 returnValue={popupProps.returnValue}
                 closePopup={() => setIsPopupOpen(false)} />}
 
-            <div className='comp-prod'>
+            <div className='owner-product'>
                 <br />
-                <input className="prod-text prod-title prod-hover"
+                <input className='owner-product-items txt-h1 font-bold'
                     type="text"
                     value={product.name}
                     onChange={(event) => handleChange(event, "name")}
                     placeholder="Product Name*" />
-                <textarea className="prod-text txt-h3 prod-hover"
+                <textarea className='owner-product-items txt-h3'
                     value={product.description}
                     onChange={(event) => handleChange(event, "description")}
                     placeholder="Product Description*" />
