@@ -12,6 +12,7 @@ import { addProduct, updateProduct } from '../../states/slices/artistDataSlice'
 import renderModuleView from '../../modals/products/renderModuleView';
 import renderModuleEdit from '../../modals/products/renderModuleEdit';
 import renderEditTab from '../../modals/products/renderEditTab';
+import toolBox from '../../modals/products/toolbox';
 
 /* Render Pop-up */
 import PopupModal from '../../modals/global/renderPopup';
@@ -210,6 +211,7 @@ function ownerProduct() {
                 returnValue={popupProps.returnValue}
                 closePopup={() => setIsPopupOpen(false)} />}
 
+            {toolBox()}
             <div className='owner-product'>
                 <br />
                 <input className='owner-product-items txt-h1 font-bold'
