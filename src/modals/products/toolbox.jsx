@@ -2,9 +2,9 @@
 import '../../styles/toolbox.css'
 
 function toolBox() {
-
+   
     return (
-        <div className='toolbox-container'>
+        <div id="tool-drag" className='toolbox-container'>
             <p className='use-icon txt-unselectable'>T</p>
         </div>
     );
