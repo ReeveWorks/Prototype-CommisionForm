@@ -14,8 +14,15 @@
   height: 3rem;
   font-size: 3rem;
   
+
+  top: 50%;
+  left: 50%;
 }
 
-#tool-drag{
-  cursor: move;
+#tool-drag {
+  cursor: grab;
+}
+
+#tool-drag:active {
+  cursor: grabbing;
 }
