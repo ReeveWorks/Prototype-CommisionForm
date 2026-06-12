@@ -4,42 +4,50 @@ import { useState, useEffect, useRef } from 'react';
 
 function toolBox() {
     const dragElementRef = useRef(null);
-    const [toolPosition, setToolPosition] = useState({ x: 0, y: 0 });
+    const [pos, setpos] = useState({ x: 0, y: 0 });
+    const [toolmove, setToolMove] = useState(false);
+    const [tooldiv, setToolDiv] = useState(null);
 
     function log(value, e) {
-        e = e || window.event;
-        e.preventDefault();
-
-        const target = e.currentTarget || dragElementRef.current;
-        
-        console.log(`${value} button\nx-axis: ${e.clientX}\ny-axis: ${e.clientY}`);
-
         if (value === "down") {
-            target.style.color = 'red';
-        } else if (value === "up") {
-            target.style.color = 'white';
+            tooldiv.style.color = 'red';
+            setToolMove(true);
         }
-    
+        else if (value === "up") {
+            tooldiv.style.color = 'white';
+            setToolMove(false);
+        }
 
-        target.style.top = `${(target.offsetTop)}px`;
-        target.style.left = `${(target.offsetLeft)}px`;
+        setToolDiv(e.currentTarget || dragElementRef.current);
+
+        if (value === "move" && toolmove) {
+            tooldiv.style.top = 
+            `${(tooldiv.offsetTop - (pos.y - e.clientY))}px`;
+            tooldiv.style.left = 
+            `${(tooldiv.offsetLeft - (pos.x - e.clientX))}px`;
+        }
+
+        setpos({ x: e.clientX, y: e.clientY, });
     }
 
+    // e = e || window.event;
+    // e.preventDefault();
+    // onMouseMove={(e) => log("move", e)}   
+
     // useEffect(() => {
-    //     setTimeout(() => {
-    //         setCount((count) => count + 1);
-    //         console.log('count updated:', count);
-    //     }, 1000);
+    //     if (toolmove){
+
+    //     }
     // });
 
-    // onMouseMove={(e) => log("move", e)}   
     return (
         <div
             ref={dragElementRef}
             id="tool-drag"
             className='toolbox-container'
             onMouseDown={(e) => log("down", e)}
-            onMouseUp={(e) => log("up", e)}>
+            onMouseUp={(e) => log("up", e)}
+            onMouseMove={(e) => log("move", e)}>
             <p className='use-icon txt-unselectable' >T</p>
         </div>
     );
