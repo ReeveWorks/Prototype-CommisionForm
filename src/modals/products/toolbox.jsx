@@ -30,16 +30,6 @@ function toolBox() {
         setpos({ x: e.clientX, y: e.clientY, });
     }
 
-    // e = e || window.event;
-    // e.preventDefault();
-    // onMouseMove={(e) => log("move", e)}   
-
-    // useEffect(() => {
-    //     if (toolmove){
-
-    //     }
-    // });
-
     return (
         <div
             ref={dragElementRef}
@@ -47,7 +37,8 @@ function toolBox() {
             className='toolbox-container'
             onMouseDown={(e) => log("down", e)}
             onMouseUp={(e) => log("up", e)}
-            onMouseMove={(e) => log("move", e)}>
+            onMouseMove={(e) => log("move", e)}
+            onMouseLeave={(e) => log("move", e)}>
             <p className='use-icon txt-unselectable' >T</p>
         </div>
     );
