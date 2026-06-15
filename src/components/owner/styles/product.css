@@ -14,7 +14,7 @@
 
   display: flex;
   color: var(--text-main);
-  background-color: var(--background-main);
+  background-color: transparent;
   border: 1px solid transparent;
   border-radius: 2.5px;
 }

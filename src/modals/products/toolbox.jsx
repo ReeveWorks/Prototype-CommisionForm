@@ -3,68 +3,77 @@ import '../../styles/toolbox.css'
 import { useState, useEffect, useRef } from 'react';
 
 function toolBox() {
-    const dragElementRef = useRef(null);
     const [pos, setpos] = useState({ x: 0, y: 0 });
     const [toolmove, setToolMove] = useState(false);
     const [tooldiv, setToolDiv] = useState(null);
 
+    const dragElementRef = useRef(null);
     const tooldivRef = useRef({
         isDragging: false,
-        mouseX: 0,
-        mouseY: 0,
-        moveX: 0,
-        moveY: 0,
+        mouseStartX: 0,
+        mouseStartY: 0,
+        divOriginLeft: 0,
+        divOriginTop: 0,
     });
 
-    function mouseDown(e) {
-        console.log(`X-axis: ${e.clientX}, Y-axis: ${e.clientY}`);
+    const mouseDown = (e) => {
+        e.preventDefault();
+
+        const tooldiv = dragElementRef.current;
+        if (!tooldiv) return;
 
         tooldivRef.current = {
             isDragging: true,
-            mouseX: e.clientX,
-            mouseY: e.clientY
+            mouseStartX: e.clientX,
+            mouseStartY: e.clientY,
+            divOriginLeft: tooldiv.offsetLeft,
+            divOriginTop: tooldiv.offsetTop,
         };
-    }
+        tooldiv.style.color = 'red';
 
-    function log(value, e) {
-        if (value === "down") {
-            tooldiv.style.color = 'red';
-            setToolMove(true);
-        }
-        else if (value === "up") {
+        document.addEventListener('mousemove', mouseMove);
+        document.addEventListener('mouseup', mouseUp);
+    }
+    const mouseMove = (e) => {
+        if (!tooldivRef.current.isDragging) return; 
+        const { mouseStartX, mouseStartY, divOriginLeft, divOriginTop } = tooldivRef.current;
+        
+        const tooldiv = dragElementRef.current;
+        if (!tooldiv) return;
+
+        tooldiv.style.left = `${divOriginLeft + (e.clientX - mouseStartX)}px`;
+        tooldiv.style.top = `${divOriginTop + (e.clientY - mouseStartY)}px`;
+    }
+    const mouseUp = () => {
+        const tooldiv = dragElementRef.current;
+
+        tooldivRef.current.isDragging = false;
+        
+        if (tooldiv) {
             tooldiv.style.color = 'white';
-            setToolMove(false);
         }
 
-        setToolDiv(e.currentTarget || dragElementRef.current);
-
-        if (value === "move" && toolmove) {
-            tooldiv.style.top =
-                `${(tooldiv.offsetTop - (pos.y - e.clientY))}px`;
-            tooldiv.style.left =
-                `${(tooldiv.offsetLeft - (pos.x - e.clientX))}px`;
-        }
-
-        setpos({ x: e.clientX, y: e.clientY, });
+        document.removeEventListener('mousemove', mouseMove);
+        document.removeEventListener('mouseup', mouseUp);
+    }    
+    useEffect(() => {
+        return () => {
+            document.removeEventListener('mousemove', mouseMove);
+            document.removeEventListener('mouseup', mouseUp);
+        };
+    }, []);
+    
+    function consoleLog() {
+        console.log(`Hello World!`);
     }
-
-    // <div
-    //     ref={dragElementRef}
-    //     id="tool-drag"
-    //     className='toolbox-container'
-    //     onMouseDown={(e) => log("down", e)}
-    //     onMouseUp={(e) => log("up", e)}
-    //     onMouseMove={(e) => log("move", e)}
-    //     onMouseLeave={(e) => log("move", e)}>
-    //     <p className='use-icon txt-unselectable' >T</p>
-    // </div>
 
     return (
         <div
             ref={dragElementRef}
             id="tool-drag"
             className='toolbox-container'
-            onMouseDown={(e) => log("down", e)}>
+            onMouseDown={mouseDown}
+            onMouseUp={mouseUp}>
             <p className='use-icon txt-unselectable' >T</p>
         </div>
     );
