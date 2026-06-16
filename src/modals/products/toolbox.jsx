@@ -35,36 +35,52 @@ function toolBox() {
         document.addEventListener('mouseup', mouseUp);
     }
     const mouseMove = (e) => {
-        if (!tooldivRef.current.isDragging) return; 
+        if (!tooldivRef.current.isDragging) return;
         const { mouseStartX, mouseStartY, divOriginLeft, divOriginTop } = tooldivRef.current;
-        
+
         const tooldiv = dragElementRef.current;
         if (!tooldiv) return;
 
-        tooldiv.style.left = `${divOriginLeft + (e.clientX - mouseStartX)}px`;
-        tooldiv.style.top = `${divOriginTop + (e.clientY - mouseStartY)}px`;
+        let divLeft = divOriginLeft + (e.clientX - mouseStartX);
+        let divTop = divOriginTop + (e.clientY - mouseStartY);
+
+        if (divLeft <= 0) divLeft = 0;
+        if (divTop <= 0) divTop = 0;
+        if (divLeft + tooldiv.offsetWidth >= window.innerWidth) {
+            divLeft = window.innerWidth - tooldiv.offsetWidth;
+        }
+        if (divTop + tooldiv.offsetHeight >= window.innerHeight) {
+            divTop = window.innerHeight - tooldiv.offsetHeight;
+        }
+
+        tooldiv.style.left = `${divLeft}px`;
+        tooldiv.style.top = `${divTop}px`;
+
+        // tooldiv.style.transform = `translate(${x}px, ${y}px)`;
     }
     const mouseUp = () => {
         const tooldiv = dragElementRef.current;
 
         tooldivRef.current.isDragging = false;
-        
+
         if (tooldiv) {
             tooldiv.style.color = 'white';
         }
 
         document.removeEventListener('mousemove', mouseMove);
         document.removeEventListener('mouseup', mouseUp);
-    }    
+    }
     useEffect(() => {
         return () => {
             document.removeEventListener('mousemove', mouseMove);
             document.removeEventListener('mouseup', mouseUp);
         };
     }, []);
-    
-    function consoleLog() {
-        console.log(`Hello World!`);
+
+    const consoleLog = () => {
+        let windowWidth = window.innerWidth;
+        let windowHeight = window.innerHeight;
+        console.log(`Window Width: ${windowWidth}\nWindow Height: ${windowHeight}`);
     }
 
     return (
@@ -73,7 +89,8 @@ function toolBox() {
             id="tool-drag"
             className='toolbox-container'
             onMouseDown={mouseDown}
-            onMouseUp={mouseUp}>
+            onMouseUp={mouseUp}
+            onClick={consoleLog}>
             <p className='use-icon txt-unselectable' >T</p>
         </div>
     );
