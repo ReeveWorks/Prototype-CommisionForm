@@ -67,6 +67,14 @@ function toolBox() {
             tooldiv.style.color = 'white';
         }
 
+        let windowWidth = window.innerWidth;
+        if (tooldiv.offsetLeft < windowWidth/2) {
+            tooldiv.style.left = `${5}px`;
+        }
+        if (tooldiv.offsetLeft >= windowWidth/2) {
+            tooldiv.style.left = `${windowWidth - tooldiv.offsetWidth - 5}px`;
+        }
+
         document.removeEventListener('mousemove', mouseMove);
         document.removeEventListener('mouseup', mouseUp);
     }
