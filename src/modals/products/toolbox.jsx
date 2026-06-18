@@ -44,14 +44,11 @@ function toolBox() {
         let divLeft = divOriginLeft + (e.clientX - mouseStartX);
         let divTop = divOriginTop + (e.clientY - mouseStartY);
 
-        if (divLeft <= 0) divLeft = 0;
-        if (divTop <= 0) divTop = 0;
-        if (divLeft + tooldiv.offsetWidth >= window.innerWidth) {
-            divLeft = window.innerWidth - tooldiv.offsetWidth;
-        }
-        if (divTop + tooldiv.offsetHeight >= window.innerHeight) {
-            divTop = window.innerHeight - tooldiv.offsetHeight;
-        }
+        let maxLeft = window.innerWidth - tooldiv.offsetWidth;
+        let maxTop = window.innerHeight - tooldiv.offsetHeight - 5;
+
+        divLeft = Math.max(0, Math.min(divLeft, maxLeft));
+        divTop = Math.max(45, Math.min(divTop, maxTop));
 
         tooldiv.style.left = `${divLeft}px`;
         tooldiv.style.top = `${divTop}px`;
@@ -71,7 +68,7 @@ function toolBox() {
         if (tooldiv.offsetLeft < windowWidth/2) {
             tooldiv.style.left = `${5}px`;
         }
-        if (tooldiv.offsetLeft >= windowWidth/2) {
+        else {
             tooldiv.style.left = `${windowWidth - tooldiv.offsetWidth - 5}px`;
         }
 
