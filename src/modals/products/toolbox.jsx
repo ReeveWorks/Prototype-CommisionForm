@@ -57,14 +57,12 @@ function toolBox() {
     }
     const mouseUp = () => {
         const tooldiv = dragElementRef.current;
-
         tooldivRef.current.isDragging = false;
 
-        if (tooldiv) {
-            tooldiv.style.color = 'white';
-        }
+        if (tooldiv) { tooldiv.style.color = 'white'; }
 
         let windowWidth = window.innerWidth;
+
         if (tooldiv.offsetLeft < windowWidth/2) {
             tooldiv.style.left = `${5}px`;
         }
@@ -82,10 +80,10 @@ function toolBox() {
         };
     }, []);
 
-    const consoleLog = () => {
-        let windowWidth = window.innerWidth;
-        let windowHeight = window.innerHeight;
-        console.log(`Window Width: ${windowWidth}\nWindow Height: ${windowHeight}`);
+    const consoleLog = (e) => {
+        let mouseX = e.clientX;
+        let mouseY = e.clientY;
+        console.log(`Mouse X: ${mouseX}\nMouse Y: ${mouseY}`);
     }
 
     return (
