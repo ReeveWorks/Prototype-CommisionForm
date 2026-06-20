@@ -7,6 +7,7 @@ function toolBox() {
     const [toolmove, setToolMove] = useState(false);
     const [tooldiv, setToolDiv] = useState(null);
 
+    const toolDivScreen = useRef(null);
     const dragElementRef = useRef(null);
     const tooldivRef = useRef({
         isDragging: false,
@@ -44,11 +45,11 @@ function toolBox() {
         let divLeft = divOriginLeft + (e.clientX - mouseStartX);
         let divTop = divOriginTop + (e.clientY - mouseStartY);
 
-        let maxLeft = window.innerWidth - tooldiv.offsetWidth;
-        let maxTop = window.innerHeight - tooldiv.offsetHeight - 5;
+        let maxLeft = toolDivScreen.current.offsetWidth - tooldiv.offsetWidth;
+        let maxTop = toolDivScreen.current.offsetHeight - tooldiv.offsetHeight - 40;
 
-        divLeft = Math.max(0, Math.min(divLeft, maxLeft));
-        divTop = Math.max(45, Math.min(divTop, maxTop));
+        divLeft = Math.max(0, Math.min((divLeft), maxLeft));
+        divTop = Math.max(0, Math.min((divTop), maxTop));
 
         tooldiv.style.left = `${divLeft}px`;
         tooldiv.style.top = `${divTop}px`;
@@ -61,14 +62,14 @@ function toolBox() {
 
         if (tooldiv) { tooldiv.style.color = 'white'; }
 
-        let windowWidth = window.innerWidth;
+        let windowWidth = toolDivScreen.current.offsetWidth;
 
-        if (tooldiv.offsetLeft < windowWidth/2) {
-            tooldiv.style.left = `${5}px`;
-        }
-        else {
-            tooldiv.style.left = `${windowWidth - tooldiv.offsetWidth - 5}px`;
-        }
+        // if (tooldiv.offsetLeft < windowWidth / 2) {
+        //     tooldiv.style.left = `${5}px`;
+        // }
+        // else {
+        //     tooldiv.style.left = `${windowWidth - tooldiv.offsetWidth - 5}px`;
+        // }
 
         document.removeEventListener('mousemove', mouseMove);
         document.removeEventListener('mouseup', mouseUp);
@@ -81,20 +82,26 @@ function toolBox() {
     }, []);
 
     const consoleLog = (e) => {
-        let mouseX = e.clientX;
-        let mouseY = e.clientY;
-        console.log(`Mouse X: ${mouseX}\nMouse Y: ${mouseY}`);
+        const screen = toolDivScreen.current;
+        let width = screen.offsetWidth;
+        let height = screen.offsetHeight;
+        console.log(`Width: ${width}\nHeight: ${height}\n\nScreen Width: ${window.innerWidth}\nScreen height: ${window.innerHeight}`);
     }
 
     return (
         <div
-            ref={dragElementRef}
-            id="tool-drag"
-            className='toolbox-container'
-            onMouseDown={mouseDown}
-            onMouseUp={mouseUp}
-            onClick={consoleLog}>
-            <p className='use-icon txt-unselectable' >T</p>
+            ref={toolDivScreen} 
+            className='divScreen'>
+            
+            <div
+                ref={dragElementRef}
+                id="tool-drag"
+                className='toolbox-container'
+                onMouseDown={mouseDown}
+                onMouseUp={mouseUp}
+                onClick={consoleLog}>
+                <p className='use-icon txt-unselectable' >T</p>
+            </div>
         </div>
     );
 }

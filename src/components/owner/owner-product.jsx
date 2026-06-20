@@ -211,9 +211,7 @@ function ownerProduct() {
                 returnValue={popupProps.returnValue}
                 closePopup={() => setIsPopupOpen(false)} />}
 
-            <div className="divScreen">
-                {toolBox()}
-            </div>
+            {toolBox()}
 
             <div className='owner-product'>
                 <br />
