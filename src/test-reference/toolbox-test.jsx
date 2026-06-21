@@ -1,77 +1,95 @@
 /* Stylesheets */
 import '../../styles/toolbox.css'
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 function toolBox() {
+    const toolDivScreen = useRef(null);
     const dragElementRef = useRef(null);
-    const dragStateRef = useRef({
+    const tooldivRef = useRef({
         isDragging: false,
+        pointerId: null,
         startX: 0,
         startY: 0,
         originLeft: 0,
         originTop: 0,
     });
 
-    const handleMouseDown = (e) => {
-        const element = dragElementRef.current;
-
-        if (!element) return;
-
+    const handlePointerDown = (e) => {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
         e.preventDefault();
-        dragStateRef.current = {
+
+        const tooldiv = dragElementRef.current;
+        if (!tooldiv) return;
+
+        tooldivRef.current = {
             isDragging: true,
+            pointerId: e.pointerId,
             startX: e.clientX,
             startY: e.clientY,
-            originLeft: element.offsetLeft,
-            originTop: element.offsetTop,
+            originLeft: tooldiv.offsetLeft,
+            originTop: tooldiv.offsetTop,
         };
 
-        element.style.color = 'red';
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseup', handleMouseUp);
+        tooldiv.style.color = 'red';
+        tooldiv.setPointerCapture?.(e.pointerId);
     };
 
-    const handleMouseMove = (e) => {
-        const { isDragging, startX, startY, originLeft, originTop } = dragStateRef.current;
+    const handlePointerMove = (e) => {
+        const state = tooldivRef.current;
+        if (!state.isDragging || state.pointerId !== e.pointerId) return;
 
-        if (!isDragging) return;
+        const tooldiv = dragElementRef.current;
+        const screen = toolDivScreen.current;
+        if (!tooldiv || !screen) return;
 
-        const element = dragElementRef.current;
+        const maxLeft = Math.max(0, screen.offsetWidth - tooldiv.offsetWidth);
+        const maxTop = Math.max(0, screen.offsetHeight - tooldiv.offsetHeight - 40);
 
-        if (!element) return;
+        const divLeft = Math.max(0, Math.min(state.originLeft + (e.clientX - state.startX), maxLeft));
+        const divTop = Math.max(0, Math.min(state.originTop + (e.clientY - state.startY), maxTop));
 
-        element.style.left = `${originLeft + (e.clientX - startX)}px`;
-        element.style.top = `${originTop + (e.clientY - startY)}px`;
+        tooldiv.style.left = `${divLeft}px`;
+        tooldiv.style.top = `${divTop}px`;
     };
 
-    const handleMouseUp = () => {
-        const element = dragElementRef.current;
+    const handlePointerUp = (e) => {
+        const state = tooldivRef.current;
+        if (!state.isDragging || state.pointerId !== e.pointerId) return;
 
-        dragStateRef.current.isDragging = false;
-
-        if (element) {
-            element.style.color = 'white';
+        const tooldiv = dragElementRef.current;
+        if (tooldiv) {
+            tooldiv.style.color = 'white';
+            tooldiv.releasePointerCapture?.(e.pointerId);
         }
 
-        document.removeEventListener('mousemove', handleMouseMove);
-        document.removeEventListener('mouseup', handleMouseUp);
+        state.isDragging = false;
+        state.pointerId = null;
     };
 
-    useEffect(() => {
-        return () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mouseup', handleMouseUp);
-        };
-    }, []);
+    const consoleLog = () => {
+        const screen = toolDivScreen.current;
+        if (!screen) return;
+
+        const width = screen.offsetWidth;
+        const height = screen.offsetHeight;
+        console.log(`Width: ${width}\nHeight: ${height}\n\nScreen Width: ${window.innerWidth}\nScreen height: ${window.innerHeight}`);
+    };
 
     return (
         <div
-            ref={dragElementRef}
-            id="tool-drag"
-            className='toolbox-container'
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}>
-            <p className='use-icon txt-unselectable'>T</p>
+            ref={toolDivScreen}
+            className='divScreen'>
+            <div
+                ref={dragElementRef}
+                id="tool-drag"
+                className='toolbox-container'
+                onPointerDown={handlePointerDown}
+                onPointerMove={handlePointerMove}
+                onPointerUp={handlePointerUp}
+                onPointerCancel={handlePointerUp}
+                onClick={consoleLog}>
+                <p className='use-icon txt-unselectable'>T</p>
+            </div>
         </div>
     );
 }

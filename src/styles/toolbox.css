@@ -19,10 +19,13 @@
   left: 50%;
 
   pointer-events: auto;
+  touch-action: none;
 }
 
 #tool-drag {
   cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 #tool-drag:active {
