@@ -3,9 +3,7 @@ import '../../styles/toolbox.css'
 import { useState, useEffect, useRef } from 'react';
 
 function toolBox() {
-    const [pos, setpos] = useState({ x: 0, y: 0 });
-    const [toolmove, setToolMove] = useState(false);
-    const [tooldiv, setToolDiv] = useState(null);
+    const justClick = useRef(true);
 
     const toolDivScreen = useRef(null);
     const dragElementRef = useRef(null);
@@ -22,6 +20,8 @@ function toolBox() {
 
         const tooldiv = dragElementRef.current;
         if (!tooldiv) return;
+
+        justClick.current = true;
 
         tooldivRef.current = {
             isDragging: true,
@@ -42,17 +42,25 @@ function toolBox() {
         const tooldiv = dragElementRef.current;
         if (!tooldiv) return;
 
-        let divLeft = divOriginLeft + (e.clientX - mouseStartX);
-        let divTop = divOriginTop + (e.clientY - mouseStartY);
+        let leftMovement = e.clientX - mouseStartX;
+        let topMovement = e.clientY - mouseStartY;
 
-        let maxLeft = toolDivScreen.current.offsetWidth - tooldiv.offsetWidth;
-        let maxTop = toolDivScreen.current.offsetHeight - tooldiv.offsetHeight - 40;
+        if (leftMovement > 5 || leftMovement < -5 || topMovement > 5 || topMovement < -5) {
+            console.log(`Is moving\nLeft: ${e.clientX - mouseStartX}\nTop: ${e.clientY - mouseStartY}`);
+            justClick.current = false;
 
-        divLeft = Math.max(0, Math.min((divLeft), maxLeft));
-        divTop = Math.max(0, Math.min((divTop), maxTop));
+            let divLeft = divOriginLeft + leftMovement;
+            let divTop = divOriginTop + topMovement;
 
-        tooldiv.style.left = `${divLeft}px`;
-        tooldiv.style.top = `${divTop}px`;
+            let maxLeft = toolDivScreen.current.offsetWidth - tooldiv.offsetWidth;
+            let maxTop = toolDivScreen.current.offsetHeight - tooldiv.offsetHeight - 40;
+
+            divLeft = Math.max(0, Math.min((divLeft), maxLeft));
+            divTop = Math.max(0, Math.min((divTop), maxTop));
+
+            tooldiv.style.left = `${divLeft}px`;
+            tooldiv.style.top = `${divTop}px`;
+        }
 
         // tooldiv.style.transform = `translate(${x}px, ${y}px)`;
     }
@@ -82,6 +90,8 @@ function toolBox() {
     }, []);
 
     const consoleLog = (e) => {
+        if (!justClick.current) { return; }
+
         const screen = toolDivScreen.current;
         let width = screen.offsetWidth;
         let height = screen.offsetHeight;
@@ -90,9 +100,9 @@ function toolBox() {
 
     return (
         <div
-            ref={toolDivScreen} 
+            ref={toolDivScreen}
             className='divScreen'>
-            
+
             <div
                 ref={dragElementRef}
                 id="tool-drag"
