@@ -31,3 +31,7 @@
 #tool-drag:active {
   cursor: grabbing;
 }
+
+.tool-box-open{
+  background-color: var(--accent);
+}
