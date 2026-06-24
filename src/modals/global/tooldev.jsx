@@ -2,7 +2,7 @@
 import '../../styles/toolbox.css'
 import { useState, useEffect, useRef } from 'react';
 
-function toolBox() {
+function toolDev() {
     const justClick = useRef(true);
 
     const toolDivScreen = useRef(null);
@@ -115,4 +115,4 @@ function toolBox() {
         </div>
     );
 }
-export default toolBox;
+export default toolDev;
