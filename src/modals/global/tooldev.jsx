@@ -2,6 +2,9 @@
 import '../../styles/toolbox.css'
 import { useState, useEffect, useRef } from 'react';
 
+/* Render Modules */
+import renderToolDev from '../products/renderToolDev';
+
 function toolDev() {
     const justClick = useRef(true);
 
@@ -112,6 +115,9 @@ function toolDev() {
                 onClick={consoleLog}>
                 <p className='use-icon txt-unselectable' >T</p>
             </div>
+            
+            {renderToolDev()}
+
         </div>
     );
 }
