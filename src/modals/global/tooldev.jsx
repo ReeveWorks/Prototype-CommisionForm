@@ -17,6 +17,10 @@ function toolDev() {
         divOriginLeft: 0,
         divOriginTop: 0,
     });
+    const [toolDivLocation, setToolDivLocation] = useState({
+        styleLeft: 0,
+        styleTop: 0
+    });
 
     const mouseDown = (e) => {
         e.preventDefault();
@@ -82,6 +86,11 @@ function toolDev() {
         //     tooldiv.style.left = `${windowWidth - tooldiv.offsetWidth - 5}px`;
         // }
 
+        setToolDivLocation({
+            styleLeft: tooldiv.style.left,
+            styleTop: tooldiv.style.top
+        });
+
         document.removeEventListener('mousemove', mouseMove);
         document.removeEventListener('mouseup', mouseUp);
     }
@@ -101,6 +110,14 @@ function toolDev() {
         console.log(`Width: ${width}\nHeight: ${height}\n\nScreen Width: ${window.innerWidth}\nScreen height: ${window.innerHeight}`);
     }
 
+    function rednerTool() {
+        return (
+            <>
+                {renderToolDev(toolDivLocation.styleLeft, toolDivLocation.styleTop)}
+            </>
+        )
+    }
+
     return (
         <div
             ref={toolDivScreen}
@@ -116,7 +133,7 @@ function toolDev() {
                 <p className='use-icon txt-unselectable' >T</p>
             </div>
             
-            {renderToolDev()}
+            {rednerTool()}
 
         </div>
     );
