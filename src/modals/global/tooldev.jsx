@@ -111,9 +111,14 @@ function toolDev() {
     }
 
     function rednerTool() {
+        const screen = toolDivScreen.current;
+        let value = screen;
+        console.log(`Test: ${value}`)
+
         return (
             <>
                 {renderToolDev(toolDivLocation.styleLeft, toolDivLocation.styleTop)}
+                {/* {renderToolDev(screen.style.left, screen.style.top)} */}
             </>
         )
     }
