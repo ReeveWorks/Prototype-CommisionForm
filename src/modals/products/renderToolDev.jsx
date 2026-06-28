@@ -1,23 +1,16 @@
 import './styles/renderToolDev.css'
 
 /* Functions/Hooks */
-import { useState, useEffect, useRef } from 'react';
+import { forwardRef } from 'react';
 
-function renderToolDev(posLeft, posTop) {
-    const devRef = useRef(null);
-
-    useEffect(() => {
-        devRef.current.style.left = posLeft;
-        devRef.current.style.top = posTop;
-    }, []);
-
+const RenderToolDev = forwardRef(function RenderToolDev(props, ref) {
     return (
-        <>
-            <div ref={devRef} >
-                Hello World!
-            </div>
-        </>
-    )
-}
+        <div
+            ref={ref}
+            className="tool-dev-box">
+            Hello World!
+        </div>
+    );
+});
 
-export default renderToolDev;
+export default RenderToolDev;

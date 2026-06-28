@@ -3,7 +3,7 @@ import '../../styles/toolbox.css'
 import { useState, useEffect, useRef } from 'react';
 
 /* Render Modules */
-import renderToolDev from '../products/renderToolDev';
+import RenderToolDev from '../products/renderToolDev';
 
 function toolDev() {
     const justClick = useRef(true);
@@ -17,9 +17,11 @@ function toolDev() {
         divOriginLeft: 0,
         divOriginTop: 0,
     });
-    const [toolDivLocation, setToolDivLocation] = useState({
-        styleLeft: 0,
-        styleTop: 0
+
+    const toolsRef = useRef(null)
+    const [currentPos, setCurrentPos] = useState({
+        left: 0,
+        top: 0
     });
 
     const mouseDown = (e) => {
@@ -47,13 +49,14 @@ function toolDev() {
         const { mouseStartX, mouseStartY, divOriginLeft, divOriginTop } = tooldivRef.current;
 
         const tooldiv = dragElementRef.current;
+        const toolsdiv = toolsRef.current;
         if (!tooldiv) return;
 
         let leftMovement = e.clientX - mouseStartX;
         let topMovement = e.clientY - mouseStartY;
 
         if (leftMovement > 5 || leftMovement < -5 || topMovement > 5 || topMovement < -5) {
-            console.log(`Is moving\nLeft: ${e.clientX - mouseStartX}\nTop: ${e.clientY - mouseStartY}`);
+            // console.log(`Is moving\nLeft: ${e.clientX - mouseStartX}\nTop: ${e.clientY - mouseStartY}`);
             justClick.current = false;
 
             let divLeft = divOriginLeft + leftMovement;
@@ -67,6 +70,9 @@ function toolDev() {
 
             tooldiv.style.left = `${divLeft}px`;
             tooldiv.style.top = `${divTop}px`;
+
+            toolsdiv.style.left = `${divLeft}px`;
+            toolsdiv.style.top = `${divTop}px`;
         }
 
         // tooldiv.style.transform = `translate(${x}px, ${y}px)`;
@@ -86,10 +92,12 @@ function toolDev() {
         //     tooldiv.style.left = `${windowWidth - tooldiv.offsetWidth - 5}px`;
         // }
 
-        setToolDivLocation({
-            styleLeft: tooldiv.style.left,
-            styleTop: tooldiv.style.top
+        setCurrentPos({
+            left: tooldiv.style.left,
+            top: tooldiv.style.top
         });
+
+        console.log(`Left : ${currentPos.left}\nTop  : ${currentPos.top}`);
 
         document.removeEventListener('mousemove', mouseMove);
         document.removeEventListener('mouseup', mouseUp);
@@ -110,18 +118,15 @@ function toolDev() {
         console.log(`Width: ${width}\nHeight: ${height}\n\nScreen Width: ${window.innerWidth}\nScreen height: ${window.innerHeight}`);
     }
 
-    function rednerTool() {
-        const screen = toolDivScreen.current;
-        let value = screen;
-        console.log(`Test: ${value}`)
-
-        return (
-            <>
-                {renderToolDev(toolDivLocation.styleLeft, toolDivLocation.styleTop)}
-                {/* {renderToolDev(screen.style.left, screen.style.top)} */}
-            </>
-        )
-    }
+    // function renderTool(left, top) {
+    //     return (
+    //         <RenderToolDev
+    //             key={`${left}-${top}`}
+    //             left={left}
+    //             top={top}
+    //         />
+    //     );
+    // }
 
     return (
         <div
@@ -138,7 +143,7 @@ function toolDev() {
                 <p className='use-icon txt-unselectable' >T</p>
             </div>
             
-            {rednerTool()}
+            <RenderToolDev ref={toolsRef} />
 
         </div>
     );
