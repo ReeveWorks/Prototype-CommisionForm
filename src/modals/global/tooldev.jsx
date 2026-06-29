@@ -19,10 +19,6 @@ function toolDev() {
     });
 
     const toolsRef = useRef(null)
-    const [currentPos, setCurrentPos] = useState({
-        left: 0,
-        top: 0
-    });
 
     const mouseDown = (e) => {
         e.preventDefault();
@@ -92,13 +88,6 @@ function toolDev() {
         //     tooldiv.style.left = `${windowWidth - tooldiv.offsetWidth - 5}px`;
         // }
 
-        setCurrentPos({
-            left: tooldiv.style.left,
-            top: tooldiv.style.top
-        });
-
-        console.log(`Left : ${currentPos.left}\nTop  : ${currentPos.top}`);
-
         document.removeEventListener('mousemove', mouseMove);
         document.removeEventListener('mouseup', mouseUp);
     }
@@ -118,15 +107,23 @@ function toolDev() {
         console.log(`Width: ${width}\nHeight: ${height}\n\nScreen Width: ${window.innerWidth}\nScreen height: ${window.innerHeight}`);
     }
 
-    // function renderTool(left, top) {
-    //     return (
-    //         <RenderToolDev
-    //             key={`${left}-${top}`}
-    //             left={left}
-    //             top={top}
-    //         />
-    //     );
-    // }
+    function openTool(){
+        if (!justClick.current) { return; }
+
+        let tools = toolsRef.current;
+        if (!tools) return;
+
+        const visibility = window.getComputedStyle(tools).visibility;
+        if (visibility == "visible"){
+            tools.style.visibility = "hidden"
+        }
+        else{
+            tools.style.visibility = "visible"
+        }
+        console.log(`Value: ${tools.style.visibility}\n`);
+        
+        // visible or hidden
+    }
 
     return (
         <div
@@ -139,7 +136,7 @@ function toolDev() {
                 className='toolbox-container'
                 onMouseDown={mouseDown}
                 onMouseUp={mouseUp}
-                onClick={consoleLog}>
+                onClick={openTool}>
                 <p className='use-icon txt-unselectable' >T</p>
             </div>
             
