@@ -45,7 +45,7 @@ function toolDev() {
         const { mouseStartX, mouseStartY, divOriginLeft, divOriginTop } = tooldivRef.current;
 
         const tooldiv = dragElementRef.current;
-        const toolsdiv = toolsRef.current;
+        const openToolDiv = toolsRef.current;
         if (!tooldiv) return;
 
         let leftMovement = e.clientX - mouseStartX;
@@ -67,26 +67,27 @@ function toolDev() {
             tooldiv.style.left = `${divLeft}px`;
             tooldiv.style.top = `${divTop}px`;
 
-            toolsdiv.style.left = `${divLeft}px`;
-            toolsdiv.style.top = `${divTop}px`;
+            openToolDiv.style.left = `${divLeft}px`;
+            openToolDiv.style.top = `${divTop}px`;
         }
 
         // tooldiv.style.transform = `translate(${x}px, ${y}px)`;
     }
     const mouseUp = () => {
         const tooldiv = dragElementRef.current;
+
+        const opentool = toolsRef.current;
+        let leftValue = parseInt(tooldiv.style.left);
+
         tooldivRef.current.isDragging = false;
 
         if (tooldiv) { tooldiv.style.color = 'white'; }
 
         let windowWidth = toolDivScreen.current.offsetWidth;
 
-        // if (tooldiv.offsetLeft < windowWidth / 2) {
-        //     tooldiv.style.left = `${5}px`;
-        // }
-        // else {
-        //     tooldiv.style.left = `${windowWidth - tooldiv.offsetWidth - 5}px`;
-        // }
+        if (tooldiv.offsetLeft > windowWidth / 2) {
+            opentool.style.left = `${leftValue - opentool.offsetWidth}px`;
+        }
 
         document.removeEventListener('mousemove', mouseMove);
         document.removeEventListener('mouseup', mouseUp);
@@ -120,9 +121,8 @@ function toolDev() {
         else{
             tools.style.visibility = "visible"
         }
-        console.log(`Value: ${tools.style.visibility}\n`);
-        
-        // visible or hidden
+
+        // console.log(`Value: ${tools.style.visibility}\n`);
     }
 
     return (
