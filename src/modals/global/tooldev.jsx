@@ -67,27 +67,25 @@ function toolDev() {
             tooldiv.style.left = `${divLeft}px`;
             tooldiv.style.top = `${divTop}px`;
 
-            openToolDiv.style.left = `${divLeft}px`;
             openToolDiv.style.top = `${divTop}px`;
+
+            let windowWidth = toolDivScreen.current.offsetWidth;
+            if (tooldiv.offsetLeft > windowWidth / 2) {
+                openToolDiv.style.left = `${divLeft - openToolDiv.offsetWidth}px`;
+            }
+            else {
+                openToolDiv.style.left = `${divLeft}px`;
+            }
         }
 
         // tooldiv.style.transform = `translate(${x}px, ${y}px)`;
     }
     const mouseUp = () => {
         const tooldiv = dragElementRef.current;
-
-        const opentool = toolsRef.current;
-        let leftValue = parseInt(tooldiv.style.left);
-
         tooldivRef.current.isDragging = false;
 
         if (tooldiv) { tooldiv.style.color = 'white'; }
-
         let windowWidth = toolDivScreen.current.offsetWidth;
-
-        if (tooldiv.offsetLeft > windowWidth / 2) {
-            opentool.style.left = `${leftValue - opentool.offsetWidth}px`;
-        }
 
         document.removeEventListener('mousemove', mouseMove);
         document.removeEventListener('mouseup', mouseUp);
@@ -108,17 +106,17 @@ function toolDev() {
         console.log(`Width: ${width}\nHeight: ${height}\n\nScreen Width: ${window.innerWidth}\nScreen height: ${window.innerHeight}`);
     }
 
-    function openTool(){
+    function openTool() {
         if (!justClick.current) { return; }
 
         let tools = toolsRef.current;
         if (!tools) return;
 
         const visibility = window.getComputedStyle(tools).visibility;
-        if (visibility == "visible"){
+        if (visibility == "visible") {
             tools.style.visibility = "hidden"
         }
-        else{
+        else {
             tools.style.visibility = "visible"
         }
 
@@ -139,7 +137,7 @@ function toolDev() {
                 onClick={openTool}>
                 <p className='use-icon txt-unselectable' >T</p>
             </div>
-            
+
             <RenderToolDev ref={toolsRef} />
 
         </div>
