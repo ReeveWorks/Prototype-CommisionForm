@@ -1,11 +1,11 @@
 .tool-dev-box {
-    position: absolute;
-    background: red;
-    padding: 12px;
-    /* margin-top: 50px; */
+ position: absolute;
+ background: var(--background-main);
+ border: 1.25px solid var(--accent);
+ padding: 10px;
 
-    pointer-events: auto;
-    touch-action: none;
+ pointer-events: auto;
+ touch-action: none;
 
-    visibility: hidden;
+ visibility: hidden;
 }

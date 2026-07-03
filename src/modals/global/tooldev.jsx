@@ -73,17 +73,17 @@ function toolDev() {
             let windowHeight = toolDivScreen.current.offsetHeight;
 
             if (tooldiv.offsetLeft > windowWidth / 2) {
-                openToolDiv.style.left = `${divLeft - openToolDiv.offsetWidth + tooldiv.offsetWidth}px`;
+                openToolDiv.style.left = `${divLeft - openToolDiv.offsetWidth + tooldiv.offsetWidth - 5}px`;
             }
             else {
-                openToolDiv.style.left = `${divLeft}px`;
+                openToolDiv.style.left = `${divLeft + 5}px`;
             }
 
             if (tooldiv.offsetTop > windowHeight / 2) {
-                openToolDiv.style.top = `${divTop - openToolDiv.offsetHeight}px`;
+                openToolDiv.style.top = `${divTop - openToolDiv.offsetHeight - 5}px`;
             }
             else {
-                openToolDiv.style.top = `${divTop + tooldiv.offsetHeight}px`;
+                openToolDiv.style.top = `${divTop + tooldiv.offsetHeight + 5}px`;
             }
         }
 
