@@ -58,11 +58,11 @@ function toolDev() {
             let divLeft = divOriginLeft + leftMovement;
             let divTop = divOriginTop + topMovement;
 
-            let maxLeft = toolDivScreen.current.offsetWidth - tooldiv.offsetWidth;
-            let maxTop = toolDivScreen.current.offsetHeight - tooldiv.offsetHeight - 40;
+            let maxLeft = toolDivScreen.current.offsetWidth - tooldiv.offsetWidth - 5;
+            let maxTop = toolDivScreen.current.offsetHeight - tooldiv.offsetHeight - 40 - 5;
 
-            divLeft = Math.max(0, Math.min((divLeft), maxLeft));
-            divTop = Math.max(0, Math.min((divTop), maxTop));
+            divLeft = Math.max(5, Math.min((divLeft), maxLeft));
+            divTop = Math.max(5, Math.min((divTop), maxTop));
 
             tooldiv.style.left = `${divLeft}px`;
             tooldiv.style.top = `${divTop}px`;

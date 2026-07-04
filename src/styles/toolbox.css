@@ -15,8 +15,8 @@
   font-size: 3rem;
 
   /* Positioning Test */
-  top: 90%;
-  left: 90%;
+  top: 0px;
+  left: 0px;
 
   pointer-events: auto;
   touch-action: none;

@@ -18,20 +18,24 @@ function header() {
 
   return (
     <header className='txt-unselectable'>
-      <div className='logo'>
-        <img className="clickable" src={darkmode.imageSource} alt="Dark Mode" onClick={() => toggleDarkmode()} />
-        <h1>moeyoy</h1>
-      </div>
-
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Store</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
+      <img className="clickable" src={darkmode.imageSource} alt="Dark Mode" onClick={() => toggleDarkmode()} />
     </header>
   )
 }
 
 export default header
+
+// <header className='txt-unselectable'>
+//   <div className='logo'>
+//     <img className="clickable" src={darkmode.imageSource} alt="Dark Mode" onClick={() => toggleDarkmode()} />
+//     <h1>moeyoy</h1>
+//   </div>
+
+//   <nav>
+//     <ul>
+//       <li><a href="#">Home</a></li>
+//       <li><a href="#">Store</a></li>
+//       <li><a href="#">Contact</a></li>
+//     </ul>
+//   </nav>
+// </header>
