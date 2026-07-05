@@ -100,6 +100,16 @@ function toolDev() {
         document.removeEventListener('mouseup', mouseUp);
     }
     useEffect(() => {
+        
+        const tooldiv = dragElementRef.current;
+        const openToolDiv = toolsRef.current;
+        if (!tooldiv) return;
+
+        console.log(`Top : ${tooldiv.offsetTop}\nLeft: ${tooldiv.offsetLeft}`);
+
+        openToolDiv.style.top = `${tooldiv.offsetTop + tooldiv.offsetHeight + 5}px`;
+        openToolDiv.style.left = `${tooldiv.offsetLeft + 5}px`;
+
         return () => {
             document.removeEventListener('mousemove', mouseMove);
             document.removeEventListener('mouseup', mouseUp);
