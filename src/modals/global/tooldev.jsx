@@ -67,7 +67,7 @@ function toolDev() {
             tooldiv.style.left = `${divLeft}px`;
             tooldiv.style.top = `${divTop}px`;
 
-            
+
 
             let windowWidth = toolDivScreen.current.offsetWidth;
             let windowHeight = toolDivScreen.current.offsetHeight;
@@ -100,15 +100,20 @@ function toolDev() {
         document.removeEventListener('mouseup', mouseUp);
     }
     useEffect(() => {
+        let windowWidth = toolDivScreen.current.offsetWidth;
+        let windowHeight = toolDivScreen.current.offsetHeight;
         
         const tooldiv = dragElementRef.current;
         const openToolDiv = toolsRef.current;
-        if (!tooldiv) return;
+        if (!tooldiv || !openToolDiv) return;
+
+        tooldiv.style.left = `${windowWidth - tooldiv.offsetWidth - 5}px`;
+        tooldiv.style.top = `${windowHeight - tooldiv.offsetHeight - 40 - 5}px`;
 
         console.log(`Top : ${tooldiv.offsetTop}\nLeft: ${tooldiv.offsetLeft}`);
 
-        openToolDiv.style.top = `${tooldiv.offsetTop + tooldiv.offsetHeight + 5}px`;
-        openToolDiv.style.left = `${tooldiv.offsetLeft + 5}px`;
+        openToolDiv.style.top = `${tooldiv.offsetTop - openToolDiv.offsetHeight - 5}px`;
+        openToolDiv.style.left = `${tooldiv.offsetLeft - openToolDiv.offsetWidth + tooldiv.offsetWidth - 5}px`;
 
         return () => {
             document.removeEventListener('mousemove', mouseMove);
