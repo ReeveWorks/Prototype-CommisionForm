@@ -50,3 +50,28 @@
   opacity: 0.5;
   display: inline-block;
 }
+
+.addbtn {
+  background-color: Transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  font-size: var(--text-small);
+  padding-bottom: 3px;
+  
+  width: 100%;
+  margin: 0 3px;
+}
+
+.addbtn:hover { 
+  border: 2.5px solid var(--accent);
+  outline: none;
+  background-color: color-mix(in srgb, var(--accent), transparent 90%);
+}
+
+.btn-container {
+  box-sizing: border-box;
+  text-align: justify;
+  text-align-last: center;
+
+  display: flex;
+}

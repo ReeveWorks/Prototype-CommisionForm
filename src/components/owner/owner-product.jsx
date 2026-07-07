@@ -1,5 +1,6 @@
 /* Stylesheets */
 import './styles/product.css'
+import { Plus } from 'lucide-react';
 
 /* Functions/Hooks */
 import { useSelector, useDispatch } from 'react-redux'
@@ -237,9 +238,12 @@ function ownerProduct() {
                     </Fragment>
                 ))}
 
-                <button className='txt-unselectable' onClick={() => popupAddModule()}>
-                    Add Module
+                <div className='btn-container'>
+                    <button className='txt-unselectable addbtn' onClick={() => popupAddModule()}>
+                    <Plus></Plus>
                 </button>
+                </div>
+
                 <br /><br />
                 <button className='txt-unselectable' onClick={() => popupCheck()}>
                     Data Check
