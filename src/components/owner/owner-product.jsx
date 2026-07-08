@@ -13,7 +13,7 @@ import { addProduct, updateProduct } from '../../states/slices/artistDataSlice'
 import renderModuleView from '../../modals/products/renderModuleView';
 import renderModuleEdit from '../../modals/products/renderModuleEdit';
 import renderEditTab from '../../modals/products/renderEditTab';
-import toolDev from '../../modals/global/toolDev';
+import toolDev from '../../modals/global/tooldiv';
 
 /* Render Pop-up */
 import PopupModal from '../../modals/global/renderPopup';
