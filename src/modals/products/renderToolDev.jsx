@@ -9,9 +9,7 @@ const RenderToolDev = forwardRef(function RenderToolDev(props, ref) {
         <div
             ref={ref}
             className="tool-dev-box">
-            <p>Hello World!</p>
-            <p>Hello World!</p>
-            <p>Hello World!</p>
+            <p>This is a test version!</p>
         </div>
     );
 });

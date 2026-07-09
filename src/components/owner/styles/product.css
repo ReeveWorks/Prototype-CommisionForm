@@ -54,7 +54,8 @@
 .addbtn {
   background-color: Transparent;
   color: var(--accent);
-  border: 1.5px solid var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 0;
   font-size: var(--text-small);
   padding-bottom: 3px;
   
@@ -63,7 +64,6 @@
 }
 
 .addbtn:hover { 
-  border: 2.5px solid var(--accent);
   outline: none;
   background-color: color-mix(in srgb, var(--accent), transparent 90%);
 }
