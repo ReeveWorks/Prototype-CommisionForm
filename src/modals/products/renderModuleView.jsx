@@ -81,6 +81,20 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     <p className='mock-textbox'><br /></p>
                 </div>
             );
+        case 'Container Box':
+            return (
+                <div className='productView-container'
+                    key={index}
+                    id={moduleItem.id}
+                    style={{
+                        marginBottom: `${moduleItem.spacing}px`,
+                    }}
+                    onClick={() => setIsEditing(index)}>
+
+
+                    test
+                </div>
+            );
 
     }
 }

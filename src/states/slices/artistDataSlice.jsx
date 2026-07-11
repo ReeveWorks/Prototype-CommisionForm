@@ -52,6 +52,24 @@ const initialState = {
                         min: 1,
                         max: 10,
                     },
+                    {
+                        id: "contbx05",
+                        type: "Container Box",
+                        isRequired: false,
+                        spacing: 10,
+                        // module: [
+                        //     {
+                        //         id: "st-txt01",
+                        //         type: "Static Text",
+                        //         bold: false,
+                        //         textAlign: "center",
+                        //         size: 20,
+                        //         spacing: 20,
+                        //         content: "Test!",
+                        //     },
+
+                        // ]
+                    },
                 ],
             },
         ],
