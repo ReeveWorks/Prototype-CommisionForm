@@ -55,7 +55,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                     </p>
                 </div>
             );
-            case 'Number Input':
+        case 'Number Input':
             return (
                 <div className='productEdit-container prod-hover'
                     key={moduleItem.id}
@@ -77,6 +77,17 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                     />
 
                     <p className='mock-textbox'><br /></p>
+                </div>
+            );
+        case 'Container Box':
+            return (
+                <div className='productView-container'
+                    key={index}
+                    id={moduleItem.id}
+                    style={{
+                        marginBottom: `${moduleItem.spacing}px`,
+                    }}>
+                        test
                 </div>
             );
 
