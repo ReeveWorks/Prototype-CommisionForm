@@ -81,7 +81,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
             );
         case 'Container Box':
             return (
-                <div className='productView-container'
+                <div className='productEdit-container prod-hover'
                     key={index}
                     id={moduleItem.id}
                     style={{
