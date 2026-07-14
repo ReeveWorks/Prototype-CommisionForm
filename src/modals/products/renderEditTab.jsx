@@ -12,6 +12,8 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                 return inputText();
             case 'Number Input':
                 return inputNumber();
+            case 'Container Box':
+                return containerBox();
             default:
                 return null;
         }
@@ -44,6 +46,16 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                 {fontBoldBTN()}
                 {textAlignBTN()}
             </>
+        )
+    }
+    function containerBox() {
+        return (
+            <div className='PETF-textBox'>
+                <p>S</p>
+                <input type='number' maxLength="2"
+                    value={moduleItem.spacing}
+                    onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "spacing", 0, 250)} />
+            </div>
         )
     }
 
