@@ -26,6 +26,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                 {staticID()}
                 {fontBoldBTN()}
                 {textAlignBTN()}
+                {textSizeBox()}
             </>
         )
     }
@@ -36,6 +37,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                 {mockbox()}
                 {fontBoldBTN()}
                 {textAlignBTN()}
+                {textSizeBox()}
             </>
         )
     }
@@ -45,17 +47,15 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                 {inputID()}
                 {fontBoldBTN()}
                 {textAlignBTN()}
+                {textSizeBox()}
             </>
         )
     }
     function containerBox() {
         return (
-            <div className='PETF-textBox'>
-                <p>S</p>
-                <input type='number' maxLength="2"
-                    value={moduleItem.spacing}
-                    onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "spacing", 0, 250)} />
-            </div>
+            <>
+                {inputID()}
+            </>
         )
     }
 
@@ -131,7 +131,6 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
         <div className='productEdit-tab' style={{ fontSize: `${moduleItem.size}px` }}>
             <div className='PET-functions'>
                 {uniqueFunction(moduleItem.type)}
-                {textSizeBox()}
                 {marginBottomBox()}
             </div>
 
