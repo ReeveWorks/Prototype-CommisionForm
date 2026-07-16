@@ -88,6 +88,9 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                         marginBottom: `${moduleItem.spacing}px`,
                     }}>
                         test
+                        <button className='btn-container'>
+                            +
+                        </button>
                 </div>
             );
 
