@@ -9,7 +9,7 @@ import { togglemode } from './states/slices/darkmodeSlice'
 /* Pages */
 import Header from './components/header.jsx';
 import OwnerProduct from './components/owner/owner-product.jsx';
-import TestView from './test-reference/productData-format.jsx';
+import UserCommission from './components/user/user-commission.jsx';
 
 function App() {
   const darkmode = useSelector((state) => state.darkmode.darkmode);
@@ -19,7 +19,7 @@ function App() {
       <Header />
 
       <OwnerProduct />
-      {/* <TestView /> */}
+      <UserCommission />
     </div>
   )
 }
