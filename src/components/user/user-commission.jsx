@@ -1,5 +1,5 @@
 /* Stylesheets */
-import './styles/product.css'
+// import './styles/product.css'
 import { Plus } from 'lucide-react';
 
 /* Functions/Hooks */

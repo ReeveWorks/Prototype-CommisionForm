@@ -13,10 +13,10 @@ function renderModuleView(moduleItem, index, setIsEditing) {
         }
         else {
             return (
-            <div>
-                {moduleItem.content}
-                {moduleItem.isRequired && <i className='txt-accent' style={{ fontSize: `${moduleItem.size}px` }}>*</i>}
-            </div>
+                <div>
+                    {moduleItem.content}
+                    {moduleItem.isRequired && <i className='txt-accent' style={{ fontSize: `${moduleItem.size}px` }}>*</i>}
+                </div>
             );
         }
     }
@@ -50,15 +50,13 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     }}
                     onClick={() => setIsEditing(index)}>
 
-                    {handleEmptyContent()}
-
                     <p className='mock-textbox'>
                         {
                             moduleItem.textbox == true
                                 ?
-                                <><br /><br /><br /></>
+                                <>{ handleEmptyContent()} <br /><br /></>
                                 :
-                                <br />
+                                handleEmptyContent()
                         }
                     </p>
                 </div>
