@@ -54,7 +54,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                         {
                             moduleItem.textbox == true
                                 ?
-                                <>{ handleEmptyContent()} <br /><br /></>
+                                <>{handleEmptyContent()} <br /><br /></>
                                 :
                                 handleEmptyContent()
                         }
@@ -74,9 +74,9 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     }}
                     onClick={() => setIsEditing(index)}>
 
-                    {handleEmptyContent()}
-
-                    <p className='mock-textbox'><br /></p>
+                    <p className='mock-textbox'>
+                        {handleEmptyContent()}
+                    </p>
                 </div>
             );
         case 'Container Box':
