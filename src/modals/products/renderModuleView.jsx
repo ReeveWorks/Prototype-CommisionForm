@@ -50,7 +50,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     }}
                     onClick={() => setIsEditing(index)}>
 
-                    <p className='mock-textbox'>
+                    <p className='mock-textbox' style={{ fontSize: `${moduleItem.size}px` }}>
                         {
                             moduleItem.textbox == true
                                 ?
@@ -74,7 +74,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     }}
                     onClick={() => setIsEditing(index)}>
 
-                    <p className='mock-textbox'>
+                    <p className='mock-textbox' style={{ fontSize: `${moduleItem.size}px` }}>
                         {handleEmptyContent()}
                     </p>
                 </div>
