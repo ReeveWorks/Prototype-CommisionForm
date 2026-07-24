@@ -60,9 +60,9 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                 <div className='productEdit-container prod-hover'
                     key={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
-
-                    <textarea
+                    {/* <textarea
                         type="text"
+                        className='mock-textbox'
                         value={moduleItem.content}
                         style={{
                             fontWeight: moduleItem.bold ? 'bold' : 'normal',
@@ -74,9 +74,26 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                                 handleChangeModule(event.target.value, moduleItem.id, "content")
                         }
                         placeholder="Input text here*"
-                    />
+                    /> */}
 
-                    <p className='mock-textbox'><br /></p>
+                    
+
+                    <p className='mock-textbox'>
+                        <textarea
+                        type="text"
+                        className='mock-textbox'
+                        value={moduleItem.content}
+                        style={{
+                            fontWeight: moduleItem.bold ? 'bold' : 'normal',
+                            textAlignLast: `${moduleItem.textAlign}`,
+                            fontSize: `${moduleItem.size}px`,
+                        }}
+                        onChange={
+                            (event) =>
+                                handleChangeModule(event.target.value, moduleItem.id, "content")
+                        }
+                        placeholder="Input text here*"/>
+                    </p>
                 </div>
             );
         case 'Container Box':
