@@ -30,22 +30,26 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
 
                     <p className='mock-textbox'>
-                        {
-                            <textarea
-                                type="text"
-                                value={moduleItem.content}
-                                style={{
-                                    fontWeight: moduleItem.bold ? 'bold' : 'normal',
-                                    textAlignLast: `${moduleItem.textAlign}`,
-                                    fontSize: `${moduleItem.size}px`,
-                                }}
-                                onChange={
-                                    (event) =>
-                                        handleChangeModule(event.target.value, moduleItem.id, "content")
-                                }
-                                placeholder="Input text here*"
-                            />
-                        }
+                        <input
+                            type="text"
+                            value={moduleItem.content}
+                            style={{
+                                fontWeight: moduleItem.bold ? 'bold' : 'normal',
+                                textAlignLast: `${moduleItem.textAlign}`,
+                                fontSize: `${moduleItem.size}px`,
+                            }}
+                            onChange={
+                                (event) =>
+                                    handleChangeModule(event.target.value, moduleItem.id, "content")
+                            }
+                            placeholder="Input text here*"
+                        />
+
+                        {moduleItem.textbox == true
+                            ?
+                            <div style={{ fontSize: `${moduleItem.size}px`}}><br /><br /></div>
+                            :
+                            <></>}
                     </p>
                 </div>
             );
@@ -55,7 +59,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                     key={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
                     <p className='mock-textbox'>
-                        <textarea
+                        <input
                             type="text"
                             className='mock-textbox'
                             value={moduleItem.content}
