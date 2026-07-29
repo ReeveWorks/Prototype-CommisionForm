@@ -140,17 +140,25 @@ function ownerProduct() {
         }
 
     }
+    function handleContentBox(moduleItem) {
+        //do something
+    }
 
     // Render
     function renderModule(moduleItem, index) {
-        if (isEditing === index) {
+
+        if (moduleItem.type === "Container Box") {
+            //do something
+        }
+        else if (isEditing === index) {
             return (<>
                 {renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule)}
                 {renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange)}
             </>);
         }
-
-        return renderModuleView(moduleItem, index, setIsEditing);
+        else {
+            return renderModuleView(moduleItem, index, setIsEditing);
+        }
     }
     function renderPopup(type, title, message, contents, onResult) {
         return new Promise((resolve) => {
@@ -240,8 +248,8 @@ function ownerProduct() {
 
                 <div className='btn-container'>
                     <button className='txt-unselectable addbtn' onClick={() => popupAddModule()}>
-                    <Plus></Plus>
-                </button>
+                        <Plus></Plus>
+                    </button>
                 </div>
 
                 {/* <br /><br />
