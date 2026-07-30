@@ -140,7 +140,7 @@ function ownerProduct() {
         }
 
     }
-    function handleContentBox(moduleItem) {
+    function handleContentBox(moduleItem, index) {
         //do something
     }
 
@@ -148,7 +148,7 @@ function ownerProduct() {
     function renderModule(moduleItem, index) {
 
         if (moduleItem.type === "Container Box") {
-            //do something
+            handleContentBox(moduleItem, index);
         }
         else if (isEditing === index) {
             return (<>
