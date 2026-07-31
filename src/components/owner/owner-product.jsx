@@ -141,14 +141,22 @@ function ownerProduct() {
 
     }
     function handleContentBox(moduleItem, index) {
-        //do something
+        return (
+            <>
+                {moduleItem.module.map((m, idx) => (
+                    <Fragment key={m.id ?? idx}>
+                        {renderModule(m, idx)}
+                    </Fragment>
+                ))}
+            </>
+        );
     }
 
     // Render
     function renderModule(moduleItem, index) {
 
         if (moduleItem.type === "Container Box") {
-            handleContentBox(moduleItem, index);
+            return handleContentBox(moduleItem, index);
         }
         else if (isEditing === index) {
             return (<>
