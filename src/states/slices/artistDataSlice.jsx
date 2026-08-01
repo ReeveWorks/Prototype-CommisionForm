@@ -46,7 +46,7 @@ const initialState = {
                         type: "Number Input",
                         bold: false,
                         size: 20,
-                        spacing: 10,
+                        spacing: 20,
                         isRequired: false,
                         content: "Number of Chibi reaction",
                         min: 1,
@@ -64,8 +64,19 @@ const initialState = {
                                 bold: false,
                                 textAlign: "center",
                                 size: 20,
-                                spacing: 20,
+                                spacing: 0,
                                 content: "Test!",
+                            },
+                            {
+                                id: "in-txt07",
+                                type: "Text Input",
+                                isRequired: true,
+                                bold: false,
+                                textbox: false,
+                                textAlign: "left",
+                                size: 20,
+                                spacing: 10,
+                                content: "Commission Title"
                             },
 
                         ]
