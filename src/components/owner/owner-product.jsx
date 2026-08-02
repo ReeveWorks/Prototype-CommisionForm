@@ -26,7 +26,7 @@ function ownerProduct() {
     const [product, setProduct] = useState(useSelector((state) => state.artist.artist.products[0]));
 
     // State
-    const [isEditing, setIsEditing] = useState(-1);
+    const [isEditing, setIsEditing] = useState("");
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     // Pop-up Props
@@ -158,7 +158,7 @@ function ownerProduct() {
         if (moduleItem.type === "Container Box") {
             return handleContentBox(moduleItem, index);
         }
-        else if (isEditing === index) {
+        else if (isEditing === moduleItem.id) {
             return (<>
                 {renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule)}
                 {renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange)}

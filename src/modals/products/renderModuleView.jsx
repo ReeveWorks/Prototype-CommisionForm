@@ -33,7 +33,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                         marginBottom: `${moduleItem.spacing}px`,
                         fontSize: `${moduleItem.size}px`
                     }}
-                    onClick={() => setIsEditing(index)}>
+                    onClick={() => setIsEditing(moduleItem.id)}>
                     {handleEmptyContent()}
                 </div>
             );
@@ -48,7 +48,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                         marginBottom: `${moduleItem.spacing}px`,
                         fontSize: `${moduleItem.size}px`
                     }}
-                    onClick={() => setIsEditing(index)}>
+                    onClick={() => setIsEditing(moduleItem.id)}>
 
                     <p className='mock-textbox' style={{ fontSize: `${moduleItem.size}px` }}>
                         {
@@ -72,7 +72,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                         marginBottom: `${moduleItem.spacing}px`,
                         fontSize: `${moduleItem.size}px`
                     }}
-                    onClick={() => setIsEditing(index)}>
+                    onClick={() => setIsEditing(moduleItem.id)}>
 
                     <p className='mock-textbox' style={{ fontSize: `${moduleItem.size}px` }}>
                         {handleEmptyContent()}
@@ -87,7 +87,7 @@ function renderModuleView(moduleItem, index, setIsEditing) {
                     style={{
                         marginBottom: `${moduleItem.spacing}px`,
                     }}
-                    onClick={() => setIsEditing(index)}>
+                    onClick={() => setIsEditing(moduleItem.id)}>
 
 
                     test
