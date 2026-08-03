@@ -81,16 +81,13 @@ function renderModuleView(moduleItem, index, setIsEditing) {
             );
         case 'Container Box':
             return (
-                <div className='productView-container'
+                <div className='productView-container container-box'
                     key={index}
                     id={moduleItem.id}
                     style={{
                         marginBottom: `${moduleItem.spacing}px`,
-                    }}
-                    onClick={() => setIsEditing(moduleItem.id)}>
+                    }}>
 
-
-                    test
                 </div>
             );
 

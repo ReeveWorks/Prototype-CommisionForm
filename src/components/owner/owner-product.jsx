@@ -140,17 +140,6 @@ function ownerProduct() {
         }
 
     }
-    function handleContentBox(moduleItem, index) {
-        return (
-            <>
-                {moduleItem.module.map((m, idx) => (
-                    <Fragment key={m.id ?? idx}>
-                        {renderModule(m, idx)}
-                    </Fragment>
-                ))}
-            </>
-        );
-    }
 
     // Render
     function renderModule(moduleItem, index) {
@@ -167,6 +156,22 @@ function ownerProduct() {
         else {
             return renderModuleView(moduleItem, index, setIsEditing);
         }
+    }
+    function handleContentBox(moduleItem, index) {
+        return (
+            <div className='productView-container container-box'
+                key={index}
+                id={moduleItem.id}
+                style={{
+                    marginBottom: `${moduleItem.spacing}px`,
+                }}>
+                {moduleItem.module.map((m, idx) => (
+                    <Fragment key={m.id ?? idx}>
+                        {renderModule(m, idx)}
+                    </Fragment>
+                ))}
+            </div>
+        );
     }
     function renderPopup(type, title, message, contents, onResult) {
         return new Promise((resolve) => {

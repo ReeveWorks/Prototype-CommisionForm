@@ -26,3 +26,7 @@
     outline: none;
     background-color: color-mix(in srgb, var(--accent), transparent 90%);
 }
+
+.container-box {
+    border: 1px solid var(--accent);
+}
