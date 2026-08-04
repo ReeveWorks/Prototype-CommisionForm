@@ -265,10 +265,10 @@ function ownerProduct() {
                     </button>
                 </div>
 
-                {/* <br /><br />
+                <br /><br />
                 <button className='txt-unselectable' onClick={() => popupCheck()}>
                     Data Check
-                </button> */}
+                </button>
             </div>
         </div>
     );

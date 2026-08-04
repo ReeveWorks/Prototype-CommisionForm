@@ -2,23 +2,33 @@
 import './styles/renderModuleView.css'
 
 function renderModuleView(moduleItem, index, setIsEditing) {
+    function renderRequiredMarker() {
+        if (!moduleItem.isRequired) return null;
+
+        return (
+            <i className='txt-accent' style={{ fontSize: `${moduleItem.size}px`, marginLeft: '2px' }}>
+                *
+            </i>
+        );
+    }
+
     function handleEmptyContent() {
-        if (moduleItem.content.trim() === '') {
+        const hasContent = moduleItem.content?.toString().trim() !== '';
+
+        if (!hasContent) {
             return (
-                <div>
-                    <p className='empty-text'>Input text here<span className='txt-accent'>*</span></p>
-                    {moduleItem.isRequired && <i className='txt-accent' style={{ fontSize: `${moduleItem.size}px` }}>*</i>}
-                </div>
+                <>
+                    <p className='empty-text'>Input text here{renderRequiredMarker()}</p>
+                </>
             );
         }
-        else {
-            return (
-                <div>
-                    {moduleItem.content}
-                    {moduleItem.isRequired && <i className='txt-accent' style={{ fontSize: `${moduleItem.size}px` }}>*</i>}
-                </div>
-            );
-        }
+
+        return (
+            <>
+                <span>{moduleItem.content}</span>
+                {renderRequiredMarker()}
+            </> 
+        );
     }
 
     switch (moduleItem.type) {
