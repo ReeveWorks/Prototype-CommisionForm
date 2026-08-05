@@ -14,6 +14,7 @@ const initialState = {
                     {
                         id: "st-txt01",
                         type: "Static Text",
+                        group: "",
                         bold: false,
                         textAlign: "center",
                         size: 25,
@@ -23,6 +24,7 @@ const initialState = {
                     {
                         id: "in-txt02",
                         type: "Text Input",
+                        group: "",
                         isRequired: true,
                         bold: false,
                         textbox: false,
@@ -34,6 +36,7 @@ const initialState = {
                     {
                         id: "in-txt03",
                         type: "Text Input",
+                        group: "",
                         bold: false,
                         textbox: true,
                         size: 20,
@@ -44,6 +47,7 @@ const initialState = {
                     {
                         id: "in-num04",
                         type: "Number Input",
+                        group: "",
                         bold: false,
                         size: 20,
                         spacing: 20,
@@ -55,12 +59,14 @@ const initialState = {
                     {
                         id: "contbx05",
                         type: "Container Box",
+                        group: "contbx05",
                         isRequired: false,
                         spacing: 10,
                         module: [
                             {
                                 id: "st-txt06",
                                 type: "Static Text",
+                                group: "contbx05",
                                 bold: false,
                                 textAlign: "center",
                                 size: 20,
@@ -70,6 +76,7 @@ const initialState = {
                             {
                                 id: "in-txt07",
                                 type: "Text Input",
+                                group: "contbx05",
                                 isRequired: true,
                                 bold: false,
                                 textbox: false,
