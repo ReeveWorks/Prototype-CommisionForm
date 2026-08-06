@@ -18,7 +18,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                         }}
                         onChange={
                             (event) =>
-                                handleChangeModule(event.target.value, moduleItem.id, "content")
+                                handleChangeModule(event.target.value, moduleItem.id, "content", moduleItem.group)
                         }
                         placeholder="Input text here*" />
                 </div>
@@ -40,7 +40,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                             }}
                             onChange={
                                 (event) =>
-                                    handleChangeModule(event.target.value, moduleItem.id, "content")
+                                    handleChangeModule(event.target.value, moduleItem.id, "content", moduleItem.group)
                             }
                             placeholder="Input text here*"
                         />

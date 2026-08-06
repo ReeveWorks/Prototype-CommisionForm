@@ -37,7 +37,7 @@ function ownerProduct() {
     function handleChange(event, key) {
         setProduct({ ...product, [key]: event.target.value });
     }
-    function handleChangeModule(event, moduleId, key) {
+    function handleChangeModule(event, moduleId, key, group) {
         let nValue = event;
         if (key === "size" || key === "spacing") {
             nValue = Number(nValue);
@@ -55,13 +55,18 @@ function ownerProduct() {
             nValue = false;
         }
 
-        setProduct({ ...product, module: product.module.map(m => m.id === moduleId ? { ...m, [key]: nValue } : m) })
+        if (group != "") {
+            // setProduct({ ...product, module: { ...product.module, [group]: { ...product.module[group], [key]: nValue } } })
+        }
+        else {
+            setProduct({ ...product, module: product.module.map(m => m.id === moduleId ? { ...m, [key]: nValue } : m) })
+        }
     }
-    function handleNumberChange(event, moduleId, key, min, max) {
+    function handleNumberChange(event, moduleId, key, min, max, group) {
         if (event < min) return;
         if (event > max) return;
         if (event.includes('.')) return;
-        handleChangeModule(event, moduleId, key);
+        handleChangeModule(event, moduleId, key, group);
     }
     function DeleteModule(moduleId) {
         function popupTitle() {
@@ -209,7 +214,7 @@ function ownerProduct() {
 
         let selected = await renderPopup(
             "options",
-            "Pop-up 1",
+            "Check Modules",
             "select an option below:",
             product.module.map(m => m.id));
 
@@ -220,7 +225,7 @@ function ownerProduct() {
             "close pop-up",
             (item) => { selected = item; });
 
-        await console.log(product);
+        await console.log(product.module.map(m => m.id));
     }
 
     return (

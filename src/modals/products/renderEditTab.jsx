@@ -63,7 +63,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
     function inputID() {
         return (
             <label className='PET-checkbox PET-checkbox-id'>
-            <input type="checkbox" className='elem-hide' checked={moduleItem.isRequired} onChange={() => handleChangeModule(!moduleItem.isRequired, moduleItem.id, "isRequired")} />
+            <input type="checkbox" className='elem-hide' checked={moduleItem.isRequired} onChange={() => handleChangeModule(!moduleItem.isRequired, moduleItem.id, "isRequired", moduleItem.group)} />
             <p>{moduleItem.id}</p>
         </label>
         );
@@ -78,7 +78,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
     function fontBoldBTN() {
         return (
             <label className='PET-checkbox PET-checkbox-box'>
-                <input type="checkbox" className='elem-hide' checked={moduleItem.bold} onChange={() => handleChangeModule(!moduleItem.bold, moduleItem.id, "bold")} />
+                <input type="checkbox" className='elem-hide' checked={moduleItem.bold} onChange={() => handleChangeModule(!moduleItem.bold, moduleItem.id, "bold", moduleItem.group)} />
                 <p>B</p>
             </label>
         )
@@ -88,7 +88,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
             <select
                 className='PET-dropdown use-icon'
                 value={moduleItem.textAlign}
-                onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "textAlign")}>
+                onChange={(event) => handleChangeModule(event.target.value, moduleItem.id, "textAlign", moduleItem.group)}>
                 <option className='use-icon' value="left">L</option>
                 <option className='use-icon' value="center">C</option>
                 <option className='use-icon' value="right">R</option>
@@ -102,7 +102,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                 <p>A</p>
                 <input type='number' maxLength="2"
                     value={moduleItem.size}
-                    onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "size", 0, 50)} />
+                    onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "size", 0, 50, moduleItem.group)} />
             </div>
         )
     }
@@ -112,12 +112,12 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
                 <p>S</p>
                 <input type='number' maxLength="2"
                     value={moduleItem.spacing}
-                    onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "spacing", 0, 250)} />
+                    onChange={(event) => handleNumberChange(event.target.value, moduleItem.id, "spacing", 0, 250, moduleItem.group)} />
             </div>
         )
     }
 
-    //Unique Functions
+    // Unique Functions
     function mockbox() {
         return (
             <label className='PET-checkbox PET-checkbox-box'>
