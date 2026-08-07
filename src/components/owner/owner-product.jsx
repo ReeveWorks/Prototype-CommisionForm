@@ -56,10 +56,11 @@ function ownerProduct() {
         }
 
         if (group != "") {
-            // setProduct({ ...product, module: { ...product.module, [group]: { ...product.module[group], [key]: nValue } } })
+            let groupModules = product.module.filter(m => m.group === group);
+            console.log(groupModules);
         }
         else {
-            setProduct({ ...product, module: product.module.map(m => m.id === moduleId ? { ...m, [key]: nValue } : m) })
+            setProduct({ ...product, module: product.module.map(m => m.id === moduleId ? { ...m, [key]: nValue } : m) });
         }
     }
     function handleNumberChange(event, moduleId, key, min, max, group) {
