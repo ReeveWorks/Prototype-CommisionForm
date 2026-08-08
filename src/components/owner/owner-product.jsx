@@ -56,8 +56,10 @@ function ownerProduct() {
         }
 
         if (group != "") {
-            let groupModules = product.module.filter(m => m.group === group);
-            console.log(groupModules);
+            let groupModules = product.module.filter(m => m.group === group)[0].module;
+            let updateModules = groupModules.map(m => m.id === moduleId ? { ...m, [key]: nValue } : m);
+            
+            setProduct({ ...product, module: product.module.map(m => m.id === group ? { ...m, module: updateModules } : m) });
         }
         else {
             setProduct({ ...product, module: product.module.map(m => m.id === moduleId ? { ...m, [key]: nValue } : m) });

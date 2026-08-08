@@ -71,7 +71,7 @@ const initialState = {
                                 textAlign: "center",
                                 size: 20,
                                 spacing: 0,
-                                content: "Test!",
+                                content: "This is a test:",
                             },
                             {
                                 id: "in-txt07",
@@ -83,7 +83,7 @@ const initialState = {
                                 textAlign: "left",
                                 size: 20,
                                 spacing: 10,
-                                content: "Commission Title"
+                                content: "test_"
                             },
 
                         ]
