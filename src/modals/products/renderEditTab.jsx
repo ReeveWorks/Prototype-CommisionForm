@@ -121,7 +121,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
     function mockbox() {
         return (
             <label className='PET-checkbox PET-checkbox-box'>
-                <input type="checkbox" className='elem-hide' checked={moduleItem.textbox} onChange={() => handleChangeModule(!moduleItem.textbox, moduleItem.id, "textbox")} />
+                <input type="checkbox" className='elem-hide' checked={moduleItem.textbox} onChange={() => handleChangeModule(!moduleItem.textbox, moduleItem.id, "textbox", moduleItem.group)} />
                 <p>◻</p>
             </label>
         )
