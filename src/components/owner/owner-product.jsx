@@ -71,7 +71,7 @@ function ownerProduct() {
         if (event.includes('.')) return;
         handleChangeModule(event, moduleId, key, group);
     }
-    function DeleteModule(moduleId) {
+    function DeleteModule(moduleId, group) {
         function popupTitle() {
             return (
                 <div style={{ fontWeight: 'normal' }} >
@@ -88,9 +88,19 @@ function ownerProduct() {
         }
 
         renderPopup("bool", popupTitle(), popupMessage(), ["Yes!", "Nope!"], (item) => {
-            if (item === true) {
-                setProduct({ ...product, module: product.module.filter(m => m.id !== moduleId) })
+            if (item !== true) {
+                return;
             }
+            
+            if (group === "") {
+                setProduct({ ...product, module: product.module.filter(m => m.id !== moduleId) });
+            }
+            else {
+                let groupModules = product.module.filter(m => m.group === group)[0].module;
+                let updateModules = groupModules.filter(m => m.id !== moduleId);
+                setProduct({ ...product, module: product.module.map(m => m.id === group ? { ...m, module: updateModules } : m) });
+            }
+
             setIsPopupOpen(false);
         });
     }

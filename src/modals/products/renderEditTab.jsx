@@ -135,7 +135,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
             </div>
 
             <div className='PET-buttons'>
-                <button onClick={() => DeleteModule(moduleItem.id, moduleItem.type)}>X</button>
+                <button onClick={() => DeleteModule(moduleItem.id, moduleItem.group)}>X</button>
                 <button onClick={() => setIsEditing("")}>-</button>
             </div>
         </div>
