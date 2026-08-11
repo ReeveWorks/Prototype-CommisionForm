@@ -27,6 +27,7 @@ function ownerProduct() {
 
     // State
     const [isEditing, setIsEditing] = useState("");
+    const [groupEditing, setGroupEditing] = useState("");
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     // Pop-up Props
@@ -98,6 +99,7 @@ function ownerProduct() {
             else {
                 let groupModules = product.module.filter(m => m.group === group)[0].module;
                 let updateModules = groupModules.filter(m => m.id !== moduleId);
+                
                 setProduct({ ...product, module: product.module.map(m => m.id === group ? { ...m, module: updateModules } : m) });
             }
 
@@ -182,7 +184,8 @@ function ownerProduct() {
                 id={moduleItem.id}
                 style={{
                     marginBottom: `${moduleItem.spacing}px`,
-                }}>
+                }}
+                isclicked={setGroupEditing(moduleItem.id)}>
                 {moduleItem.module.map((m, idx) => (
                     <Fragment key={m.id ?? idx}>
                         {renderModule(m, idx)}
