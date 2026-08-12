@@ -169,12 +169,12 @@ function ownerProduct() {
         }
         else if (isEditing === moduleItem.id) {
             return (<>
-                {renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule)}
-                {renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange)}
+                {renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule, groupEditing)}
+                {renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, groupEditing)}
             </>);
         }
         else {
-            return renderModuleView(moduleItem, index, setIsEditing);
+            return renderModuleView(moduleItem, index, setIsEditing, groupEditing);
         }
     }
     function handleContentBox(moduleItem, index) {

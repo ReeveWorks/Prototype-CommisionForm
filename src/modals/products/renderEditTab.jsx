@@ -3,7 +3,7 @@ import './styles/renderEditTab.css'
 
 import { ALargeSmall } from 'lucide-react';
 
-function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule) {
+function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule, groupEditing) {
     function uniqueFunction(type) {
         switch (type) {
             case 'Static Text':

@@ -1,7 +1,7 @@
 /* Stylesheets */
 import './styles/renderModuleEdit.css'
 
-function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange) {
+function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, groupEditing) {
     switch (moduleItem.type) {
         case 'Static Text':
             return (

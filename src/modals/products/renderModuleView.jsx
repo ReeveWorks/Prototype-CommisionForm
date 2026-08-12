@@ -1,7 +1,7 @@
 /* Stylesheets */
 import './styles/renderModuleView.css'
 
-function renderModuleView(moduleItem, index, setIsEditing) {
+function renderModuleView(moduleItem, index, setIsEditing, groupEditing) {
     function renderRequiredMarker() {
         if (!moduleItem.isRequired) return null;
 
