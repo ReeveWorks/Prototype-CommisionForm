@@ -160,6 +160,12 @@ function ownerProduct() {
         }
 
     }
+    function setEditing(moduleId, group) {
+        if (group != groupEditing) {
+            return;
+        }
+        setIsEditing(moduleId);
+    }
 
     // Render
     function renderModule(moduleItem, index) {
@@ -169,12 +175,12 @@ function ownerProduct() {
         }
         else if (isEditing === moduleItem.id) {
             return (<>
-                {renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule, groupEditing)}
-                {renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, groupEditing)}
+                {renderEditTab(moduleItem, index, setEditing, handleChangeModule, handleNumberChange, DeleteModule, groupEditing)}
+                {renderModuleEdit(moduleItem, index, setEditing, handleChangeModule, handleNumberChange, groupEditing)}
             </>);
         }
         else {
-            return renderModuleView(moduleItem, index, setIsEditing, groupEditing);
+            return renderModuleView(moduleItem, index, setEditing, groupEditing);
         }
     }
     function handleContentBox(moduleItem, index) {
@@ -185,7 +191,7 @@ function ownerProduct() {
                 style={{
                     marginBottom: `${moduleItem.spacing}px`,
                 }}
-                isclicked={setGroupEditing(moduleItem.id)}>
+                onClick={() => setGroupEditing(moduleItem.id)}>
                 {moduleItem.module.map((m, idx) => (
                     <Fragment key={m.id ?? idx}>
                         {renderModule(m, idx)}

@@ -1,7 +1,7 @@
 /* Stylesheets */
 import './styles/renderModuleView.css'
 
-function renderModuleView(moduleItem, index, setIsEditing, groupEditing) {
+function renderModuleView(moduleItem, index, setIsEditing) {
     function renderRequiredMarker() {
         if (!moduleItem.isRequired) return null;
 
@@ -43,7 +43,7 @@ function renderModuleView(moduleItem, index, setIsEditing, groupEditing) {
                         marginBottom: `${moduleItem.spacing}px`,
                         fontSize: `${moduleItem.size}px`
                     }}
-                    onClick={() => setIsEditing(moduleItem.id)}>
+                    onClick={() => setIsEditing(moduleItem.id, moduleItem.group)}>
                     {handleEmptyContent()}
                 </div>
             );
@@ -58,7 +58,7 @@ function renderModuleView(moduleItem, index, setIsEditing, groupEditing) {
                         marginBottom: `${moduleItem.spacing}px`,
                         fontSize: `${moduleItem.size}px`
                     }}
-                    onClick={() => setIsEditing(moduleItem.id)}>
+                    onClick={() => setIsEditing(moduleItem.id, moduleItem.group)}>
 
                     <p className='mock-textbox' style={{ fontSize: `${moduleItem.size}px` }}>
                         {
@@ -82,7 +82,7 @@ function renderModuleView(moduleItem, index, setIsEditing, groupEditing) {
                         marginBottom: `${moduleItem.spacing}px`,
                         fontSize: `${moduleItem.size}px`
                     }}
-                    onClick={() => setIsEditing(moduleItem.id)}>
+                    onClick={() => setIsEditing(moduleItem.id, moduleItem.group)}>
 
                     <p className='mock-textbox' style={{ fontSize: `${moduleItem.size}px` }}>
                         {handleEmptyContent()}
