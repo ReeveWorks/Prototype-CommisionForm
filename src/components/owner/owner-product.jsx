@@ -59,7 +59,7 @@ function ownerProduct() {
         if (group != "") {
             let groupModules = product.module.filter(m => m.group === group)[0].module;
             let updateModules = groupModules.map(m => m.id === moduleId ? { ...m, [key]: nValue } : m);
-            
+
             setProduct({ ...product, module: product.module.map(m => m.id === group ? { ...m, module: updateModules } : m) });
         }
         else {
@@ -92,14 +92,14 @@ function ownerProduct() {
             if (item !== true) {
                 return;
             }
-            
+
             if (group === "") {
                 setProduct({ ...product, module: product.module.filter(m => m.id !== moduleId) });
             }
             else {
                 let groupModules = product.module.filter(m => m.group === group)[0].module;
                 let updateModules = groupModules.filter(m => m.id !== moduleId);
-                
+
                 setProduct({ ...product, module: product.module.map(m => m.id === group ? { ...m, module: updateModules } : m) });
             }
 
@@ -184,21 +184,44 @@ function ownerProduct() {
         }
     }
     function handleContentBox(moduleItem, index) {
-        return (
-            <div className='productView-container container-box'
-                key={index}
-                id={moduleItem.id}
-                style={{
-                    marginBottom: `${moduleItem.spacing}px`,
-                }}
-                onClick={() => setGroupEditing(moduleItem.id)}>
-                {moduleItem.module.map((m, idx) => (
-                    <Fragment key={m.id ?? idx}>
-                        {renderModule(m, idx)}
-                    </Fragment>
-                ))}
-            </div>
-        );
+
+        if (groupEditing === moduleItem.id) {
+            return (
+                <>
+                    {renderEditTab(moduleItem, index, setEditing, handleChangeModule, handleNumberChange, DeleteModule, groupEditing)}
+                    <div className='productView-container container-box'
+                        key={index}
+                        id={moduleItem.id}
+                        style={{
+                            marginBottom: `${moduleItem.spacing}px`,
+                        }}
+                        onClick={() => setGroupEditing(moduleItem.id)}>
+                        {moduleItem.module.map((m, idx) => (
+                            <Fragment key={m.id ?? idx}>
+                                {renderModule(m, idx)}
+                            </Fragment>
+                        ))}
+                    </div>
+                </>
+            );
+        }
+        else {
+            return (
+                <div className='productView-container container-box'
+                    key={index}
+                    id={moduleItem.id}
+                    style={{
+                        marginBottom: `${moduleItem.spacing}px`,
+                    }}
+                    onClick={() => setGroupEditing(moduleItem.id)}>
+                    {moduleItem.module.map((m, idx) => (
+                        <Fragment key={m.id ?? idx}>
+                            {renderModule(m, idx)}
+                        </Fragment>
+                    ))}
+                </div>
+            );
+        }
     }
     function renderPopup(type, title, message, contents, onResult) {
         return new Promise((resolve) => {
