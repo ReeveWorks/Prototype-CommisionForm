@@ -162,7 +162,7 @@ function ownerProduct() {
     }
     function setEditing(moduleId, group) {
         if (group != groupEditing) {
-            return;
+            setGroupEditing(group);
         }
         setIsEditing(moduleId);
     }
