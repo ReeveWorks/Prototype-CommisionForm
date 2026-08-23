@@ -1,0 +1,152 @@
+.productEdit-tab {
+  display: flex;
+  gap: 5px;
+  padding: 0;
+  margin-bottom: -2px;
+  align-items: center;
+
+  background-color: var(--accent);
+  border: none;
+  cursor: context-menu;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* ============================================ */
+.PET-functions {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex: 1;
+  gap: 5px;
+
+  padding: 2.5px 0;
+  padding-left: 5px;
+}
+
+/* Textbox */
+.PETF-textBox{
+  height: 30px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.PETF-textBox p{
+  height: 100%;
+  width: 35px;
+  font-size: 30px;
+  color: var(--text-secondary);
+  
+  font-family: 'IconAssets', sans-serif;
+  background-color: var(--background-secondary);
+  border: 1.25px solid var(--background-secondary);
+  border-right: none;
+}
+.PETF-textBox input{
+  height: 100%;
+  width: 35px;
+  font-size: var(--text-small);
+  color: var(--text-main);
+  
+  background-color: var(--background-tertiary);
+  border: 1.25px solid var(--background-secondary);
+  text-align: center;
+}
+
+/* Checkbox */
+.PET-checkbox{
+  height: 30px;
+  background-color: var(--background-tertiary);
+  border: 1.25px solid var(--background-secondary);
+
+  display: flex;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+.PET-checkbox-box{
+  font-size: var(--text-h3);
+  width: 30px;
+}
+.PET-checkbox-id{
+  font-size: var(--text-small);
+  width: 100px;
+}
+.PET-checkbox-id p{
+  text-align: center;
+}
+.PET-checkbox-static{
+  font-size: var(--text-small);
+  width: 100px;
+  opacity: 0.5;
+  cursor: default;
+}
+.PET-checkbox:has(input:checked) {
+  color: var(--accent);
+  background-color: var(--text-main);
+  border: 1.25px solid var(--background-tertiary);
+  font-weight: bold;
+}
+.PET-checkbox p {
+  width: 100%;
+  text-align: center;
+}
+
+/* Dropdown */
+.PET-dropdown{
+  height: 30px;
+  width: 30px;
+  font-size: 25px;
+  color: var(--text-main);
+  background-color: var(--background-tertiary);
+
+  display: flex;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1.25px solid var(--background-secondary);
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.PET-dropdown:hover, .PET-dropdown:focus{
+  outline: none;
+}
+.PET-dropdown option{
+  border: 1.25px solid var(--background-secondary);
+}
+/* ============================================ */
+
+
+/* ============== BUTTON STYLE =============== */
+.PET-buttons {
+  display: flex;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+}
+.PET-buttons button{
+  width: 40px;
+  height: 35px;
+  padding: 0;
+  margin: 0;
+
+  font-family: 'IconAssets', sans-serif;
+  font-size: var(--text-h3);
+  background-color: transparent;
+  color: var(--text-main);
+
+  border: none;
+  border-radius: 0px;
+}
+.PET-buttons button:hover{
+  color: var(--background-main);
+  background-color: var(--text-main);
+}
+/* ============== BUTTON STYLE =============== */

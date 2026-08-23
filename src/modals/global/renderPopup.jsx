@@ -1,0 +1,182 @@
+/* Stylesheets */
+import './styles/renderPopup.css'
+import { useRef, useState } from 'react';
+
+function RenderPopupMessage({ type, title, message, contents, returnValue, closePopup }) {
+    const popupRef = useRef();
+
+    /// type: alert, bool, number, text
+    /// title: title of the pop-up
+    /// message: message to be displayed in the pop-up
+    /// contents
+    ///     for alert: [closeButtonText]
+    ///     for bool: [trueValue-ButtonName, falseValue-ButtonName]
+    ///     for number: {placeholder, min, max, buttonText}
+    ///     for text: {placeholder, minLength, maxLength, buttonText}
+    ///     for options: [option-1, option-2, ... option-n]
+    /// returnValue: for input type, the value to be returned when the user clicks the confirm button
+
+    const handleClose = (event) => {
+        if (popupRef.current === event.target) {
+            closePopup();
+        }
+    }
+    function renderPopup() {
+        return (
+            <div className='popup-container txt-unselectable'>
+                <div className='popup-container-header'>
+                    {title}
+                </div>
+                <div className='popup-container-message'>
+                    {message}
+                </div>
+                {renderSegment(contents)}
+            </div>
+        );
+    }
+    function renderSegment(popupContents) {
+        switch (type) {
+            case 'alert':
+                return alertOption();
+            case 'bool':
+                return boolOption(...popupContents);
+            case 'number':
+                return numberOption(...popupContents);
+            case 'text':
+                return textOption(...popupContents);
+            case 'options':
+                return optionsOption(popupContents);
+            default:
+                return null;
+        }
+    }
+
+    /// Pop-up Segments
+    function alertOption() {
+        function handleConfirm() {
+            returnValue(null);
+            closePopup();
+        }
+
+        return (
+            <div className='popup-segment-container'>
+                <button className='popup-buttons' onClick={handleConfirm}>{contents}</button>
+            </div>
+        );
+    }
+    function boolOption(trueValue, falseValue) {
+        function handleTrue() {
+            returnValue(true);
+            closePopup();
+        }
+        function handleFalse() {
+            returnValue(false);
+            closePopup();
+        }
+
+        return (
+            <div className='popup-segment-container'>
+                <button className='popup-buttons popup-bottomborder' onClick={handleTrue}>{trueValue}</button>
+                <button className='popup-buttons' onClick={handleFalse}>{falseValue}</button>
+            </div>
+        );
+    }
+    function numberOption(placeholder, min, max, buttonText) {
+        const [inputValue, setInputValue] = useState('');
+
+        function handleChange(event) {
+            if (event < min) return;
+            if (event > max) return;
+            if (event.includes('.')) return;
+            setInputValue(event);
+        }
+
+        function handleSubmit() {
+            returnValue(inputValue);
+            closePopup();
+        }
+
+        return (
+            <div className='popup-segment-container'>
+                <input 
+                    type='number' 
+                    placeholder={placeholder} 
+                    min={min} 
+                    max={max} 
+                    value={inputValue} 
+                    onChange={(e) => handleChange(e.target.value)} />
+                <button 
+                    className='popup-buttons' 
+                    onClick={handleSubmit}>
+                    {buttonText}
+                </button>
+            </div>
+        );
+    }
+    function textOption(placeholder, minLength, maxLength, buttonText) {
+        const [inputValue, setInputValue] = useState('');
+
+        function handleSubmit() {
+            returnValue(inputValue);
+            closePopup();
+        }
+
+        return (
+            <div className='popup-segment-container'>
+                <input
+                    type='text'
+                    placeholder={placeholder}
+                    minLength={minLength}
+                    maxLength={maxLength}
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)} />
+                <button 
+                    className='popup-buttons' 
+                    onClick={handleSubmit}>
+                    {buttonText}
+                </button>
+            </div>
+        );
+    }
+    function optionsOption(options) {
+        function handleReturn(value) {
+            returnValue(value);
+            closePopup();
+        }
+
+        return (
+            <div className='popup-segment-container'>
+                {options.map((option, index) => (
+                    <button key={index} className='popup-buttons popup-bottomborder' onClick={() => handleReturn(option)}>
+                        {option}
+                    </button>
+                ))}
+            </div>
+        );
+    }
+
+    return (
+        <div ref={popupRef} onClick={handleClose} className='popup-backdrop'>
+            {renderPopup()}
+        </div>
+    );
+}
+
+export default RenderPopupMessage;
+
+
+// <div className='pop-up-backdrop'>
+//     {message}
+// </div>
+
+// function RenderPopupMessage(message) {
+//     return (
+//         <div className='pop-up-container'>
+//             {message}
+//             <div className='pop-up-buttons'>
+//                 <button className='pop-up-buttons' onClick={() => DeleteModule(testProd.module[isEditing].id)}>Yes</button>
+//                 <button className='pop-up-buttons' onClick={handleTogglePopup}>No</button>
+//             </div>
+//         </div>
+//     );
+// }

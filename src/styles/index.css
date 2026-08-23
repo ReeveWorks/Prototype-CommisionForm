@@ -1,0 +1,99 @@
+* {
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  line-height: 1;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--text-main);
+  background-color: var(--background-main);
+
+  text-align: center;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:placeholder-shown {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+}
+
+button {
+  font-size: var(--text-base);
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  padding: 0.5em 1em;
+
+  border: none;
+  border-radius: 0.25em;
+
+  background-color: var(--background-secondary);
+
+  color: var(--text-secondary);
+  cursor: pointer;
+  /* transition: background-color 300ms; */
+}
+
+input {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  resize: none;
+  field-sizing: content;
+  /* min-height: 65px;
+  max-height: 300px; */
+}
+
+input[type="radio"] {
+  accent-color: var(--accent);
+}
+
+/* Remove arrows from number inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+h1 {
+  font-size: var(--text-h1);
+}
+
+h2 {
+  font-size: var(--text-h2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+}
+
+/* option:checked {
+  display: none;
+} */
+
+select, option {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  line-height: 1;
+  font-weight: 400;
+}
+
+input:focus {
+  border: 2px solid var(--accent);
+  outline: none;
+}
+
+::placeholder {
+  color: var(--text-main);
+  opacity: 0.65; 
+}

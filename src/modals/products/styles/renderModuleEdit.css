@@ -1,0 +1,29 @@
+.productEdit-container {
+  width: 100%;
+    padding: 2.5px;
+  margin-top: 1px;
+  box-sizing: border-box;
+
+  border: 1px solid var(--accent);
+  background-color: color-mix(in srgb, var(--accent), transparent 95%);
+  border-radius: 0%;
+
+  text-align: justify;
+}
+
+.productEdit-container textarea, .productEdit-container input {
+  color: var(--text-main);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  margin-bottom: -5.5px;
+  line-height: 1.4em;
+
+  background-color: transparent;
+  border: transparent;
+}
+
+.productEdit-container textarea:focus {
+  border: var(--accent);
+  outline: none;
+}

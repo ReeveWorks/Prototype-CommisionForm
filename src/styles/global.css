@@ -1,0 +1,113 @@
+/* Text Styles */
+:root{
+  --text-title: 35px;
+  --text-h1: 35px; /*20*/
+  --text-h2: 25px; /*17*/
+  --text-h3: 20px; /*15*/
+  --text-base: 18px; /*14*/
+  --text-small: 15px; /*11*/
+}
+
+
+/* Dark Mode */
+:root,
+html.dark {
+  --text-main: rgb(255, 255, 255);
+  --text-secondary: rgba(50, 37, 97, 0.87);
+  --background-main: rgb(32, 35, 49);
+  --background-secondary: rgb(221, 214, 255);
+  --background-tertiary: rgb(72, 75, 87);
+  --accent: rgb(141, 92, 255);
+}
+
+/* Light Mode */
+html.light {
+  --text-main: rgba(56, 26, 1);
+  --text-secondary: rgba(255, 239, 204, 0.87);
+  --background-main: rgb(255, 239, 204);
+  --background-secondary: rgb(73, 34, 2);
+  --background-tertiary: rgb(247, 238, 220);
+  --accent: rgb(255, 102, 0);
+}
+
+@font-face {
+  font-family: 'IconAssets';
+  src: url('../assets/font_icons.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Global Styles */
+.txt-base{
+  font-size: var(--text-base);
+}
+.txt-small{
+  font-size: var(--text-small);
+}
+.txt-h1{
+  font-size: var(--text-h1);
+}
+.txt-h2{
+  font-size: var(--text-h2);
+}
+.txt-h3{
+  font-size: var(--text-h3);
+}
+
+.line-center{
+  text-align: justify;
+  text-align-last: center;
+}
+.line-left{
+  text-align: justify;
+  text-align-last: left;
+}
+.line-right{
+  text-align: justify;
+  text-align-last: right;
+}
+.line-justify{
+  text-align: justify;
+}
+
+.txt-accent {
+  color: var(--accent);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.txt-unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.elem-hide{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.use-icon {
+  font-family: 'IconAssets', sans-serif;
+}
+
+.divScreen{
+  position: fixed;
+  display: flex;
+  pointer-events: none;
+  
+  width: 100%;
+  height: 100%;
+  z-index: 500;
+}
+

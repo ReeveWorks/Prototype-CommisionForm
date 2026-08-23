@@ -1,0 +1,135 @@
+.popup-backdrop {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+
+  background-color: color-mix(in srgb, black 75%, transparent);
+  backdrop-filter: blur(2px);
+}
+
+
+
+
+/* ============================================
+   PRODUCT MESSAGE BOX STYLES
+   ============================================ */
+.popup-container {
+  width: clamp(450px, 50vw, 600px);
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 20px 0 20px 0;
+
+  font-size: var(--text-base);
+  background-color: var(--background-main);
+  border: 2px solid var(--background-secondary);
+  overflow: hidden; 
+}
+
+.popup-container-header {
+  font-size: var(--text-h2);
+  background-color: var(--background-secondary);
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+  padding: 10px;
+}
+
+.popup-container-message {
+  font-size: var(--text-base);
+  display: flex;
+  text-align: justify;
+  text-align-last: center;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 20px;
+  min-height: 75px;
+  
+  border-bottom: 1.5px solid var(--background-secondary);
+}
+/* ============================================
+   PRODUCT MESSAGE BOX STYLES
+   ============================================ */
+
+
+
+
+
+/* ============================================
+   PRODUCT SEGMENT STYLES
+   ============================================ */
+.popup-segment-container {
+  display: flex;
+  justify-content: center;
+  display: block;
+
+  font-size: var(--text-base);
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  letter-spacing: 1px;
+  gap: 20px;
+  padding: 5px 10px;
+  min-width: 100%;
+  height: 100%;
+  
+  border-radius: 0px;
+  font-size: var(--text-base);
+  color: var(--text-main);
+  background-color: color-mix(in srgb, var(--background-tertiary), transparent 80%);;
+}
+.popup-buttons:hover {
+  outline: none;
+  background-color: color-mix(in srgb, var(--accent), transparent 80%);
+}
+
+.popup-segment-container input {
+  width: 100%;
+  padding: 7px 5px;
+  box-sizing: border-box;
+  background-color: var(--background-tertiary);
+  border:1.5px solid transparent;
+  border-bottom: 1.5px solid var(--text-main);
+  color: var(--text-main);
+  outline: none;
+
+  border-radius: 0px;
+}
+.popup-segment-container input:focus, 
+.popup-segment-container input:hover {
+  outline: none;
+  border: 1.5px solid var(--accent);
+}
+/* ============================================ */
+
+
+/* ============================================ */
+.popup-diver {
+  height: 1.5px;
+  background-color: var(--background-secondary);
+  margin: 5px -10px;
+  margin-bottom: 20px;
+}
+
+.popup-leftcorner {
+ border-top-left-radius: 20px;
+}
+
+.popup-rightcorner {
+  border-bottom-right-radius: 20px;
+}
+
+.popup-bottomborder {
+  border-bottom: 1.5px solid color-mix(in srgb, var(--background-secondary), transparent 80%);
+}
+/* ============================================
+   PRODUCT SEGMENT STYLES
+   ============================================ */

@@ -1,0 +1,32 @@
+.productView-container {
+    width: 100%;
+    padding: 2.5px;
+    margin-top: 1px;
+    box-sizing: border-box;
+
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+
+    text-align: justify;
+    white-space: pre-wrap;
+}
+
+.productView-container input {
+    font-size: 13px;
+    color: var(--text-main);
+
+    background-color: transparent;
+    border: transparent;
+}
+
+.productView-container:hover {
+    border: 1px solid var(--accent);
+    outline: none;
+    background-color: color-mix(in srgb, var(--accent), transparent 90%);
+}
+
+.container-box {
+    border: 1px solid var(--accent);
+}

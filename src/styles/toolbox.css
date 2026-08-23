@@ -1,0 +1,37 @@
+.toolbox-container {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  background-color: var(--accent);
+  color: var(--text-main);
+  padding: 0.5rem;
+  border-radius: 100%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 3rem;
+
+  /* Positioning Test */
+  top: 100%;
+  left: 100%;
+
+  pointer-events: auto;
+  touch-action: none;
+}
+
+#tool-drag {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#tool-drag:active {
+  cursor: grabbing;
+}
+
+.tool-box-open{
+  background-color: var(--accent);
+}
