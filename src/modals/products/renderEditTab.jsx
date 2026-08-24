@@ -3,7 +3,7 @@ import './styles/renderEditTab.css'
 
 import { ALargeSmall } from 'lucide-react';
 
-function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule, groupEditing) {
+function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, handleNumberChange, DeleteModule) {
     function uniqueFunction(type) {
         switch (type) {
             case 'Static Text':
@@ -136,7 +136,7 @@ function renderEditTab(moduleItem, index, setIsEditing, handleChangeModule, hand
 
             <div className='PET-buttons'>
                 <button onClick={() => DeleteModule(moduleItem.id, moduleItem.group)}>X</button>
-                <button onClick={() => setEditing("", moduleItem.group)}>-</button>
+                <button onClick={() => setIsEditing("", moduleItem.group, "minimize")}>-</button>
             </div>
         </div>
     );

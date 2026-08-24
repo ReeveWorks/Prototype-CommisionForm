@@ -160,9 +160,13 @@ function ownerProduct() {
         }
 
     }
-    function setEditing(moduleId, group) {
-        if (group != groupEditing) {
+    function setEditing(moduleId, group, action) {
+        if (group != groupEditing && action === "select") {
             setGroupEditing(group);
+        }
+        else if (groupEditing === moduleId && action === "minimize") {
+            setGroupEditing("");
+            console.log(setGroupEditing);
         }
         setIsEditing(moduleId);
     }
@@ -188,14 +192,13 @@ function ownerProduct() {
         if (groupEditing === moduleItem.id) {
             return (
                 <>
-                    {renderEditTab(moduleItem, index, setEditing, handleChangeModule, handleNumberChange, DeleteModule, groupEditing)}
+                    {renderEditTab(moduleItem, index, setEditing, handleChangeModule, handleNumberChange, DeleteModule)}
                     <div className='productView-container container-box'
                         key={index}
                         id={moduleItem.id}
                         style={{
                             marginBottom: `${moduleItem.spacing}px`,
-                        }}
-                        onClick={() => setGroupEditing(moduleItem.id)}>
+                        }}>
                         {moduleItem.module.map((m, idx) => (
                             <Fragment key={m.id ?? idx}>
                                 {renderModule(m, idx)}
@@ -212,8 +215,7 @@ function ownerProduct() {
                     id={moduleItem.id}
                     style={{
                         marginBottom: `${moduleItem.spacing}px`,
-                    }}
-                    onClick={() => setGroupEditing(moduleItem.id)}>
+                    }}>
                     {moduleItem.module.map((m, idx) => (
                         <Fragment key={m.id ?? idx}>
                             {renderModule(m, idx)}
