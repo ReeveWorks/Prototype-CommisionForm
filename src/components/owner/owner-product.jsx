@@ -163,12 +163,19 @@ function ownerProduct() {
     function setEditing(moduleId, group, action) {
         if (group != groupEditing && action === "select") {
             setGroupEditing(group);
+            setIsEditing(moduleId);
         }
-        else if (groupEditing === moduleId && action === "minimize") {
+        else if (group === groupEditing && action === "select") {
+            setIsEditing(moduleId);
+        }
+        else if (moduleId === groupEditing && action === "minimize") {
             setGroupEditing("");
-            console.log(setGroupEditing);
         }
-        setIsEditing(moduleId);
+        else if (moduleId != groupEditing && action === "minimize") {
+            setIsEditing("");
+        }
+
+        // console.log(`Target ${moduleId} minimized`); 
     }
 
     // Render
