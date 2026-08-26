@@ -93,7 +93,7 @@ function ownerProduct() {
                 return;
             }
 
-            if (group === "") {
+            if (group === "" || group === moduleId) {
                 setProduct({ ...product, module: product.module.filter(m => m.id !== moduleId) });
             }
             else {
