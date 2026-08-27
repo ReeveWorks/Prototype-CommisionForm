@@ -211,6 +211,11 @@ function ownerProduct() {
                                 {renderModule(m, idx)}
                             </Fragment>
                         ))}
+                        
+                        <button className='txt-unselectable addbtn' onClick={() => popupAddModule()}>
+                            <Plus></Plus>
+                        </button>
+
                     </div>
                 </>
             );
