@@ -106,7 +106,7 @@ function ownerProduct() {
             setIsPopupOpen(false);
         });
     }
-    async function popupAddModule() {
+    async function popupAddModule(targetGroup) {
 
         let selected = await renderPopup(
             "options",
@@ -115,8 +115,10 @@ function ownerProduct() {
             ["Static Text", "Text Input", "Number Input"]
         );
 
+        let newModule;
+
         if (selected === "Static Text") {
-            let newModule =
+            newModule =
             {
                 id: `st-txt${String(product.module.length + 1).padStart(2, '0')}`,
                 type: "Static Text",
@@ -126,10 +128,9 @@ function ownerProduct() {
                 spacing: 10,
                 content: "",
             };
-            setProduct({ ...product, module: [...product.module, newModule] });
         }
         else if (selected === "Text Input") {
-            let newModule =
+            newModule =
             {
                 id: `in-txt${String(product.module.length + 1).padStart(2, '0')}`,
                 type: "Text Input",
@@ -141,10 +142,9 @@ function ownerProduct() {
                 spacing: 10,
                 content: "",
             };
-            setProduct({ ...product, module: [...product.module, newModule] });
         }
         else if (selected === "Number Input") {
-            let newModule =
+            newModule =
             {
                 id: `in-num${String(product.module.length + 1).padStart(2, '0')}`,
                 type: "Number Input",
@@ -156,7 +156,17 @@ function ownerProduct() {
                 min: 1,
                 max: 10,
             };
-            setProduct({ ...product, module: [...product.module, newModule] });
+        }
+
+        if (targetGroup != "") {
+            let groupModules = product.module.filter(m => m.group === targetGroup)[0].module;
+            let updateModules = groupModules.map(m => m.id === targetGroup ? { ...m, module: [...m.module, newModule] } : m);
+
+            console.log(`Adding ${newModule.id} to group ${targetGroup}...\nAdding ${updateModules[0].id} to group ${targetGroup}...`);
+            //await setProduct({ ...product, module: product.module.map(m => m.id === targetGroup ? { ...m, module: updateModules } : m) });
+        }
+        else {
+            await setProduct({ ...product, module: [...product.module, newModule] });
         }
 
     }
@@ -211,8 +221,8 @@ function ownerProduct() {
                                 {renderModule(m, idx)}
                             </Fragment>
                         ))}
-                        
-                        <button className='txt-unselectable addbtn' onClick={() => popupAddModule()}>
+
+                        <button className='txt-unselectable addbtn' onClick={() => popupAddModule(moduleItem.id)}>
                             <Plus></Plus>
                         </button>
 
@@ -324,7 +334,7 @@ function ownerProduct() {
                 ))}
 
                 <div className='btn-container'>
-                    <button className='txt-unselectable addbtn' onClick={() => popupAddModule()}>
+                    <button className='txt-unselectable addbtn' onClick={() => popupAddModule("")}>
                         <Plus></Plus>
                     </button>
                 </div>
