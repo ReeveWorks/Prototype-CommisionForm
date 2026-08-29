@@ -122,6 +122,7 @@ function ownerProduct() {
             {
                 id: `st-txt${String(product.module.length + 1).padStart(2, '0')}`,
                 type: "Static Text",
+                group: "",
                 bold: false,
                 textAlign: "left",
                 size: 20,
@@ -134,6 +135,7 @@ function ownerProduct() {
             {
                 id: `in-txt${String(product.module.length + 1).padStart(2, '0')}`,
                 type: "Text Input",
+                group: "",
                 isRequired: false,
                 bold: false,
                 textbox: false,
@@ -148,6 +150,7 @@ function ownerProduct() {
             {
                 id: `in-num${String(product.module.length + 1).padStart(2, '0')}`,
                 type: "Number Input",
+                group: "",
                 bold: false,
                 size: 20,
                 spacing: 10,
@@ -162,8 +165,8 @@ function ownerProduct() {
             let groupModules = product.module.filter(m => m.group === targetGroup)[0].module;
             let updateModules = groupModules.map(m => m.id === targetGroup ? { ...m, module: [...m.module, newModule] } : m);
 
-            console.log(`Adding ${newModule.id} to group ${targetGroup}...\nAdding ${updateModules[0].id} to group ${targetGroup}...`);
-            //await setProduct({ ...product, module: product.module.map(m => m.id === targetGroup ? { ...m, module: updateModules } : m) });
+            console.log(`Adding ${updateModules[0].id}/${newModule.id} to group ${targetGroup}...`);
+            await setProduct({ ...product, module: product.module.map(m => m.id === targetGroup ? { ...m, module: updateModules } : m) });
         }
         else {
             await setProduct({ ...product, module: [...product.module, newModule] });
