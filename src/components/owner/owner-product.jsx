@@ -166,7 +166,8 @@ function ownerProduct() {
             let updateModules = groupModules.map(m => m.id === targetGroup ? { ...m, module: [...m.module, newModule] } : m);
 
             console.log(`Adding ${updateModules[0].id}/${newModule.id} to group ${targetGroup}...`);
-            await setProduct({ ...product, module: product.module.map(m => m.id === targetGroup ? { ...m, module: updateModules } : m) });
+            //await setProduct({ ...product, module: product.module.map(m => m.id === targetGroup ? { ...m, module: updateModules } : m) });
+
         }
         else {
             await setProduct({ ...product, module: [...product.module, newModule] });
