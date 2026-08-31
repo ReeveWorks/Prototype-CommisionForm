@@ -29,7 +29,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                     key={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
 
-                    <p className='mock-textbox'>
+                    <div className='mock-textbox'>
                         <input
                             type="text"
                             value={moduleItem.content}
@@ -50,7 +50,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                             <div style={{ fontSize: `${moduleItem.size}px`}}><br /><br /></div>
                             :
                             <></>}
-                    </p>
+                    </div>
                 </div>
             );
         case 'Number Input':
@@ -58,7 +58,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                 <div className='productEdit-container prod-hover'
                     key={moduleItem.id}
                     style={{ marginBottom: `${moduleItem.spacing}px` }}>
-                    <p className='mock-textbox'>
+                    <div className='mock-textbox'>
                         <input
                             type="text"
                             className='mock-textbox'
@@ -73,7 +73,7 @@ function renderModuleEdit(moduleItem, index, setIsEditing, handleChangeModule, h
                                     handleChangeModule(event.target.value, moduleItem.id, "content", moduleItem.group)
                             }
                             placeholder="Input text here*" />
-                    </p>
+                    </div>
                 </div>
             );
         case 'Container Box':
